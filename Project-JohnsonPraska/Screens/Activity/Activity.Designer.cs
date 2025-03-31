@@ -1,5 +1,6 @@
 ﻿namespace Project_JohnsonPraska
 {
+//COMMENT
     partial class Activity
     {
         /// <summary>
