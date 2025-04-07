@@ -1,6 +1,6 @@
 ﻿namespace Project_JohnsonPraska
 {
-//COMMENT
+//COMMENTS TEST
     partial class Activity
     {
         /// <summary>
