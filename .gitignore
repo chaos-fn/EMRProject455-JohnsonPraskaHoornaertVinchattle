@@ -5,3 +5,4 @@
 /.vs
 /Project-JohnsonPraska/bin/Debug/net8.0-windows
 /Project-JohnsonPraska/obj
+*.user
