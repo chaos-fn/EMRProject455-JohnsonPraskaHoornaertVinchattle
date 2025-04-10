@@ -50,13 +50,7 @@ namespace Project_JohnsonPraska
             activity.Show();
         }
 
-        private void picHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Main main = new Main();
-            main.Closed += (s, args) => this.Close();
-            main.Show();
-        }
+
 
         private void lblHome_Click(object sender, EventArgs e)
         {
@@ -66,13 +60,6 @@ namespace Project_JohnsonPraska
             main.Show();
         }
 
-        private void picMap_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Map map = new Map();
-            map.Closed += (s, args) => this.Close();
-            map.Show();
-        }
 
         private void lblMap_Click(object sender, EventArgs e)
         {
@@ -82,14 +69,5 @@ namespace Project_JohnsonPraska
             map.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo sInfo = new ProcessStartInfo
-            {
-                FileName = "https://www.autostart.ca/SmartStart/",
-                UseShellExecute = true
-            };
-            Process.Start(sInfo);
-        }
     }
 }

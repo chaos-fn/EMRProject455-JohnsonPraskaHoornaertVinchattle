@@ -12,9 +12,6 @@ namespace Project_JohnsonPraska
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Main main = new Main();
-            simForm simForm = new simForm();
-
-            simForm.Show();
             Application.Run(main);
         }
     }
