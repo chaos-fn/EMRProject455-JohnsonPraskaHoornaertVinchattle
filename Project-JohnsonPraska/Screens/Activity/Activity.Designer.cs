@@ -29,12 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            picBattery = new PictureBox();
-            picWifi = new PictureBox();
-            pictureBox3 = new PictureBox();
-            picMore = new PictureBox();
-            picMap = new PictureBox();
-            picHome = new PictureBox();
             lblHelp = new Label();
             lblActivity = new Label();
             lblDrivers = new Label();
@@ -43,7 +37,6 @@
             lblMore = new Label();
             lblMap = new Label();
             lblHome = new Label();
-            lblRightMain = new Label();
             lblLeftMain = new Label();
             lblDesc4 = new Label();
             lblDesc3 = new Label();
@@ -67,84 +60,7 @@
             lblTime7 = new Label();
             lblDesc8 = new Label();
             lblTime8 = new Label();
-            lblInstallL = new Label();
-            lblLastResetL = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)picBattery).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picWifi).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picMore).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picMap).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picHome).BeginInit();
             SuspendLayout();
-            // 
-            // picBattery
-            // 
-            picBattery.BackColor = Color.FromArgb(30, 76, 99);
-            picBattery.Image = Properties.Resources.Battery1;
-            picBattery.Location = new Point(1840, 20);
-            picBattery.Name = "picBattery";
-            picBattery.Size = new Size(50, 35);
-            picBattery.SizeMode = PictureBoxSizeMode.Zoom;
-            picBattery.TabIndex = 109;
-            picBattery.TabStop = false;
-            // 
-            // picWifi
-            // 
-            picWifi.BackColor = Color.FromArgb(30, 76, 99);
-            picWifi.Image = Properties.Resources.Cellular3;
-            picWifi.Location = new Point(1725, 10);
-            picWifi.Name = "picWifi";
-            picWifi.Size = new Size(55, 55);
-            picWifi.SizeMode = PictureBoxSizeMode.Zoom;
-            picWifi.TabIndex = 108;
-            picWifi.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.IMG_5789;
-            pictureBox3.Location = new Point(1500, 330);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(250, 250);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 107;
-            pictureBox3.TabStop = false;
-            // 
-            // picMore
-            // 
-            picMore.BackColor = Color.FromArgb(30, 76, 99);
-            picMore.Image = Properties.Resources.More1;
-            picMore.Location = new Point(1638, 850);
-            picMore.Name = "picMore";
-            picMore.Size = new Size(60, 60);
-            picMore.SizeMode = PictureBoxSizeMode.Zoom;
-            picMore.TabIndex = 106;
-            picMore.TabStop = false;
-            // 
-            // picMap
-            // 
-            picMap.BackColor = Color.FromArgb(30, 76, 99);
-            picMap.Image = Properties.Resources.Map1;
-            picMap.Location = new Point(927, 853);
-            picMap.Name = "picMap";
-            picMap.Size = new Size(60, 60);
-            picMap.SizeMode = PictureBoxSizeMode.Zoom;
-            picMap.TabIndex = 105;
-            picMap.TabStop = false;
-            picMap.Click += picMap_Click;
-            // 
-            // picHome
-            // 
-            picHome.BackColor = Color.FromArgb(30, 76, 99);
-            picHome.Image = Properties.Resources.Home1;
-            picHome.Location = new Point(220, 853);
-            picHome.Name = "picHome";
-            picHome.Size = new Size(60, 60);
-            picHome.SizeMode = PictureBoxSizeMode.Zoom;
-            picHome.TabIndex = 104;
-            picHome.TabStop = false;
-            picHome.Click += picHome_Click;
             // 
             // lblHelp
             // 
@@ -249,18 +165,6 @@
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
             lblHome.Click += lblHome_Click;
             // 
-            // lblRightMain
-            // 
-            lblRightMain.BackColor = Color.FromArgb(30, 76, 99);
-            lblRightMain.Font = new Font("Cambria", 14F, FontStyle.Bold);
-            lblRightMain.ForeColor = Color.White;
-            lblRightMain.Location = new Point(179, 0);
-            lblRightMain.Name = "lblRightMain";
-            lblRightMain.Size = new Size(1719, 75);
-            lblRightMain.TabIndex = 94;
-            lblRightMain.Text = "23         ";
-            lblRightMain.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // lblLeftMain
             // 
             lblLeftMain.BackColor = Color.FromArgb(30, 76, 99);
@@ -304,7 +208,6 @@
             lblDesc2.Name = "lblDesc2";
             lblDesc2.Size = new Size(600, 50);
             lblDesc2.TabIndex = 117;
-            lblDesc2.Text = "Car engine started successfully (Matthew's Car)";
             lblDesc2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblDesc1
@@ -316,7 +219,6 @@
             lblDesc1.Name = "lblDesc1";
             lblDesc1.Size = new Size(600, 50);
             lblDesc1.TabIndex = 116;
-            lblDesc1.Text = "Windows rolled up successfully (Connor's Car)";
             lblDesc1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblDescL
@@ -362,7 +264,6 @@
             lblTime2.Name = "lblTime2";
             lblTime2.Size = new Size(400, 50);
             lblTime2.TabIndex = 112;
-            lblTime2.Text = "12/4/2024 8:13:46";
             lblTime2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTime1
@@ -374,7 +275,6 @@
             lblTime1.Name = "lblTime1";
             lblTime1.Size = new Size(400, 50);
             lblTime1.TabIndex = 111;
-            lblTime1.Text = "12/4/2024 10:43:54";
             lblTime1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTimeL
@@ -529,64 +429,12 @@
             lblTime8.TabIndex = 130;
             lblTime8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblInstallL
-            // 
-            lblInstallL.BorderStyle = BorderStyle.Fixed3D;
-            lblInstallL.Font = new Font("Cambria", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblInstallL.ForeColor = Color.White;
-            lblInstallL.Location = new Point(425, 719);
-            lblInstallL.Name = "lblInstallL";
-            lblInstallL.Size = new Size(400, 50);
-            lblInstallL.TabIndex = 132;
-            lblInstallL.Text = "Installation Date";
-            lblInstallL.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblLastResetL
-            // 
-            lblLastResetL.BorderStyle = BorderStyle.Fixed3D;
-            lblLastResetL.Font = new Font("Cambria", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLastResetL.ForeColor = Color.White;
-            lblLastResetL.Location = new Point(825, 719);
-            lblLastResetL.Name = "lblLastResetL";
-            lblLastResetL.Size = new Size(400, 50);
-            lblLastResetL.TabIndex = 133;
-            lblLastResetL.Text = "Last Reset";
-            lblLastResetL.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Cambria", 12F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(425, 769);
-            label1.Name = "label1";
-            label1.Size = new Size(400, 50);
-            label1.TabIndex = 134;
-            label1.Text = "8/15/2024";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Cambria", 12F);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(825, 769);
-            label2.Name = "label2";
-            label2.Size = new Size(400, 50);
-            label2.TabIndex = 135;
-            label2.Text = "12/1/2024";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // Activity
             // 
-            AutoScaleDimensions = new SizeF(13F, 28F);
+            AutoScaleDimensions = new SizeF(17F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1898, 949);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(lblLastResetL);
-            Controls.Add(lblInstallL);
             Controls.Add(lblDesc8);
             Controls.Add(lblTime8);
             Controls.Add(lblDesc7);
@@ -609,12 +457,6 @@
             Controls.Add(lblTime2);
             Controls.Add(lblTime1);
             Controls.Add(lblTimeL);
-            Controls.Add(picBattery);
-            Controls.Add(picWifi);
-            Controls.Add(pictureBox3);
-            Controls.Add(picMore);
-            Controls.Add(picMap);
-            Controls.Add(picHome);
             Controls.Add(lblHelp);
             Controls.Add(lblActivity);
             Controls.Add(lblDrivers);
@@ -623,30 +465,16 @@
             Controls.Add(lblMore);
             Controls.Add(lblMap);
             Controls.Add(lblHome);
-            Controls.Add(lblRightMain);
             Controls.Add(lblLeftMain);
             Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
             Name = "Activity";
             Text = "Activity";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)picBattery).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picWifi).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picMore).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picMap).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picHome).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox picBattery;
-        private PictureBox picWifi;
-        private PictureBox pictureBox3;
-        private PictureBox picMore;
-        private PictureBox picMap;
-        private PictureBox picHome;
         private Label lblHelp;
         private Label lblActivity;
         private Label lblDrivers;
@@ -655,7 +483,6 @@
         private Label lblMore;
         private Label lblMap;
         private Label lblHome;
-        private Label lblRightMain;
         private Label lblLeftMain;
         private Label lblDesc4;
         private Label lblDesc3;
@@ -679,9 +506,5 @@
         private Label lblTime7;
         private Label lblDesc8;
         private Label lblTime8;
-        private Label lblInstallL;
-        private Label lblLastResetL;
-        private Label label1;
-        private Label label2;
     }
 }

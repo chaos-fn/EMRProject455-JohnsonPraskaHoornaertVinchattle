@@ -18,22 +18,6 @@ namespace Project_JohnsonPraska
             InitializeComponent();
         }
 
-        private void picHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Main main = new Main();
-            main.Closed += (s, args) => this.Close();
-            main.Show();
-        }
-
-        private void picMap_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Map map = new Map();
-            map.Closed += (s, args) => this.Close();
-            map.Show();
-        }
-
         private void lblHome_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -82,82 +66,5 @@ namespace Project_JohnsonPraska
             help.Show();
         }
 
-        private void Vehicles_Load(object sender, EventArgs e)
-        {
-            DataManager.VehiclesUpdated += UpdateComboBox;
-            UpdateComboBox();
-            cmbVehicles.SelectedIndex = 0;
-        }
-
-        private void cmbVehicles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbVehicles.SelectedIndex == 0)
-            {
-                lblMake.Text = "Chevrolet";
-                lblModel.Text = "Equinox";
-                lblYear.Text = "2019";
-                lblMiles.Text = "25,280";
-                lblEngine.Text = "Gas";
-            }
-            else if (cmbVehicles.SelectedIndex == 1)
-            {
-                lblMake.Text = "Tesla";
-                lblModel.Text = "Model X";
-                lblYear.Text = "2024";
-                lblMiles.Text = "12,561";
-                lblEngine.Text = "Electric";
-            }
-            else
-            {
-                lblMake.Text = "Toyota";
-                lblModel.Text = "Prius";
-                lblYear.Text = "2023";
-                lblMiles.Text = "12,375";
-                lblEngine.Text = "Hybrid";
-            }
-        }
-
-        private void btnEditVH_Click(object sender, EventArgs e)
-        {
-            input2 inp2 = new input2(this);
-            inp2.Show();
-        }
-
-        private void btnAddDelVH_Click(object sender, EventArgs e)
-        {
-            input4 inp4 = new input4();
-            inp4.Show();
-        }
-
-        public string MakeText
-        {
-            get { return lblMake.Text; }
-            set { lblMake.Text = value; }
-        }
-        public string ModelText
-        {
-            get { return lblModel.Text; }
-            set { lblModel.Text = value; }
-        }
-        public string YearText
-        {
-            get { return lblYear.Text; }
-            set { lblYear.Text = value; }
-        }
-        public string MilesText
-        {
-            get { return lblMiles.Text; }
-            set { lblMiles.Text = value; }
-        }
-        public string EngineText
-        {
-            get { return lblEngine.Text; }
-            set { lblEngine.Text = value; }
-        }
-        public void UpdateComboBox()
-        {
-            cmbVehicles.DataSource = null;
-            cmbVehicles.DataSource = DataManager.Vehicles;
-        }
     }
 }
