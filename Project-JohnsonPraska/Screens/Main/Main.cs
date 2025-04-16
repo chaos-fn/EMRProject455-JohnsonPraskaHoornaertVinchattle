@@ -1,5 +1,4 @@
 using System.Diagnostics.Metrics;
-using Project_JohnsonPraska.Screens.Vehicles;
 
 namespace Project_JohnsonPraska
 {
@@ -15,7 +14,7 @@ namespace Project_JohnsonPraska
         private void lblMap_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Map map = new Map();
+            Patients map = new Patients();
             map.Closed += (s, args) => this.Close();
             map.Show();
         }

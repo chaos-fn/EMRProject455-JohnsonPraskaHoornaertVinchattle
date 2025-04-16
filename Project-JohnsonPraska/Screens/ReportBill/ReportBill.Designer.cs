@@ -1,7 +1,7 @@
 ﻿namespace Project_JohnsonPraska
 {
 //COMMENTS TEST
-    partial class Activity
+    partial class ReportBill
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblHelp = new Label();
-            lblActivity = new Label();
-            lblDrivers = new Label();
-            lblVehicles = new Label();
-            lblAccount = new Label();
+            lblSearch = new Label();
+            lblReportBill = new Label();
+            lblPrescriptions = new Label();
+            lblAppoint = new Label();
+            lblPatientProfile = new Label();
             lblMore = new Label();
-            lblMap = new Label();
+            lblPG = new Label();
             lblHome = new Label();
             lblLeftMain = new Label();
             lblDesc4 = new Label();
@@ -62,69 +62,74 @@
             lblTime8 = new Label();
             SuspendLayout();
             // 
-            // lblHelp
+            // lblSearch
             // 
-            lblHelp.BorderStyle = BorderStyle.Fixed3D;
-            lblHelp.Font = new Font("Cambria", 20F, FontStyle.Bold);
-            lblHelp.ForeColor = Color.White;
-            lblHelp.Location = new Point(0, 695);
-            lblHelp.Name = "lblHelp";
-            lblHelp.Size = new Size(240, 155);
-            lblHelp.TabIndex = 103;
-            lblHelp.Text = "Help";
-            lblHelp.TextAlign = ContentAlignment.MiddleCenter;
-            lblHelp.Click += lblHelp_Click;
+            lblSearch.BorderStyle = BorderStyle.Fixed3D;
+            lblSearch.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            lblSearch.ForeColor = Color.White;
+            lblSearch.Location = new Point(0, 665);
+            lblSearch.Margin = new Padding(4, 0, 4, 0);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(307, 129);
+            lblSearch.TabIndex = 103;
+            lblSearch.Text = "Search";
+            lblSearch.TextAlign = ContentAlignment.MiddleCenter;
+            lblSearch.Click += lblHelp_Click;
             // 
-            // lblActivity
+            // lblReportBill
             // 
-            lblActivity.BorderStyle = BorderStyle.Fixed3D;
-            lblActivity.Font = new Font("Cambria", 20F, FontStyle.Bold | FontStyle.Underline);
-            lblActivity.ForeColor = Color.White;
-            lblActivity.Location = new Point(0, 540);
-            lblActivity.Name = "lblActivity";
-            lblActivity.Size = new Size(240, 155);
-            lblActivity.TabIndex = 102;
-            lblActivity.Text = "Activity";
-            lblActivity.TextAlign = ContentAlignment.MiddleCenter;
+            lblReportBill.BorderStyle = BorderStyle.Fixed3D;
+            lblReportBill.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline);
+            lblReportBill.ForeColor = Color.White;
+            lblReportBill.Location = new Point(1, 522);
+            lblReportBill.Margin = new Padding(4, 0, 4, 0);
+            lblReportBill.Name = "lblReportBill";
+            lblReportBill.Size = new Size(306, 143);
+            lblReportBill.TabIndex = 102;
+            lblReportBill.Text = "Reports/Billing";
+            lblReportBill.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblDrivers
+            // lblPrescriptions
             // 
-            lblDrivers.BorderStyle = BorderStyle.Fixed3D;
-            lblDrivers.Font = new Font("Cambria", 20F, FontStyle.Bold);
-            lblDrivers.ForeColor = Color.White;
-            lblDrivers.Location = new Point(0, 385);
-            lblDrivers.Name = "lblDrivers";
-            lblDrivers.Size = new Size(240, 155);
-            lblDrivers.TabIndex = 101;
-            lblDrivers.Text = "Drivers";
-            lblDrivers.TextAlign = ContentAlignment.MiddleCenter;
-            lblDrivers.Click += lblDrivers_Click;
+            lblPrescriptions.BorderStyle = BorderStyle.Fixed3D;
+            lblPrescriptions.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            lblPrescriptions.ForeColor = Color.White;
+            lblPrescriptions.Location = new Point(1, 388);
+            lblPrescriptions.Margin = new Padding(4, 0, 4, 0);
+            lblPrescriptions.Name = "lblPrescriptions";
+            lblPrescriptions.Size = new Size(306, 137);
+            lblPrescriptions.TabIndex = 101;
+            lblPrescriptions.Text = "Prescriptions";
+            lblPrescriptions.TextAlign = ContentAlignment.MiddleCenter;
+            lblPrescriptions.Click += lblDrivers_Click;
             // 
-            // lblVehicles
+            // lblAppoint
             // 
-            lblVehicles.BorderStyle = BorderStyle.Fixed3D;
-            lblVehicles.Font = new Font("Cambria", 20F, FontStyle.Bold);
-            lblVehicles.ForeColor = Color.White;
-            lblVehicles.Location = new Point(0, 230);
-            lblVehicles.Name = "lblVehicles";
-            lblVehicles.Size = new Size(240, 155);
-            lblVehicles.TabIndex = 100;
-            lblVehicles.Text = "Vehicles";
-            lblVehicles.TextAlign = ContentAlignment.MiddleCenter;
-            lblVehicles.Click += lblVehicles_Click;
+            lblAppoint.BorderStyle = BorderStyle.Fixed3D;
+            lblAppoint.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            lblAppoint.ForeColor = Color.White;
+            lblAppoint.Location = new Point(1, 242);
+            lblAppoint.Margin = new Padding(4, 0, 4, 0);
+            lblAppoint.Name = "lblAppoint";
+            lblAppoint.Size = new Size(306, 146);
+            lblAppoint.TabIndex = 100;
+            lblAppoint.Text = "Appointments";
+            lblAppoint.TextAlign = ContentAlignment.MiddleCenter;
+            lblAppoint.Click += lblVehicles_Click;
             // 
-            // lblAccount
+            // lblPatientProfile
             // 
-            lblAccount.BorderStyle = BorderStyle.Fixed3D;
-            lblAccount.Font = new Font("Cambria", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAccount.ForeColor = Color.White;
-            lblAccount.Location = new Point(0, 75);
-            lblAccount.Name = "lblAccount";
-            lblAccount.Size = new Size(240, 155);
-            lblAccount.TabIndex = 99;
-            lblAccount.Text = "Account";
-            lblAccount.TextAlign = ContentAlignment.MiddleCenter;
-            lblAccount.Click += lblAccount_Click;
+            lblPatientProfile.BorderStyle = BorderStyle.Fixed3D;
+            lblPatientProfile.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            lblPatientProfile.ForeColor = Color.White;
+            lblPatientProfile.Location = new Point(0, 96);
+            lblPatientProfile.Margin = new Padding(4, 0, 4, 0);
+            lblPatientProfile.Name = "lblPatientProfile";
+            lblPatientProfile.Size = new Size(307, 146);
+            lblPatientProfile.TabIndex = 99;
+            lblPatientProfile.Text = "Patient Profile";
+            lblPatientProfile.TextAlign = ContentAlignment.MiddleCenter;
+            lblPatientProfile.Click += lblAccount_Click;
             // 
             // lblMore
             // 
@@ -132,32 +137,32 @@
             lblMore.Enabled = false;
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1420, 850);
+            lblMore.Location = new Point(1420, 861);
             lblMore.Name = "lblMore";
             lblMore.Size = new Size(500, 150);
             lblMore.TabIndex = 98;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblMap
+            // lblPG
             // 
-            lblMap.BackColor = Color.FromArgb(30, 76, 99);
-            lblMap.Font = new Font("Cambria", 14F, FontStyle.Bold);
-            lblMap.ForeColor = Color.White;
-            lblMap.Location = new Point(500, 850);
-            lblMap.Name = "lblMap";
-            lblMap.Size = new Size(920, 150);
-            lblMap.TabIndex = 97;
-            lblMap.Text = "Map";
-            lblMap.TextAlign = ContentAlignment.MiddleCenter;
-            lblMap.Click += lblMap_Click;
+            lblPG.BackColor = Color.FromArgb(30, 76, 99);
+            lblPG.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            lblPG.ForeColor = Color.White;
+            lblPG.Location = new Point(500, 861);
+            lblPG.Name = "lblPG";
+            lblPG.Size = new Size(920, 150);
+            lblPG.TabIndex = 97;
+            lblPG.Text = "Patient Registration";
+            lblPG.TextAlign = ContentAlignment.MiddleCenter;
+            lblPG.Click += lblMap_Click;
             // 
             // lblHome
             // 
             lblHome.BackColor = Color.FromArgb(30, 76, 99);
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 850);
+            lblHome.Location = new Point(0, 861);
             lblHome.Name = "lblHome";
             lblHome.Size = new Size(500, 150);
             lblHome.TabIndex = 96;
@@ -171,8 +176,9 @@
             lblLeftMain.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblLeftMain.ForeColor = Color.White;
             lblLeftMain.Location = new Point(0, 0);
+            lblLeftMain.Margin = new Padding(4, 0, 4, 0);
             lblLeftMain.Name = "lblLeftMain";
-            lblLeftMain.Size = new Size(1920, 75);
+            lblLeftMain.Size = new Size(2496, 96);
             lblLeftMain.TabIndex = 95;
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
@@ -429,12 +435,12 @@
             lblTime8.TabIndex = 130;
             lblTime8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // Activity
+            // ReportBill
             // 
-            AutoScaleDimensions = new SizeF(17F, 37F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1898, 949);
+            ClientSize = new Size(1894, 1009);
             Controls.Add(lblDesc8);
             Controls.Add(lblTime8);
             Controls.Add(lblDesc7);
@@ -457,31 +463,31 @@
             Controls.Add(lblTime2);
             Controls.Add(lblTime1);
             Controls.Add(lblTimeL);
-            Controls.Add(lblHelp);
-            Controls.Add(lblActivity);
-            Controls.Add(lblDrivers);
-            Controls.Add(lblVehicles);
-            Controls.Add(lblAccount);
+            Controls.Add(lblSearch);
+            Controls.Add(lblReportBill);
+            Controls.Add(lblPrescriptions);
+            Controls.Add(lblAppoint);
+            Controls.Add(lblPatientProfile);
             Controls.Add(lblMore);
-            Controls.Add(lblMap);
+            Controls.Add(lblPG);
             Controls.Add(lblHome);
             Controls.Add(lblLeftMain);
             Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Activity";
-            Text = "Activity";
-            WindowState = FormWindowState.Maximized;
+            MaximizeBox = false;
+            Name = "ReportBill";
+            Text = "Report/Bill";
             ResumeLayout(false);
         }
 
         #endregion
-        private Label lblHelp;
-        private Label lblActivity;
-        private Label lblDrivers;
-        private Label lblVehicles;
-        private Label lblAccount;
+        private Label lblSearch;
+        private Label lblReportBill;
+        private Label lblPrescriptions;
+        private Label lblAppoint;
+        private Label lblPatientProfile;
         private Label lblMore;
-        private Label lblMap;
+        private Label lblPG;
         private Label lblHome;
         private Label lblLeftMain;
         private Label lblDesc4;

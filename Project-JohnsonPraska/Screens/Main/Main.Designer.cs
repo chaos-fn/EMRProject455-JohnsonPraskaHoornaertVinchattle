@@ -52,7 +52,7 @@
             lblHome.Enabled = false;
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 850);
+            lblHome.Location = new Point(0, 861);
             lblHome.Name = "lblHome";
             lblHome.Size = new Size(500, 150);
             lblHome.TabIndex = 28;
@@ -64,11 +64,11 @@
             lblMap.BackColor = Color.FromArgb(30, 76, 99);
             lblMap.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblMap.ForeColor = Color.White;
-            lblMap.Location = new Point(500, 850);
+            lblMap.Location = new Point(500, 861);
             lblMap.Name = "lblMap";
             lblMap.Size = new Size(920, 150);
             lblMap.TabIndex = 29;
-            lblMap.Text = "Map";
+            lblMap.Text = "Patient Registration";
             lblMap.TextAlign = ContentAlignment.MiddleCenter;
             lblMap.Click += lblMap_Click;
             // 
@@ -77,7 +77,7 @@
             lblMore.BackColor = Color.FromArgb(30, 76, 99);
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1420, 850);
+            lblMore.Location = new Point(1420, 861);
             lblMore.Name = "lblMore";
             lblMore.Size = new Size(500, 150);
             lblMore.TabIndex = 30;
@@ -87,21 +87,21 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(17F, 37F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 949);
+            ClientSize = new Size(1894, 1009);
             Controls.Add(lblMore);
             Controls.Add(lblMap);
             Controls.Add(lblHome);
             Controls.Add(lblLeftMain);
             Font = new Font("Cambria", 12F);
             Margin = new Padding(4);
+            MaximizeBox = false;
             MaximumSize = new Size(1920, 1080);
-            MinimumSize = new Size(1918, 1005);
+            MinimumSize = new Size(1920, 1080);
             Name = "Main";
             Text = "Main Menu";
-            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
         }
 
