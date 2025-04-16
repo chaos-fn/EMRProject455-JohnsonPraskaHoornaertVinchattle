@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project_JohnsonPraska.Screens.Vehicles;
 
 namespace Project_JohnsonPraska
 {
-    public partial class Vehicles : Form
+    public partial class Appoint : Form
     {
-        public Vehicles()
+        public Appoint()
         {
             InitializeComponent();
         }
@@ -29,7 +28,7 @@ namespace Project_JohnsonPraska
         private void lblMap_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Map map = new Map();
+            Patients map = new Patients();
             map.Closed += (s, args) => this.Close();
             map.Show();
         }
@@ -45,7 +44,7 @@ namespace Project_JohnsonPraska
         private void lblDrivers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Drivers drivers = new Drivers();
+            Prescriptions drivers = new Prescriptions();
             drivers.Closed += (s, args) => this.Close();
             drivers.Show();
         }
@@ -53,7 +52,7 @@ namespace Project_JohnsonPraska
         private void lblActivity_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Activity activity = new Activity();
+            ReportBill activity = new ReportBill();
             activity.Closed += (s, args) => this.Close();
             activity.Show();
         }
@@ -61,7 +60,7 @@ namespace Project_JohnsonPraska
         private void lblHelp_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Help help = new Help();
+            Search help = new Search();
             help.Closed += (s, args) => this.Close();
             help.Show();
         }

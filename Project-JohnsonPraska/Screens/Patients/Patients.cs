@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project_JohnsonPraska.Screens.Vehicles;
 
 namespace Project_JohnsonPraska
 {
-    public partial class Map : Form
+    public partial class Patients : Form
     {
-        public Map()
+        public Patients()
         {
             InitializeComponent();
         }

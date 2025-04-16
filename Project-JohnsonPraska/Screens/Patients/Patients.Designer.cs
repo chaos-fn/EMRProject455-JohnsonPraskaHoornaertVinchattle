@@ -1,6 +1,6 @@
 ﻿namespace Project_JohnsonPraska
 {
-    partial class Map
+    partial class Patients
     {
         /// <summary>
         /// Required designer variable.
@@ -52,10 +52,10 @@
             lblMore.BackColor = Color.FromArgb(30, 76, 99);
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1846, 1088);
+            lblMore.Location = new Point(1420, 861);
             lblMore.Margin = new Padding(4, 0, 4, 0);
             lblMore.Name = "lblMore";
-            lblMore.Size = new Size(650, 192);
+            lblMore.Size = new Size(500, 150);
             lblMore.TabIndex = 33;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
@@ -67,12 +67,12 @@
             lblMap.Enabled = false;
             lblMap.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMap.ForeColor = Color.White;
-            lblMap.Location = new Point(650, 1088);
+            lblMap.Location = new Point(500, 861);
             lblMap.Margin = new Padding(4, 0, 4, 0);
             lblMap.Name = "lblMap";
-            lblMap.Size = new Size(1196, 192);
+            lblMap.Size = new Size(920, 150);
             lblMap.TabIndex = 32;
-            lblMap.Text = "Map";
+            lblMap.Text = "Patient Registration";
             lblMap.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblHome
@@ -80,29 +80,29 @@
             lblHome.BackColor = Color.FromArgb(30, 76, 99);
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 1088);
+            lblHome.Location = new Point(0, 861);
             lblHome.Margin = new Padding(4, 0, 4, 0);
             lblHome.Name = "lblHome";
-            lblHome.Size = new Size(650, 192);
+            lblHome.Size = new Size(500, 150);
             lblHome.TabIndex = 31;
             lblHome.Text = "Home";
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
             lblHome.Click += lblHome_Click;
             // 
-            // Map
+            // Patients
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(2467, 1215);
+            ClientSize = new Size(1894, 1009);
             Controls.Add(lblMore);
             Controls.Add(lblMap);
             Controls.Add(lblHome);
             Controls.Add(lblLeftMain);
             Margin = new Padding(4);
-            Name = "Map";
-            Text = "Map";
-            WindowState = FormWindowState.Maximized;
+            MaximizeBox = false;
+            Name = "Patients";
+            Text = "Patient";
             ResumeLayout(false);
         }
 
