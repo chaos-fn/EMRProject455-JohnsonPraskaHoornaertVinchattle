@@ -64,57 +64,5 @@ namespace Project_JohnsonPraska
             help.Closed += (s, args) => this.Close();
             help.Show();
         }
-
-        private void btnDay_Click(object sender, EventArgs e)
-        {
-            btnDay.BackColor = Color.White;
-            btnDay.ForeColor = Color.Black;
-            btnWeek.BackColor = Color.FromArgb(64, 64, 64);
-            btnWeek.ForeColor = Color.White;
-            btnMonth.BackColor = Color.FromArgb(64, 64, 64);
-            btnMonth.ForeColor = Color.White;
-            btnAll.BackColor = Color.FromArgb(64, 64, 64);
-            btnAll.ForeColor = Color.White;
-
-        }
-
-        private void btnWeek_Click(object sender, EventArgs e)
-        {
-            btnDay.BackColor = Color.FromArgb(64, 64, 64);
-            btnDay.ForeColor = Color.White;
-            btnWeek.BackColor = Color.White;
-            btnWeek.ForeColor = Color.Black;
-            btnMonth.BackColor = Color.FromArgb(64, 64, 64);
-            btnMonth.ForeColor = Color.White;
-            btnAll.BackColor = Color.FromArgb(64, 64, 64);
-            btnAll.ForeColor = Color.White;
-
-        }
-
-        private void btnMonth_Click(object sender, EventArgs e)
-        {
-            btnDay.BackColor = Color.FromArgb(64, 64, 64);
-            btnDay.ForeColor = Color.White;
-            btnWeek.BackColor = Color.FromArgb(64, 64, 64);
-            btnWeek.ForeColor = Color.White;
-            btnMonth.BackColor = Color.White;
-            btnMonth.ForeColor = Color.Black;
-            btnAll.BackColor = Color.FromArgb(64, 64, 64);
-            btnAll.ForeColor = Color.White;
-
-        }
-
-        private void btnAll_Click(object sender, EventArgs e)
-        {
-            btnDay.BackColor = Color.FromArgb(64, 64, 64);
-            btnDay.ForeColor = Color.White;
-            btnWeek.BackColor = Color.FromArgb(64, 64, 64);
-            btnWeek.ForeColor = Color.White;
-            btnMonth.BackColor = Color.FromArgb(64, 64, 64);
-            btnMonth.ForeColor = Color.White;
-            btnAll.BackColor = Color.White;
-            btnAll.ForeColor = Color.Black;
-
-        }
     }
 }
