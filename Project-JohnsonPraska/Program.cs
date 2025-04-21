@@ -1,3 +1,5 @@
+using Project_JohnsonPraska.Screens.Login;
+
 namespace Project_JohnsonPraska
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Project_JohnsonPraska
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Main main = new Main();
+            Login main = new Login();
             Application.Run(main);
         }
     }
