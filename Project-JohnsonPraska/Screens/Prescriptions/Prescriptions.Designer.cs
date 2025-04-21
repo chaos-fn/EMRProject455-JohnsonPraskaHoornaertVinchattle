@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            ListViewItem listViewItem1 = new ListViewItem("");
             lblSearch = new Label();
             lblReportBill = new Label();
             lblPrescriptions = new Label();
@@ -37,6 +39,31 @@
             lblPG = new Label();
             lblHome = new Label();
             lblLeftMain = new Label();
+            splitter1 = new Splitter();
+            splitContainer1 = new SplitContainer();
+            buttonSendRx = new Button();
+            comboBoxFrequency = new ComboBox();
+            frequencylbl = new Label();
+            comboBoxRoute = new ComboBox();
+            routelbl = new Label();
+            comboBoxDoseUnit = new ComboBox();
+            doselbl = new Label();
+            numericUpDownDose = new NumericUpDown();
+            drugNamelbl = new Label();
+            drugNameTextBox = new TextBox();
+            pescriptionComposelbl = new Label();
+            listViewHistory = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDose).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // lblSearch
@@ -160,12 +187,203 @@
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // splitter1
+            // 
+            splitter1.Location = new Point(0, 0);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new Size(3, 1009);
+            splitter1.TabIndex = 88;
+            splitter1.TabStop = false;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Location = new Point(314, 122);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(buttonSendRx);
+            splitContainer1.Panel1.Controls.Add(comboBoxFrequency);
+            splitContainer1.Panel1.Controls.Add(frequencylbl);
+            splitContainer1.Panel1.Controls.Add(comboBoxRoute);
+            splitContainer1.Panel1.Controls.Add(routelbl);
+            splitContainer1.Panel1.Controls.Add(comboBoxDoseUnit);
+            splitContainer1.Panel1.Controls.Add(doselbl);
+            splitContainer1.Panel1.Controls.Add(numericUpDownDose);
+            splitContainer1.Panel1.Controls.Add(drugNamelbl);
+            splitContainer1.Panel1.Controls.Add(drugNameTextBox);
+            splitContainer1.Panel1.Controls.Add(pescriptionComposelbl);
+            splitContainer1.Panel1.ForeColor = SystemColors.Control;
+            splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(listViewHistory);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
+            splitContainer1.Size = new Size(1457, 702);
+            splitContainer1.SplitterDistance = 485;
+            splitContainer1.TabIndex = 89;
+            // 
+            // buttonSendRx
+            // 
+            buttonSendRx.BackColor = Color.DarkSlateGray;
+            buttonSendRx.Location = new Point(147, 603);
+            buttonSendRx.Name = "buttonSendRx";
+            buttonSendRx.Size = new Size(207, 72);
+            buttonSendRx.TabIndex = 10;
+            buttonSendRx.Text = "Send To Pharmacy";
+            buttonSendRx.UseVisualStyleBackColor = false;
+            buttonSendRx.Click += buttonSendRx_Click;
+            // 
+            // comboBoxFrequency
+            // 
+            comboBoxFrequency.FormattingEnabled = true;
+            comboBoxFrequency.Location = new Point(38, 518);
+            comboBoxFrequency.Name = "comboBoxFrequency";
+            comboBoxFrequency.Size = new Size(366, 45);
+            comboBoxFrequency.TabIndex = 9;
+            comboBoxFrequency.SelectedIndexChanged += comboBoxFrequency_SelectedIndexChanged;
+            // 
+            // frequencylbl
+            // 
+            frequencylbl.AutoSize = true;
+            frequencylbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            frequencylbl.ForeColor = SystemColors.ControlLightLight;
+            frequencylbl.Location = new Point(22, 466);
+            frequencylbl.Name = "frequencylbl";
+            frequencylbl.Size = new Size(209, 49);
+            frequencylbl.TabIndex = 8;
+            frequencylbl.Text = "Frequency";
+            // 
+            // comboBoxRoute
+            // 
+            comboBoxRoute.FormattingEnabled = true;
+            comboBoxRoute.Location = new Point(38, 400);
+            comboBoxRoute.Name = "comboBoxRoute";
+            comboBoxRoute.Size = new Size(366, 45);
+            comboBoxRoute.TabIndex = 7;
+            comboBoxRoute.SelectedIndexChanged += comboBoxRoute_SelectedIndexChanged;
+            // 
+            // routelbl
+            // 
+            routelbl.AutoSize = true;
+            routelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            routelbl.ForeColor = SystemColors.ControlLightLight;
+            routelbl.Location = new Point(22, 348);
+            routelbl.Name = "routelbl";
+            routelbl.Size = new Size(126, 49);
+            routelbl.TabIndex = 6;
+            routelbl.Text = "Route";
+            // 
+            // comboBoxDoseUnit
+            // 
+            comboBoxDoseUnit.FormattingEnabled = true;
+            comboBoxDoseUnit.Location = new Point(209, 289);
+            comboBoxDoseUnit.Name = "comboBoxDoseUnit";
+            comboBoxDoseUnit.Size = new Size(121, 45);
+            comboBoxDoseUnit.TabIndex = 5;
+            comboBoxDoseUnit.SelectedIndexChanged += comboBoxDoseUnit_SelectedIndexChanged;
+            // 
+            // doselbl
+            // 
+            doselbl.AutoSize = true;
+            doselbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            doselbl.ForeColor = SystemColors.ControlLightLight;
+            doselbl.Location = new Point(22, 237);
+            doselbl.Name = "doselbl";
+            doselbl.Size = new Size(262, 49);
+            doselbl.TabIndex = 4;
+            doselbl.Text = "Dose Amount";
+            // 
+            // numericUpDownDose
+            // 
+            numericUpDownDose.Location = new Point(38, 289);
+            numericUpDownDose.Name = "numericUpDownDose";
+            numericUpDownDose.Size = new Size(133, 45);
+            numericUpDownDose.TabIndex = 3;
+            numericUpDownDose.ValueChanged += numericUpDownDose_ValueChanged;
+            // 
+            // drugNamelbl
+            // 
+            drugNamelbl.AutoSize = true;
+            drugNamelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            drugNamelbl.ForeColor = SystemColors.ButtonHighlight;
+            drugNamelbl.Location = new Point(22, 104);
+            drugNamelbl.Name = "drugNamelbl";
+            drugNamelbl.Size = new Size(225, 49);
+            drugNamelbl.TabIndex = 2;
+            drugNamelbl.Text = "Drug Name";
+            // 
+            // drugNameTextBox
+            // 
+            drugNameTextBox.Location = new Point(38, 156);
+            drugNameTextBox.Name = "drugNameTextBox";
+            drugNameTextBox.Size = new Size(408, 45);
+            drugNameTextBox.TabIndex = 1;
+            drugNameTextBox.TextChanged += drugNameTextBox_TextChanged;
+            // 
+            // pescriptionComposelbl
+            // 
+            pescriptionComposelbl.AutoSize = true;
+            pescriptionComposelbl.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            pescriptionComposelbl.ForeColor = SystemColors.ControlLightLight;
+            pescriptionComposelbl.Location = new Point(22, 13);
+            pescriptionComposelbl.Name = "pescriptionComposelbl";
+            pescriptionComposelbl.Size = new Size(424, 44);
+            pescriptionComposelbl.TabIndex = 0;
+            pescriptionComposelbl.Text = "Perscription Composer";
+            // 
+            // listViewHistory
+            // 
+            listViewHistory.BackColor = Color.FromArgb(64, 64, 64);
+            listViewHistory.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listViewHistory.Dock = DockStyle.Fill;
+            listViewHistory.ForeColor = SystemColors.Window;
+            listViewHistory.FullRowSelect = true;
+            listViewHistory.GridLines = true;
+            listViewHistory.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            listViewHistory.Location = new Point(0, 0);
+            listViewHistory.Name = "listViewHistory";
+            listViewHistory.Size = new Size(968, 702);
+            listViewHistory.TabIndex = 0;
+            listViewHistory.UseCompatibleStateImageBehavior = false;
+            listViewHistory.View = View.Details;
+            listViewHistory.SelectedIndexChanged += listViewHistory_SelectedIndexChanged;
+            listViewHistory.MouseDoubleClick += listViewHistory_MouseDoubleClick;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Date";
+            columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Drug";
+            columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Dose";
+            columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Status";
+            columnHeader4.Width = 100;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorProvider1.ContainerControl = this;
+            // 
             // Prescriptions
             // 
             AutoScaleDimensions = new SizeF(192F, 192F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1894, 1009);
+            Controls.Add(splitContainer1);
+            Controls.Add(splitter1);
             Controls.Add(lblSearch);
             Controls.Add(lblReportBill);
             Controls.Add(lblPrescriptions);
@@ -180,6 +398,14 @@
             MaximizeBox = false;
             Name = "Prescriptions";
             Text = "Prescriptions";
+            Load += Prescriptions_Load;
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDose).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -193,5 +419,24 @@
         private Label lblPG;
         private Label lblHome;
         private Label lblLeftMain;
+        private Splitter splitter1;
+        private SplitContainer splitContainer1;
+        private Label pescriptionComposelbl;
+        private Label drugNamelbl;
+        private TextBox drugNameTextBox;
+        private ComboBox comboBoxDoseUnit;
+        private Label doselbl;
+        private NumericUpDown numericUpDownDose;
+        private ComboBox comboBoxRoute;
+        private Label routelbl;
+        private ComboBox comboBoxFrequency;
+        private Label frequencylbl;
+        private Button buttonSendRx;
+        private ListView listViewHistory;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ErrorProvider errorProvider1;
     }
 }

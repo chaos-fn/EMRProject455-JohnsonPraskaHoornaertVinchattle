@@ -32,6 +32,6 @@ namespace Project_JohnsonPraska
             more.Closed += (s, args) => this.Close();
             more.Show();
         }
-  
+
     }
 }
