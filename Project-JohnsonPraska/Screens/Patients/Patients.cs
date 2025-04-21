@@ -33,5 +33,9 @@ namespace Project_JohnsonPraska
             more.Show();
         }
 
+        private void lblRegistrationTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

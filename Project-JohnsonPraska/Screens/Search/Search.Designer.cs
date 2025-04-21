@@ -1,4 +1,5 @@
-﻿namespace Project_JohnsonPraska
+﻿
+namespace Project_JohnsonPraska
 {
     partial class Search
     {

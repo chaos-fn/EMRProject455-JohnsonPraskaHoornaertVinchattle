@@ -37,7 +37,6 @@
             lblPG = new Label();
             lblHome = new Label();
             lblLeftMain = new Label();
-            SuspendLayout();
             // 
             // lblSearch
             // 
