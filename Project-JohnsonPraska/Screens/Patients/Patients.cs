@@ -33,9 +33,9 @@ namespace Project_JohnsonPraska
             more.Show();
         }
 
-        private void lblRegistrationTitle_Click(object sender, EventArgs e)
+        private void btnCompleteRegistration_Click(object sender, EventArgs e)
         {
-
+            //Code to add patient to Patient table
         }
     }
 }

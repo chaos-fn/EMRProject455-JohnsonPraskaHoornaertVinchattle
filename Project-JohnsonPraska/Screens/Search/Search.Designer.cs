@@ -29,6 +29,8 @@ namespace Project_JohnsonPraska
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblSearch = new Label();
             lblReportBill = new Label();
             lblPrescriptions = new Label();
@@ -38,6 +40,25 @@ namespace Project_JohnsonPraska
             lblPG = new Label();
             lblHome = new Label();
             lblLeftMain = new Label();
+            lblPatientSearch = new Label();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
+            lblPatientInfo = new Label();
+            label1 = new Label();
+            btnFilterName = new Button();
+            btnFilterAge = new Button();
+            btnFilterRoom = new Button();
+            btnFilterStatus = new Button();
+            dataPatients = new DataGridView();
+            btnAddPatient = new Button();
+            ID = new DataGridViewTextBoxColumn();
+            Image = new DataGridViewImageColumn();
+            PatientName = new DataGridViewTextBoxColumn();
+            Age = new DataGridViewTextBoxColumn();
+            Room = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
+            View = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)dataPatients).BeginInit();
             SuspendLayout();
             // 
             // lblSearch
@@ -160,12 +181,217 @@ namespace Project_JohnsonPraska
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // lblPatientSearch
+            // 
+            lblPatientSearch.Font = new Font("Cambria", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPatientSearch.ForeColor = SystemColors.ControlLightLight;
+            lblPatientSearch.Location = new Point(400, 150);
+            lblPatientSearch.Name = "lblPatientSearch";
+            lblPatientSearch.Size = new Size(400, 50);
+            lblPatientSearch.TabIndex = 120;
+            lblPatientSearch.Text = "Patient Search";
+            lblPatientSearch.TextAlign = ContentAlignment.MiddleCenter;
+            lblPatientSearch.Visible = false;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(475, 225);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(250, 30);
+            txtSearch.TabIndex = 121;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.White;
+            btnSearch.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(525, 300);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(150, 40);
+            btnSearch.TabIndex = 122;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // lblPatientInfo
+            // 
+            lblPatientInfo.Font = new Font("Cambria", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPatientInfo.ForeColor = SystemColors.ControlLightLight;
+            lblPatientInfo.Location = new Point(850, 150);
+            lblPatientInfo.Name = "lblPatientInfo";
+            lblPatientInfo.Size = new Size(400, 50);
+            lblPatientInfo.TabIndex = 123;
+            lblPatientInfo.Text = "Patient Information";
+            lblPatientInfo.TextAlign = ContentAlignment.MiddleCenter;
+            lblPatientInfo.Visible = false;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(850, 210);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 50);
+            label1.TabIndex = 124;
+            label1.Text = "Filter By:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Visible = false;
+            // 
+            // btnFilterName
+            // 
+            btnFilterName.BackColor = Color.White;
+            btnFilterName.FlatAppearance.BorderColor = Color.FromArgb(30, 76, 99);
+            btnFilterName.FlatAppearance.BorderSize = 2;
+            btnFilterName.FlatStyle = FlatStyle.Flat;
+            btnFilterName.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFilterName.Location = new Point(951, 218);
+            btnFilterName.Name = "btnFilterName";
+            btnFilterName.Size = new Size(125, 35);
+            btnFilterName.TabIndex = 125;
+            btnFilterName.Text = "Name";
+            btnFilterName.UseVisualStyleBackColor = false;
+            btnFilterName.Click += btnFilterName_Click;
+            // 
+            // btnFilterAge
+            // 
+            btnFilterAge.BackColor = Color.White;
+            btnFilterAge.FlatAppearance.BorderColor = Color.FromArgb(30, 76, 99);
+            btnFilterAge.FlatAppearance.BorderSize = 2;
+            btnFilterAge.FlatStyle = FlatStyle.Flat;
+            btnFilterAge.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFilterAge.Location = new Point(1092, 218);
+            btnFilterAge.Name = "btnFilterAge";
+            btnFilterAge.Size = new Size(125, 35);
+            btnFilterAge.TabIndex = 126;
+            btnFilterAge.Text = "Age";
+            btnFilterAge.UseVisualStyleBackColor = false;
+            btnFilterAge.Click += btnFilterAge_Click;
+            // 
+            // btnFilterRoom
+            // 
+            btnFilterRoom.BackColor = Color.White;
+            btnFilterRoom.FlatAppearance.BorderColor = Color.FromArgb(30, 76, 99);
+            btnFilterRoom.FlatAppearance.BorderSize = 2;
+            btnFilterRoom.FlatStyle = FlatStyle.Flat;
+            btnFilterRoom.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFilterRoom.Location = new Point(1233, 218);
+            btnFilterRoom.Name = "btnFilterRoom";
+            btnFilterRoom.Size = new Size(125, 35);
+            btnFilterRoom.TabIndex = 127;
+            btnFilterRoom.Text = "Room";
+            btnFilterRoom.UseVisualStyleBackColor = false;
+            btnFilterRoom.Click += btnFilterRoom_Click;
+            // 
+            // btnFilterStatus
+            // 
+            btnFilterStatus.BackColor = Color.White;
+            btnFilterStatus.FlatAppearance.BorderColor = Color.FromArgb(30, 76, 99);
+            btnFilterStatus.FlatAppearance.BorderSize = 2;
+            btnFilterStatus.FlatStyle = FlatStyle.Flat;
+            btnFilterStatus.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFilterStatus.Location = new Point(1374, 218);
+            btnFilterStatus.Name = "btnFilterStatus";
+            btnFilterStatus.Size = new Size(125, 35);
+            btnFilterStatus.TabIndex = 128;
+            btnFilterStatus.Text = "Status";
+            btnFilterStatus.UseVisualStyleBackColor = false;
+            btnFilterStatus.Click += btnFilterStatus_Click;
+            // 
+            // dataPatients
+            // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataPatients.BackgroundColor = Color.FromArgb(64, 64, 64);
+            dataPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataPatients.Columns.AddRange(new DataGridViewColumn[] { ID, Image, PatientName, Age, Room, Status, View });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataPatients.DefaultCellStyle = dataGridViewCellStyle2;
+            dataPatients.Location = new Point(850, 300);
+            dataPatients.Name = "dataPatients";
+            dataPatients.ScrollBars = ScrollBars.Vertical;
+            dataPatients.Size = new Size(900, 500);
+            dataPatients.TabIndex = 129;
+            // 
+            // btnAddPatient
+            // 
+            btnAddPatient.BackColor = Color.White;
+            btnAddPatient.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddPatient.Location = new Point(1550, 213);
+            btnAddPatient.Name = "btnAddPatient";
+            btnAddPatient.Size = new Size(200, 45);
+            btnAddPatient.TabIndex = 130;
+            btnAddPatient.Text = "Add New Patient";
+            btnAddPatient.UseVisualStyleBackColor = false;
+            btnAddPatient.Click += btnAddPatient_Click;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // Image
+            // 
+            Image.FillWeight = 200F;
+            Image.HeaderText = "Image";
+            Image.MinimumWidth = 100;
+            Image.Name = "Image";
+            // 
+            // Name
+            // 
+            PatientName.HeaderText = "Name";
+            PatientName.Name = "Name";
+            // 
+            // Age
+            // 
+            Age.HeaderText = "Age";
+            Age.Name = "Age";
+            // 
+            // Room
+            // 
+            Room.HeaderText = "Room";
+            Room.Name = "Room";
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
+            // 
+            // View
+            // 
+            View.HeaderText = "View";
+            View.Name = "View";
+            // 
             // Search
             // 
-            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1894, 1009);
+            Controls.Add(btnAddPatient);
+            Controls.Add(dataPatients);
+            Controls.Add(btnFilterStatus);
+            Controls.Add(btnFilterRoom);
+            Controls.Add(btnFilterAge);
+            Controls.Add(btnFilterName);
+            Controls.Add(label1);
+            Controls.Add(lblPatientInfo);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(lblPatientSearch);
             Controls.Add(lblSearch);
             Controls.Add(lblReportBill);
             Controls.Add(lblPrescriptions);
@@ -180,7 +406,9 @@ namespace Project_JohnsonPraska
             MaximizeBox = false;
             Name = "Search";
             Text = "Search";
+            ((System.ComponentModel.ISupportInitialize)dataPatients).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -193,5 +421,23 @@ namespace Project_JohnsonPraska
         private Label lblPG;
         private Label lblHome;
         private Label lblLeftMain;
+        private Label lblPatientSearch;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private Label lblPatientInfo;
+        private Label label1;
+        private Button btnFilterName;
+        private Button btnFilterAge;
+        private Button btnFilterRoom;
+        private Button btnFilterStatus;
+        private DataGridView dataPatients;
+        private Button btnAddPatient;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewImageColumn Image;
+        private DataGridViewTextBoxColumn PatientName;
+        private DataGridViewTextBoxColumn Age;
+        private DataGridViewTextBoxColumn Room;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewButtonColumn View;
     }
 }

@@ -69,5 +69,35 @@ namespace Project_JohnsonPraska
             map.Show();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //Code here to search for patient's by name
+        }
+
+        private void btnFilterName_Click(object sender, EventArgs e)
+        {
+            //Code here to filter by Name
+        }
+
+        private void btnFilterAge_Click(object sender, EventArgs e)
+        {
+            //Code here to filter by Name
+        }
+
+        private void btnFilterRoom_Click(object sender, EventArgs e)
+        {
+            //Code here to filter by Name
+        }
+
+        private void btnFilterStatus_Click(object sender, EventArgs e)
+        {
+            //Code here to filter by Name
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            Patients reg = new Patients();
+            reg.Show();
+        }
     }
 }
