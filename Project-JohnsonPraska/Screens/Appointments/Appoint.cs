@@ -65,5 +65,9 @@ namespace Project_JohnsonPraska
             help.Show();
         }
 
+        private void Appoint_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
