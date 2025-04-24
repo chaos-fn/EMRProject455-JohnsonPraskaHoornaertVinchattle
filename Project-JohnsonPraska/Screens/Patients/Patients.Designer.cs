@@ -50,9 +50,8 @@
             lblLeftMain.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblLeftMain.ForeColor = Color.White;
             lblLeftMain.Location = new Point(0, 0);
-            lblLeftMain.Margin = new Padding(2, 0, 2, 0);
             lblLeftMain.Name = "lblLeftMain";
-            lblLeftMain.Size = new Size(1344, 45);
+            lblLeftMain.Size = new Size(1920, 75);
             lblLeftMain.TabIndex = 4;
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
@@ -62,10 +61,9 @@
             lblMore.BackColor = Color.FromArgb(30, 76, 99);
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(765, 404);
-            lblMore.Margin = new Padding(2, 0, 2, 0);
+            lblMore.Location = new Point(1093, 673);
             lblMore.Name = "lblMore";
-            lblMore.Size = new Size(269, 70);
+            lblMore.Size = new Size(384, 117);
             lblMore.TabIndex = 33;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
@@ -77,10 +75,9 @@
             lblMap.Enabled = false;
             lblMap.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMap.ForeColor = Color.White;
-            lblMap.Location = new Point(269, 404);
-            lblMap.Margin = new Padding(2, 0, 2, 0);
+            lblMap.Location = new Point(384, 673);
             lblMap.Name = "lblMap";
-            lblMap.Size = new Size(495, 70);
+            lblMap.Size = new Size(707, 117);
             lblMap.TabIndex = 32;
             lblMap.Text = "Patient Registration";
             lblMap.TextAlign = ContentAlignment.MiddleCenter;
@@ -90,10 +87,9 @@
             lblHome.BackColor = Color.FromArgb(30, 76, 99);
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 404);
-            lblHome.Margin = new Padding(2, 0, 2, 0);
+            lblHome.Location = new Point(0, 673);
             lblHome.Name = "lblHome";
-            lblHome.Size = new Size(269, 70);
+            lblHome.Size = new Size(384, 117);
             lblHome.TabIndex = 31;
             lblHome.Text = "Home";
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
@@ -103,9 +99,10 @@
             // 
             btnCompleteRegistration.BackColor = Color.White;
             btnCompleteRegistration.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCompleteRegistration.Location = new Point(485, 324);
+            btnCompleteRegistration.Location = new Point(693, 540);
+            btnCompleteRegistration.Margin = new Padding(4, 5, 4, 5);
             btnCompleteRegistration.Name = "btnCompleteRegistration";
-            btnCompleteRegistration.Size = new Size(150, 40);
+            btnCompleteRegistration.Size = new Size(214, 67);
             btnCompleteRegistration.TabIndex = 5;
             btnCompleteRegistration.Text = "Register";
             btnCompleteRegistration.UseVisualStyleBackColor = false;
@@ -114,33 +111,37 @@
             // txtAddress
             // 
             txtAddress.Font = new Font("Cambria", 12F);
-            txtAddress.Location = new Point(435, 272);
+            txtAddress.Location = new Point(621, 453);
+            txtAddress.Margin = new Padding(4, 5, 4, 5);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(250, 26);
+            txtAddress.Size = new Size(355, 36);
             txtAddress.TabIndex = 4;
             // 
             // txtAge
             // 
             txtAge.Font = new Font("Cambria", 12F);
-            txtAge.Location = new Point(435, 229);
+            txtAge.Location = new Point(621, 382);
+            txtAge.Margin = new Padding(4, 5, 4, 5);
             txtAge.Name = "txtAge";
-            txtAge.Size = new Size(250, 26);
+            txtAge.Size = new Size(355, 36);
             txtAge.TabIndex = 3;
             // 
             // txtLastName
             // 
             txtLastName.Font = new Font("Cambria", 12F);
-            txtLastName.Location = new Point(435, 186);
+            txtLastName.Location = new Point(621, 310);
+            txtLastName.Margin = new Padding(4, 5, 4, 5);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(250, 26);
+            txtLastName.Size = new Size(355, 36);
             txtLastName.TabIndex = 2;
             // 
             // txtFirstName
             // 
             txtFirstName.Font = new Font("Cambria", 12F);
-            txtFirstName.Location = new Point(435, 143);
+            txtFirstName.Location = new Point(621, 238);
+            txtFirstName.Margin = new Padding(4, 5, 4, 5);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(250, 26);
+            txtFirstName.Size = new Size(355, 36);
             txtFirstName.TabIndex = 1;
             // 
             // lblRegistrationTitle
@@ -148,9 +149,10 @@
             lblRegistrationTitle.AutoSize = true;
             lblRegistrationTitle.Font = new Font("Cambria", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegistrationTitle.ForeColor = SystemColors.ControlLightLight;
-            lblRegistrationTitle.Location = new Point(296, 48);
+            lblRegistrationTitle.Location = new Point(423, 80);
+            lblRegistrationTitle.Margin = new Padding(4, 0, 4, 0);
             lblRegistrationTitle.Name = "lblRegistrationTitle";
-            lblRegistrationTitle.Size = new Size(429, 57);
+            lblRegistrationTitle.Size = new Size(645, 84);
             lblRegistrationTitle.TabIndex = 49;
             lblRegistrationTitle.Text = "Patient Registration";
             // 
@@ -158,56 +160,56 @@
             // 
             lblFirstName.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFirstName.ForeColor = SystemColors.ControlLightLight;
-            lblFirstName.Location = new Point(275, 133);
+            lblFirstName.Location = new Point(393, 222);
+            lblFirstName.Margin = new Padding(4, 0, 4, 0);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(150, 40);
+            lblFirstName.Size = new Size(214, 67);
             lblFirstName.TabIndex = 121;
             lblFirstName.Text = "First Name";
             lblFirstName.TextAlign = ContentAlignment.MiddleRight;
-            lblFirstName.Visible = false;
             // 
             // lblLastName
             // 
             lblLastName.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLastName.ForeColor = SystemColors.ControlLightLight;
-            lblLastName.Location = new Point(275, 176);
+            lblLastName.Location = new Point(393, 293);
+            lblLastName.Margin = new Padding(4, 0, 4, 0);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(150, 40);
+            lblLastName.Size = new Size(214, 67);
             lblLastName.TabIndex = 122;
             lblLastName.Text = "Last Name";
             lblLastName.TextAlign = ContentAlignment.MiddleRight;
-            lblLastName.Visible = false;
             // 
             // lblAge
             // 
             lblAge.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAge.ForeColor = SystemColors.ControlLightLight;
-            lblAge.Location = new Point(275, 219);
+            lblAge.Location = new Point(393, 365);
+            lblAge.Margin = new Padding(4, 0, 4, 0);
             lblAge.Name = "lblAge";
-            lblAge.Size = new Size(150, 40);
+            lblAge.Size = new Size(214, 67);
             lblAge.TabIndex = 123;
             lblAge.Text = "Age";
             lblAge.TextAlign = ContentAlignment.MiddleRight;
-            lblAge.Visible = false;
             // 
             // lblAddress
             // 
             lblAddress.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddress.ForeColor = SystemColors.ControlLightLight;
-            lblAddress.Location = new Point(275, 262);
+            lblAddress.Location = new Point(393, 437);
+            lblAddress.Margin = new Padding(4, 0, 4, 0);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(150, 40);
+            lblAddress.Size = new Size(214, 67);
             lblAddress.TabIndex = 124;
             lblAddress.Text = "Address";
             lblAddress.TextAlign = ContentAlignment.MiddleRight;
-            lblAddress.Visible = false;
             // 
             // Patients
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1020, 473);
+            ClientSize = new Size(1457, 788);
             Controls.Add(lblAddress);
             Controls.Add(lblAge);
             Controls.Add(lblLastName);
@@ -222,7 +224,6 @@
             Controls.Add(lblMap);
             Controls.Add(lblHome);
             Controls.Add(lblLeftMain);
-            Margin = new Padding(2);
             MaximizeBox = false;
             Name = "Patients";
             Text = "Patient";
