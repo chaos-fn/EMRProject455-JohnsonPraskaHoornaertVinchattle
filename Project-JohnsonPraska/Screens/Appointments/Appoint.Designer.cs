@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblSearch = new Label();
             lblReportBill = new Label();
             lblPrescriptions = new Label();
@@ -38,40 +39,50 @@
             lblHome = new Label();
             lblLeftMain = new Label();
             monthCalendar1 = new MonthCalendar();
-            Month = new TabPage();
-            dataGridView4 = new DataGridView();
-            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn17 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn18 = new DataGridViewTextBoxColumn();
-            Week = new TabPage();
-            dataGridView2 = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            Today = new TabPage();
-            dataGridView1 = new DataGridView();
-            Date = new DataGridViewTextBoxColumn();
-            Patient = new DataGridViewTextBoxColumn();
-            Physician = new DataGridViewTextBoxColumn();
-            Reason = new DataGridViewTextBoxColumn();
-            Employee = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
+            monthTab = new TabPage();
+            monthDataGridView = new DataGridView();
+            monthDate = new DataGridViewTextBoxColumn();
+            monthPatientID = new DataGridViewTextBoxColumn();
+            monthPatient = new DataGridViewTextBoxColumn();
+            monthPhysicianID = new DataGridViewTextBoxColumn();
+            monthPhysician = new DataGridViewTextBoxColumn();
+            monthReason = new DataGridViewTextBoxColumn();
+            monthEmployeeID = new DataGridViewTextBoxColumn();
+            monthEmployee = new DataGridViewTextBoxColumn();
+            monthStatus = new DataGridViewTextBoxColumn();
+            weekTab = new TabPage();
+            weekDataGridView = new DataGridView();
+            weekDate = new DataGridViewTextBoxColumn();
+            weekPatientID = new DataGridViewTextBoxColumn();
+            weekPatient = new DataGridViewTextBoxColumn();
+            weekPhysicianID = new DataGridViewTextBoxColumn();
+            weekPhysician = new DataGridViewTextBoxColumn();
+            weekReason = new DataGridViewTextBoxColumn();
+            weekEmployeeID = new DataGridViewTextBoxColumn();
+            weekEmployee = new DataGridViewTextBoxColumn();
+            weekStatus = new DataGridViewTextBoxColumn();
+            todayTab = new TabPage();
+            todayDataGridView = new DataGridView();
             Appointments = new TabControl();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            Month.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
-            Week.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            Today.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            confrmButton = new Button();
+            rescheduleButton = new Button();
+            cancelButton = new Button();
+            deleteAppointbtn = new Button();
+            todayDate = new DataGridViewTextBoxColumn();
+            todayPatientID = new DataGridViewTextBoxColumn();
+            todayPatient = new DataGridViewTextBoxColumn();
+            todayPhysicianID = new DataGridViewTextBoxColumn();
+            todayPhysician = new DataGridViewTextBoxColumn();
+            todayReason = new DataGridViewTextBoxColumn();
+            todayEmployeeID = new DataGridViewTextBoxColumn();
+            todayEmployee = new DataGridViewTextBoxColumn();
+            todayStatus = new DataGridViewTextBoxColumn();
+            monthTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)monthDataGridView).BeginInit();
+            weekTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)weekDataGridView).BeginInit();
+            todayTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)todayDataGridView).BeginInit();
             Appointments.SuspendLayout();
             SuspendLayout();
             // 
@@ -198,240 +209,372 @@
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1460, 208);
+            monthCalendar1.Location = new Point(1472, 537);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 72;
             // 
-            // Month
+            // monthTab
             // 
-            Month.Controls.Add(dataGridView4);
-            Month.Location = new Point(8, 46);
-            Month.Name = "Month";
-            Month.Padding = new Padding(3);
-            Month.Size = new Size(1083, 366);
-            Month.TabIndex = 2;
-            Month.Text = "Month";
-            Month.UseVisualStyleBackColor = true;
+            monthTab.Controls.Add(monthDataGridView);
+            monthTab.Location = new Point(8, 46);
+            monthTab.Name = "monthTab";
+            monthTab.Padding = new Padding(3);
+            monthTab.Size = new Size(1521, 366);
+            monthTab.TabIndex = 2;
+            monthTab.Text = "Month";
+            monthTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // monthDataGridView
             // 
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18 });
-            dataGridView4.Dock = DockStyle.Fill;
-            dataGridView4.Location = new Point(3, 3);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.RowHeadersWidth = 82;
-            dataGridView4.Size = new Size(1077, 360);
-            dataGridView4.TabIndex = 74;
+            monthDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            monthDataGridView.Columns.AddRange(new DataGridViewColumn[] { monthDate, monthPatientID, monthPatient, monthPhysicianID, monthPhysician, monthReason, monthEmployeeID, monthEmployee, monthStatus });
+            monthDataGridView.Dock = DockStyle.Fill;
+            monthDataGridView.Location = new Point(3, 3);
+            monthDataGridView.Name = "monthDataGridView";
+            monthDataGridView.RowHeadersWidth = 82;
+            monthDataGridView.Size = new Size(1515, 360);
+            monthDataGridView.TabIndex = 74;
             // 
-            // dataGridViewTextBoxColumn13
+            // monthDate
             // 
-            dataGridViewTextBoxColumn13.HeaderText = "Date";
-            dataGridViewTextBoxColumn13.MinimumWidth = 10;
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            dataGridViewTextBoxColumn13.Width = 150;
+            monthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthDate.HeaderText = "Date *";
+            monthDate.MinimumWidth = 300;
+            monthDate.Name = "monthDate";
+            monthDate.Width = 300;
             // 
-            // dataGridViewTextBoxColumn14
+            // monthPatientID
             // 
-            dataGridViewTextBoxColumn14.HeaderText = "Patient";
-            dataGridViewTextBoxColumn14.MinimumWidth = 10;
-            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            dataGridViewTextBoxColumn14.Width = 150;
+            monthPatientID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthPatientID.HeaderText = "PatientID *";
+            monthPatientID.MinimumWidth = 10;
+            monthPatientID.Name = "monthPatientID";
+            monthPatientID.Width = 212;
             // 
-            // dataGridViewTextBoxColumn15
+            // monthPatient
             // 
-            dataGridViewTextBoxColumn15.HeaderText = "Physican";
-            dataGridViewTextBoxColumn15.MinimumWidth = 10;
-            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            dataGridViewTextBoxColumn15.Width = 200;
+            monthPatient.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthPatient.HeaderText = "Patient";
+            monthPatient.MinimumWidth = 10;
+            monthPatient.Name = "monthPatient";
+            monthPatient.ReadOnly = true;
+            monthPatient.Width = 160;
             // 
-            // dataGridViewTextBoxColumn16
+            // monthPhysicianID
             // 
-            dataGridViewTextBoxColumn16.HeaderText = "Reason";
-            dataGridViewTextBoxColumn16.MinimumWidth = 10;
-            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            dataGridViewTextBoxColumn16.Width = 200;
+            monthPhysicianID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthPhysicianID.HeaderText = "PhysicianID *";
+            monthPhysicianID.MinimumWidth = 10;
+            monthPhysicianID.Name = "monthPhysicianID";
+            monthPhysicianID.Width = 245;
             // 
-            // dataGridViewTextBoxColumn17
+            // monthPhysician
             // 
-            dataGridViewTextBoxColumn17.HeaderText = "Employee";
-            dataGridViewTextBoxColumn17.MinimumWidth = 10;
-            dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            dataGridViewTextBoxColumn17.Width = 150;
+            monthPhysician.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthPhysician.HeaderText = "Physician";
+            monthPhysician.MinimumWidth = 10;
+            monthPhysician.Name = "monthPhysician";
+            monthPhysician.ReadOnly = true;
+            monthPhysician.Width = 193;
             // 
-            // dataGridViewTextBoxColumn18
+            // monthReason
             // 
-            dataGridViewTextBoxColumn18.HeaderText = "Status";
-            dataGridViewTextBoxColumn18.MinimumWidth = 10;
-            dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            dataGridViewTextBoxColumn18.Width = 150;
+            monthReason.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthReason.HeaderText = "Reason *";
+            monthReason.MinimumWidth = 10;
+            monthReason.Name = "monthReason";
+            monthReason.Width = 183;
             // 
-            // Week
+            // monthEmployeeID
             // 
-            Week.Controls.Add(dataGridView2);
-            Week.Location = new Point(8, 46);
-            Week.Name = "Week";
-            Week.Padding = new Padding(3);
-            Week.Size = new Size(1083, 366);
-            Week.TabIndex = 1;
-            Week.Text = "Week";
-            Week.UseVisualStyleBackColor = true;
+            monthEmployeeID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthEmployeeID.HeaderText = "EmployeeID *";
+            monthEmployeeID.MinimumWidth = 10;
+            monthEmployeeID.Name = "monthEmployeeID";
+            monthEmployeeID.Width = 250;
             // 
-            // dataGridView2
+            // monthEmployee
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(3, 3);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1077, 360);
-            dataGridView2.TabIndex = 78;
+            monthEmployee.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthEmployee.HeaderText = "Employee";
+            monthEmployee.MinimumWidth = 10;
+            monthEmployee.Name = "monthEmployee";
+            monthEmployee.Width = 198;
             // 
-            // dataGridViewTextBoxColumn1
+            // monthStatus
             // 
-            dataGridViewTextBoxColumn1.HeaderText = "Date";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 150;
+            monthStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            monthStatus.HeaderText = "Status";
+            monthStatus.MinimumWidth = 10;
+            monthStatus.Name = "monthStatus";
+            monthStatus.ReadOnly = true;
+            monthStatus.Width = 148;
             // 
-            // dataGridViewTextBoxColumn2
+            // weekTab
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Patient";
-            dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 150;
+            weekTab.Controls.Add(weekDataGridView);
+            weekTab.Location = new Point(8, 46);
+            weekTab.Name = "weekTab";
+            weekTab.Padding = new Padding(3);
+            weekTab.Size = new Size(1521, 366);
+            weekTab.TabIndex = 1;
+            weekTab.Text = "Week";
+            weekTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // weekDataGridView
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Physican";
-            dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 200;
+            weekDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            weekDataGridView.Columns.AddRange(new DataGridViewColumn[] { weekDate, weekPatientID, weekPatient, weekPhysicianID, weekPhysician, weekReason, weekEmployeeID, weekEmployee, weekStatus });
+            weekDataGridView.Dock = DockStyle.Fill;
+            weekDataGridView.Location = new Point(3, 3);
+            weekDataGridView.Name = "weekDataGridView";
+            weekDataGridView.RowHeadersWidth = 82;
+            weekDataGridView.Size = new Size(1515, 360);
+            weekDataGridView.TabIndex = 78;
             // 
-            // dataGridViewTextBoxColumn4
+            // weekDate
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Reason";
-            dataGridViewTextBoxColumn4.MinimumWidth = 10;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.Width = 200;
+            weekDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekDate.FillWeight = 407.692322F;
+            weekDate.HeaderText = "Date *";
+            weekDate.MinimumWidth = 300;
+            weekDate.Name = "weekDate";
+            weekDate.Width = 300;
             // 
-            // dataGridViewTextBoxColumn5
+            // weekPatientID
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Employee";
-            dataGridViewTextBoxColumn5.MinimumWidth = 10;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.Width = 150;
+            weekPatientID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekPatientID.HeaderText = "PatientID *";
+            weekPatientID.MinimumWidth = 10;
+            weekPatientID.Name = "weekPatientID";
+            weekPatientID.Width = 212;
             // 
-            // dataGridViewTextBoxColumn6
+            // weekPatient
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Status";
-            dataGridViewTextBoxColumn6.MinimumWidth = 10;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.Width = 150;
+            weekPatient.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekPatient.FillWeight = 38.4615364F;
+            weekPatient.HeaderText = "Patient";
+            weekPatient.MinimumWidth = 10;
+            weekPatient.Name = "weekPatient";
+            weekPatient.ReadOnly = true;
+            weekPatient.Width = 160;
             // 
-            // Today
+            // weekPhysicianID
             // 
-            Today.Controls.Add(dataGridView1);
-            Today.Location = new Point(8, 51);
-            Today.Name = "Today";
-            Today.Padding = new Padding(3);
-            Today.Size = new Size(1083, 361);
-            Today.TabIndex = 0;
-            Today.Text = "Today";
-            Today.UseVisualStyleBackColor = true;
+            weekPhysicianID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekPhysicianID.HeaderText = "PhysicianID *";
+            weekPhysicianID.MinimumWidth = 10;
+            weekPhysicianID.Name = "weekPhysicianID";
+            weekPhysicianID.Width = 245;
             // 
-            // dataGridView1
+            // weekPhysician
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Date, Patient, Physician, Reason, Employee, Status });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1077, 355);
-            dataGridView1.TabIndex = 73;
+            weekPhysician.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekPhysician.FillWeight = 38.4615364F;
+            weekPhysician.HeaderText = "Physician";
+            weekPhysician.MinimumWidth = 10;
+            weekPhysician.Name = "weekPhysician";
+            weekPhysician.ReadOnly = true;
+            weekPhysician.Width = 193;
             // 
-            // Date
+            // weekReason
             // 
-            Date.HeaderText = "Date";
-            Date.MinimumWidth = 10;
-            Date.Name = "Date";
-            Date.Width = 150;
+            weekReason.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekReason.FillWeight = 38.4615364F;
+            weekReason.HeaderText = "Reason *";
+            weekReason.MinimumWidth = 10;
+            weekReason.Name = "weekReason";
+            weekReason.Width = 183;
             // 
-            // Patient
+            // weekEmployeeID
             // 
-            Patient.HeaderText = "Patient";
-            Patient.MinimumWidth = 10;
-            Patient.Name = "Patient";
-            Patient.Width = 150;
+            weekEmployeeID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekEmployeeID.HeaderText = "EmployeeID *";
+            weekEmployeeID.MinimumWidth = 10;
+            weekEmployeeID.Name = "weekEmployeeID";
+            weekEmployeeID.Width = 250;
             // 
-            // Physician
+            // weekEmployee
             // 
-            Physician.HeaderText = "Physican";
-            Physician.MinimumWidth = 10;
-            Physician.Name = "Physician";
-            Physician.Width = 200;
+            weekEmployee.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekEmployee.FillWeight = 38.4615364F;
+            weekEmployee.HeaderText = "Employee";
+            weekEmployee.MinimumWidth = 10;
+            weekEmployee.Name = "weekEmployee";
+            weekEmployee.ReadOnly = true;
+            weekEmployee.Width = 198;
             // 
-            // Reason
+            // weekStatus
             // 
-            Reason.HeaderText = "Reason";
-            Reason.MinimumWidth = 10;
-            Reason.Name = "Reason";
-            Reason.Width = 200;
+            weekStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            weekStatus.FillWeight = 38.4615364F;
+            weekStatus.HeaderText = "Status";
+            weekStatus.MinimumWidth = 10;
+            weekStatus.Name = "weekStatus";
+            weekStatus.ReadOnly = true;
+            weekStatus.Width = 148;
             // 
-            // Employee
+            // todayTab
             // 
-            Employee.HeaderText = "Employee";
-            Employee.MinimumWidth = 10;
-            Employee.Name = "Employee";
-            Employee.Width = 150;
+            todayTab.Controls.Add(todayDataGridView);
+            todayTab.Location = new Point(8, 51);
+            todayTab.Name = "todayTab";
+            todayTab.Padding = new Padding(3);
+            todayTab.Size = new Size(1521, 361);
+            todayTab.TabIndex = 0;
+            todayTab.Text = "Today";
+            todayTab.UseVisualStyleBackColor = true;
             // 
-            // Status
+            // todayDataGridView
             // 
-            Status.HeaderText = "Status";
-            Status.MinimumWidth = 10;
-            Status.Name = "Status";
-            Status.Width = 150;
+            todayDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            todayDataGridView.Columns.AddRange(new DataGridViewColumn[] { todayDate, todayPatientID, todayPatient, todayPhysicianID, todayPhysician, todayReason, todayEmployeeID, todayEmployee, todayStatus });
+            todayDataGridView.Dock = DockStyle.Fill;
+            todayDataGridView.Location = new Point(3, 3);
+            todayDataGridView.Name = "todayDataGridView";
+            todayDataGridView.RowHeadersWidth = 82;
+            todayDataGridView.Size = new Size(1515, 355);
+            todayDataGridView.TabIndex = 73;
+            todayDataGridView.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Appointments
             // 
-            Appointments.Controls.Add(Today);
-            Appointments.Controls.Add(Week);
-            Appointments.Controls.Add(Month);
-            Appointments.Location = new Point(339, 140);
+            Appointments.Controls.Add(todayTab);
+            Appointments.Controls.Add(weekTab);
+            Appointments.Controls.Add(monthTab);
+            Appointments.Location = new Point(339, 105);
             Appointments.Name = "Appointments";
             Appointments.SelectedIndex = 0;
-            Appointments.Size = new Size(1099, 420);
+            Appointments.Size = new Size(1537, 420);
             Appointments.TabIndex = 74;
             // 
-            // button1
+            // confrmButton
             // 
-            button1.Location = new Point(366, 635);
-            button1.Name = "button1";
-            button1.Size = new Size(394, 46);
-            button1.TabIndex = 75;
-            button1.Text = "Confirm Appointment";
-            button1.UseVisualStyleBackColor = true;
+            confrmButton.BackColor = Color.FromArgb(0, 192, 0);
+            confrmButton.Location = new Point(339, 682);
+            confrmButton.Name = "confrmButton";
+            confrmButton.Size = new Size(342, 46);
+            confrmButton.TabIndex = 75;
+            confrmButton.Text = "Confirm Appointment";
+            confrmButton.UseVisualStyleBackColor = false;
+            confrmButton.Click += confrmButton_Click;
             // 
-            // button2
+            // rescheduleButton
             // 
-            button2.Location = new Point(818, 635);
-            button2.Name = "button2";
-            button2.Size = new Size(274, 46);
-            button2.TabIndex = 76;
-            button2.Text = "Reschedule";
-            button2.UseVisualStyleBackColor = true;
+            rescheduleButton.Location = new Point(802, 633);
+            rescheduleButton.Name = "rescheduleButton";
+            rescheduleButton.Size = new Size(274, 46);
+            rescheduleButton.TabIndex = 76;
+            rescheduleButton.Text = "Reschedule";
+            rescheduleButton.UseVisualStyleBackColor = true;
+            rescheduleButton.Click += rescheduleButton_Click;
             // 
-            // button3
+            // cancelButton
             // 
-            button3.BackColor = Color.Red;
-            button3.Location = new Point(1177, 635);
-            button3.Name = "button3";
-            button3.Size = new Size(249, 46);
-            button3.TabIndex = 77;
-            button3.Text = "Cancel";
-            button3.UseVisualStyleBackColor = false;
+            cancelButton.BackColor = Color.IndianRed;
+            cancelButton.Location = new Point(802, 734);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(274, 46);
+            cancelButton.TabIndex = 77;
+            cancelButton.Text = "Mark as Cancel";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
+            // 
+            // deleteAppointbtn
+            // 
+            deleteAppointbtn.BackColor = Color.Red;
+            deleteAppointbtn.Location = new Point(1187, 682);
+            deleteAppointbtn.Name = "deleteAppointbtn";
+            deleteAppointbtn.Size = new Size(259, 46);
+            deleteAppointbtn.TabIndex = 78;
+            deleteAppointbtn.Text = "Delete";
+            deleteAppointbtn.UseVisualStyleBackColor = false;
+            deleteAppointbtn.Click += deleteAppointbtn_Click;
+            // 
+            // todayDate
+            // 
+            todayDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.Format = "g";
+            dataGridViewCellStyle1.NullValue = null;
+            todayDate.DefaultCellStyle = dataGridViewCellStyle1;
+            todayDate.FillWeight = 384.615448F;
+            todayDate.HeaderText = "Date *";
+            todayDate.MinimumWidth = 300;
+            todayDate.Name = "todayDate";
+            todayDate.Width = 300;
+            // 
+            // todayPatientID
+            // 
+            todayPatientID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayPatientID.HeaderText = "PatientID *";
+            todayPatientID.MinimumWidth = 10;
+            todayPatientID.Name = "todayPatientID";
+            todayPatientID.Width = 212;
+            // 
+            // todayPatient
+            // 
+            todayPatient.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayPatient.FillWeight = 43.0769119F;
+            todayPatient.HeaderText = "Patient";
+            todayPatient.MinimumWidth = 150;
+            todayPatient.Name = "todayPatient";
+            todayPatient.ReadOnly = true;
+            todayPatient.Width = 160;
+            // 
+            // todayPhysicianID
+            // 
+            todayPhysicianID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayPhysicianID.HeaderText = "PhysicianID *";
+            todayPhysicianID.MinimumWidth = 10;
+            todayPhysicianID.Name = "todayPhysicianID";
+            todayPhysicianID.Width = 245;
+            // 
+            // todayPhysician
+            // 
+            todayPhysician.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayPhysician.FillWeight = 43.0769119F;
+            todayPhysician.HeaderText = "Physician";
+            todayPhysician.MinimumWidth = 100;
+            todayPhysician.Name = "todayPhysician";
+            todayPhysician.ReadOnly = true;
+            todayPhysician.Width = 193;
+            // 
+            // todayReason
+            // 
+            todayReason.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayReason.FillWeight = 43.0769119F;
+            todayReason.HeaderText = "Reason *";
+            todayReason.MinimumWidth = 10;
+            todayReason.Name = "todayReason";
+            todayReason.Width = 183;
+            // 
+            // todayEmployeeID
+            // 
+            todayEmployeeID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayEmployeeID.HeaderText = "EmployeeID *";
+            todayEmployeeID.MinimumWidth = 10;
+            todayEmployeeID.Name = "todayEmployeeID";
+            todayEmployeeID.Width = 250;
+            // 
+            // todayEmployee
+            // 
+            todayEmployee.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayEmployee.FillWeight = 43.0769119F;
+            todayEmployee.HeaderText = "Employee";
+            todayEmployee.MinimumWidth = 10;
+            todayEmployee.Name = "todayEmployee";
+            todayEmployee.ReadOnly = true;
+            todayEmployee.Width = 198;
+            // 
+            // todayStatus
+            // 
+            todayStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            todayStatus.FillWeight = 43.0769119F;
+            todayStatus.HeaderText = "Status";
+            todayStatus.MinimumWidth = 10;
+            todayStatus.Name = "todayStatus";
+            todayStatus.ReadOnly = true;
+            todayStatus.Width = 148;
             // 
             // Appoint
             // 
@@ -439,9 +582,10 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1894, 1009);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(deleteAppointbtn);
+            Controls.Add(cancelButton);
+            Controls.Add(rescheduleButton);
+            Controls.Add(confrmButton);
             Controls.Add(Appointments);
             Controls.Add(monthCalendar1);
             Controls.Add(lblSearch);
@@ -459,12 +603,12 @@
             Name = "Appoint";
             Text = "Appoint";
             Load += Appoint_Load;
-            Month.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
-            Week.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            Today.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            monthTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)monthDataGridView).EndInit();
+            weekTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)weekDataGridView).EndInit();
+            todayTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)todayDataGridView).EndInit();
             Appointments.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -480,33 +624,43 @@
         private Label lblHome;
         private Label lblLeftMain;
         private MonthCalendar monthCalendar1;
-        private TabPage Month;
-        private TabPage Week;
-        private TabPage Today;
-        private DataGridView dataGridView1;
+        private TabPage monthTab;
+        private TabPage weekTab;
+        private TabPage todayTab;
+        private DataGridView todayDataGridView;
         private TabControl Appointments;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private DataGridView dataGridView4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn Patient;
-        private DataGridViewTextBoxColumn Physician;
-        private DataGridViewTextBoxColumn Reason;
-        private DataGridViewTextBoxColumn Employee;
-        private DataGridViewTextBoxColumn Status;
+        private Button confrmButton;
+        private Button rescheduleButton;
+        private Button cancelButton;
+        private DataGridView monthDataGridView;
+        private DataGridView weekDataGridView;
+        private Button deleteAppointbtn;
+        private DataGridViewTextBoxColumn monthDate;
+        private DataGridViewTextBoxColumn monthPatientID;
+        private DataGridViewTextBoxColumn monthPatient;
+        private DataGridViewTextBoxColumn monthPhysicianID;
+        private DataGridViewTextBoxColumn monthPhysician;
+        private DataGridViewTextBoxColumn monthReason;
+        private DataGridViewTextBoxColumn monthEmployeeID;
+        private DataGridViewTextBoxColumn monthEmployee;
+        private DataGridViewTextBoxColumn monthStatus;
+        private DataGridViewTextBoxColumn weekDate;
+        private DataGridViewTextBoxColumn weekPatientID;
+        private DataGridViewTextBoxColumn weekPatient;
+        private DataGridViewTextBoxColumn weekPhysicianID;
+        private DataGridViewTextBoxColumn weekPhysician;
+        private DataGridViewTextBoxColumn weekReason;
+        private DataGridViewTextBoxColumn weekEmployeeID;
+        private DataGridViewTextBoxColumn weekEmployee;
+        private DataGridViewTextBoxColumn weekStatus;
+        private DataGridViewTextBoxColumn todayDate;
+        private DataGridViewTextBoxColumn todayPatientID;
+        private DataGridViewTextBoxColumn todayPatient;
+        private DataGridViewTextBoxColumn todayPhysicianID;
+        private DataGridViewTextBoxColumn todayPhysician;
+        private DataGridViewTextBoxColumn todayReason;
+        private DataGridViewTextBoxColumn todayEmployeeID;
+        private DataGridViewTextBoxColumn todayEmployee;
+        private DataGridViewTextBoxColumn todayStatus;
     }
 }
