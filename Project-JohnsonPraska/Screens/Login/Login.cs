@@ -1,14 +1,17 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
 
 namespace Project_JohnsonPraska.Screens.Login
 {
+
     public partial class Login : Form
     {
+        string connectionString = "server=localhost;user=appuser;password=password;database=emr;";
         public bool badge = true;
         public string username = "";
         public string password = "";
-        public string PIN = "";
+        public string pin = "";
 
         public Login()
         {
@@ -20,6 +23,91 @@ namespace Project_JohnsonPraska.Screens.Login
 
         private void lblBadge_Click(object sender, EventArgs e)
         {
+            if (badge) {
+                BadgeToPIN();
+            }
+            else
+            {
+                BadgeToLogin();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            int enteredUsername = int.Parse(txtUsername.Text.Trim());
+            string enteredPassword = txtPassword.Text.Trim();
+            if (VerifyEmployeeLogin(enteredUsername, enteredPassword))
+            {
+                LoginToPIN();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Login. Try again", "Invalid Login");
+            }
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            int enteredPIN = int.Parse(txtPIN.Text.Trim());
+            if (VerifyEmployeePIN(enteredPIN)){
+                this.Hide();
+                Main main = new Main();
+                main.Closed += (s, args) => this.Close();
+                main.Show();
+            }
+            else{
+                MessageBox.Show("Invalid PIN. Try again", "Invalid PIN");
+            }        
+        }
+
+        public bool VerifyEmployeeLogin(int employeeId, string password)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("VerifyEmployeeLogin", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@p_EmployeeID", employeeId);
+                cmd.Parameters.AddWithValue("@p_Password", password);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    return reader.HasRows; // true = found, false = not found
+                }
+            }
+        }
+
+        public bool VerifyEmployeePIN(int pin)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("VerifyEmployeePIN", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@p_PIN", pin);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    return reader.HasRows; // true = correct PIN, false = wrong PIN
+                }
+            }
+        }
+
+
+        private void BadgeToPIN()
+        {
+            lblBadge.Visible = false;
+            lblMessage.Visible = false;
+
+            lblPIN.Visible = true;
+            txtPIN.Visible = true;
+            btnEnter.Visible = true;
+        }
+
+        private void BadgeToLogin()
+        {
             lblBadge.Visible = false;
 
             lblUsername.Visible = true;
@@ -27,50 +115,21 @@ namespace Project_JohnsonPraska.Screens.Login
             lblPassword.Visible = true;
             txtPassword.Visible = true;
             btnLogin.Visible = true;
+            lblMessage.Visible = true;
+        }
+
+        private void LoginToPIN()
+        {
+            lblUsername.Visible = false;
+            txtUsername.Visible = false;
+            lblPassword.Visible = false;
+            txtPassword.Visible = false;
+            btnLogin.Visible = false;
             lblMessage.Visible = false;
-        }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            string enteredUsername = txtUsername.Text.Trim();
-            string enteredPassword = txtPassword.Text.Trim();
-
-            if (enteredUsername == username && enteredPassword == password)
-            {
-                lblUsername.Visible = false;
-                txtUsername.Visible = false;
-                lblPassword.Visible = false;
-                txtPassword.Visible = false;
-                btnLogin.Visible = false;
-
-                lblPIN.Visible = true;
-                txtPIN.Visible = true;
-                btnEnter.Visible = true;
-                lblMessage.Visible = false;
-            }
-            else
-            {
-                lblMessage.Visible = true;
-                lblMessage.Text = "Username or password incorrect.";
-            }
-        }
-
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-            string enteredPIN = txtPIN.Text.Trim();
-
-            if (enteredPIN == PIN)
-            {
-                this.Hide();
-                Main main = new Main();
-                main.Closed += (s, args) => this.Close();
-                main.Show();
-            }
-            else
-            {
-                lblMessage.Visible = true;
-                lblMessage.Text = "Invalid PIN. Try again.";
-            }
+            lblPIN.Visible = true;
+            txtPIN.Visible = true;
+            btnEnter.Visible = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Project_JohnsonPraska
 {
     public partial class Patients : Form
     {
+        string connectionString = "server=localhost;user=appuser;password=password;database=emr;";
         public Patients()
         {
             InitializeComponent();
@@ -35,7 +37,56 @@ namespace Project_JohnsonPraska
 
         private void btnCompleteRegistration_Click(object sender, EventArgs e)
         {
-            //Code to add patient to Patient table
+            // Get data from form fields
+            string fname = txtFirstName.Text;
+            string lname = txtLastName.Text;
+            string room = txtRoom.Text;
+            DateTime dob = datePickerDOB.Value;
+            string address = txtAddress.Text;
+
+            // Call the register method
+            RegisterPatient(fname, lname, room, dob, address);
+        }
+
+        public void RegisterPatient(string fname, string lname, string room, DateTime dob, string address)
+        {
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    using (var cmd = new MySqlCommand("RegisterPatient", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Add parameters
+                        cmd.Parameters.AddWithValue("@p_Fname", fname);
+                        cmd.Parameters.AddWithValue("@p_Lname", lname);
+                        cmd.Parameters.AddWithValue("@p_Room", room);
+                        cmd.Parameters.AddWithValue("@p_DateOfBirth", dob);
+                        cmd.Parameters.AddWithValue("@p_Address", address);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Patient registered successfully!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error registering patient: " + ex.Message);
+            }
+        }
+
+        private void Patients_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

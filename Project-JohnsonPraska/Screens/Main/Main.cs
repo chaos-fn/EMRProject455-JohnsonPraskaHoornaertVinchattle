@@ -10,13 +10,13 @@ namespace Project_JohnsonPraska
             InitializeComponent();
 
         }
-   
+
         private void lblMap_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Patients map = new Patients();
-            map.Closed += (s, args) => this.Close();
-            map.Show();
+            Patients patients = new Patients();
+            patients.Closed += (s, args) => this.Close();
+            patients.Show();
         }
 
         private void lblMore_Click(object sender, EventArgs e)
@@ -27,7 +27,9 @@ namespace Project_JohnsonPraska
             more.Show();
         }
 
+        private void lblHome_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

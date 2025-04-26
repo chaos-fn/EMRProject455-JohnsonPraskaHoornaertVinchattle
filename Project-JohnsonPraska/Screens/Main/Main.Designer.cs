@@ -34,12 +34,16 @@
             lblMore = new Label();
             Month = new TabControl();
             Today = new TabPage();
+            dataGridView3 = new DataGridView();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            Age = new DataGridViewTextBoxColumn();
+            Prescription = new DataGridViewTextBoxColumn();
+            Invoice = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
             Week = new TabPage();
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             dataGridView1 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -49,15 +53,6 @@
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            Invoice = new DataGridViewTextBoxColumn();
-            Prescription = new DataGridViewTextBoxColumn();
-            Age = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridView3 = new DataGridView();
             tabPage1 = new TabPage();
             dataGridView2 = new DataGridView();
             dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
@@ -68,11 +63,16 @@
             dataGridViewTextBoxColumn19 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn20 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             Month.SuspendLayout();
             Today.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             Week.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -101,6 +101,7 @@
             lblHome.TabIndex = 28;
             lblHome.Text = "Home";
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
+            lblHome.Click += lblHome_Click;
             // 
             // lblMap
             // 
@@ -142,71 +143,91 @@
             // Today
             // 
             Today.Controls.Add(dataGridView3);
-            Today.Location = new Point(8, 51);
+            Today.Location = new Point(4, 28);
             Today.Name = "Today";
             Today.Padding = new Padding(3);
-            Today.Size = new Size(1487, 550);
+            Today.Size = new Size(1495, 577);
             Today.TabIndex = 0;
             Today.Text = "Today";
             Today.UseVisualStyleBackColor = true;
             // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, Age, Prescription, Invoice, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12 });
+            dataGridView3.Dock = DockStyle.Fill;
+            dataGridView3.Location = new Point(3, 3);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 82;
+            dataGridView3.Size = new Size(1489, 571);
+            dataGridView3.TabIndex = 73;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "Date";
+            dataGridViewTextBoxColumn7.MinimumWidth = 10;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "Patient";
+            dataGridViewTextBoxColumn8.MinimumWidth = 10;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // Age
+            // 
+            Age.HeaderText = "Age";
+            Age.MinimumWidth = 10;
+            Age.Name = "Age";
+            Age.Width = 200;
+            // 
+            // Prescription
+            // 
+            Prescription.HeaderText = "Prescription";
+            Prescription.MinimumWidth = 10;
+            Prescription.Name = "Prescription";
+            Prescription.Width = 200;
+            // 
+            // Invoice
+            // 
+            Invoice.HeaderText = "Invoice";
+            Invoice.MinimumWidth = 10;
+            Invoice.Name = "Invoice";
+            Invoice.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "Reason";
+            dataGridViewTextBoxColumn10.MinimumWidth = 10;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.HeaderText = "Employee";
+            dataGridViewTextBoxColumn11.MinimumWidth = 10;
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.HeaderText = "Status";
+            dataGridViewTextBoxColumn12.MinimumWidth = 10;
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.Width = 150;
+            // 
             // Week
             // 
             Week.Controls.Add(dataGridView1);
-            Week.Location = new Point(8, 51);
+            Week.Location = new Point(4, 24);
             Week.Name = "Week";
             Week.Padding = new Padding(3);
-            Week.Size = new Size(1487, 550);
+            Week.Size = new Size(1495, 581);
             Week.TabIndex = 1;
             Week.Text = "Week";
             Week.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Cambria", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(52, 84);
-            label1.Name = "label1";
-            label1.Size = new Size(448, 75);
-            label1.TabIndex = 80;
-            label1.Text = "Your Schedule";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(1595, 249);
-            button1.Name = "button1";
-            button1.Size = new Size(244, 82);
-            button1.TabIndex = 81;
-            button1.Text = "Search Patient";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(1595, 380);
-            button2.Name = "button2";
-            button2.Size = new Size(244, 82);
-            button2.TabIndex = 82;
-            button2.Text = "New Prescription";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(1595, 516);
-            button3.Name = "button3";
-            button3.Size = new Size(244, 82);
-            button3.TabIndex = 83;
-            button3.Text = "New Appointment";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(1595, 654);
-            button4.Name = "button4";
-            button4.Size = new Size(244, 82);
-            button4.TabIndex = 84;
-            button4.Text = "Reports/Billing";
-            button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -216,7 +237,7 @@
             dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1481, 544);
+            dataGridView1.Size = new Size(1489, 575);
             dataGridView1.TabIndex = 74;
             // 
             // dataGridViewTextBoxColumn1
@@ -275,80 +296,13 @@
             dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             dataGridViewTextBoxColumn13.Width = 150;
             // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewTextBoxColumn12.HeaderText = "Status";
-            dataGridViewTextBoxColumn12.MinimumWidth = 10;
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            dataGridViewTextBoxColumn12.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            dataGridViewTextBoxColumn11.HeaderText = "Employee";
-            dataGridViewTextBoxColumn11.MinimumWidth = 10;
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            dataGridViewTextBoxColumn11.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.HeaderText = "Reason";
-            dataGridViewTextBoxColumn10.MinimumWidth = 10;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.Width = 200;
-            // 
-            // Invoice
-            // 
-            Invoice.HeaderText = "Invoice";
-            Invoice.MinimumWidth = 10;
-            Invoice.Name = "Invoice";
-            Invoice.Width = 200;
-            // 
-            // Prescription
-            // 
-            Prescription.HeaderText = "Prescription";
-            Prescription.MinimumWidth = 10;
-            Prescription.Name = "Prescription";
-            Prescription.Width = 200;
-            // 
-            // Age
-            // 
-            Age.HeaderText = "Age";
-            Age.MinimumWidth = 10;
-            Age.Name = "Age";
-            Age.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Patient";
-            dataGridViewTextBoxColumn8.MinimumWidth = 10;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "Date";
-            dataGridViewTextBoxColumn7.MinimumWidth = 10;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridView3
-            // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, Age, Prescription, Invoice, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12 });
-            dataGridView3.Dock = DockStyle.Fill;
-            dataGridView3.Location = new Point(3, 3);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(1481, 544);
-            dataGridView3.TabIndex = 73;
-            // 
             // tabPage1
             // 
             tabPage1.Controls.Add(dataGridView2);
-            tabPage1.Location = new Point(8, 51);
+            tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1487, 550);
+            tabPage1.Size = new Size(1495, 581);
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Month";
             tabPage1.UseVisualStyleBackColor = true;
@@ -361,7 +315,7 @@
             dataGridView2.Location = new Point(3, 3);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1481, 544);
+            dataGridView2.Size = new Size(1489, 575);
             dataGridView2.TabIndex = 74;
             // 
             // dataGridViewTextBoxColumn14
@@ -420,12 +374,59 @@
             dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             dataGridViewTextBoxColumn21.Width = 150;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Cambria", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(52, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(224, 37);
+            label1.TabIndex = 80;
+            label1.Text = "Your Schedule";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1595, 249);
+            button1.Name = "button1";
+            button1.Size = new Size(244, 82);
+            button1.TabIndex = 81;
+            button1.Text = "Search Patient";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(1595, 380);
+            button2.Name = "button2";
+            button2.Size = new Size(244, 82);
+            button2.TabIndex = 82;
+            button2.Text = "New Prescription";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1595, 516);
+            button3.Name = "button3";
+            button3.Size = new Size(244, 82);
+            button3.TabIndex = 83;
+            button3.Text = "New Appointment";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1595, 654);
+            button4.Name = "button4";
+            button4.Size = new Size(244, 82);
+            button4.TabIndex = 84;
+            button4.Text = "Reports/Billing";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(1902, 1039);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -440,14 +441,14 @@
             Margin = new Padding(4);
             MaximizeBox = false;
             MaximumSize = new Size(1920, 1080);
-            MinimumSize = new Size(1920, 1080);
+            MinimumSize = new Size(1918, 1078);
             Name = "Main";
             Text = "Main Menu";
             Month.ResumeLayout(false);
             Today.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             Week.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
