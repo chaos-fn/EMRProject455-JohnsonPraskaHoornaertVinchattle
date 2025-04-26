@@ -226,3 +226,121 @@ namespace Project_JohnsonPraska
 
     }
 }
+
+
+/* 
+ * -- 1. Create the user if it doesn't exist
+CREATE USER IF NOT EXISTS 'appuser'@'localhost' IDENTIFIED BY 'password'; 
+
+-- 2. Use the correct database
+USE emr;
+
+DELIMITER //
+
+CREATE PROCEDURE UpdateAppointment(
+    IN pAppointment_ID INT,
+    IN pStatus_ID INT,
+    IN pEmployee_ID INT,
+    IN pPatient_ID INT,
+    IN pType VARCHAR(255),
+    IN pDate DATETIME,
+    IN pPhysician_ID INT
+)
+BEGIN
+    UPDATE Appointment
+    SET 
+        Status_ID = pStatus_ID,
+        Employee_ID = pEmployee_ID,
+        Patient_ID = pPatient_ID,
+        Type = pType,
+        Date = pDate,
+        Physician_ID = pPhysician_ID
+    WHERE Appointment_ID = pAppointment_ID;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE UpdateAppointmentStatus(
+    IN pAppointment_ID INT,
+    IN pStatus_ID INT
+)
+BEGIN
+    UPDATE Appointment
+    SET Status_ID = pStatus_ID
+    WHERE Appointment_ID = pAppointment_ID;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE UpdateAppointmentDate(
+    IN pAppointment_ID INT,
+    IN pDate DATETIME
+)
+BEGIN
+    UPDATE Appointment
+    SET Date = pDate
+    WHERE Appointment_ID = pAppointment_ID;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE DeleteAppointment(
+    IN pAppointment_ID INT
+)
+BEGIN
+    DELETE FROM Appointment
+    WHERE Appointment_ID = pAppointment_ID;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE InsertAppointment(
+    IN pStatus_ID INT,
+    IN pEmployee_ID INT,
+    IN pPatient_ID INT,
+    IN pType VARCHAR(255),
+    IN pDate DATETIME,
+    IN pPhysician_ID INT
+)
+BEGIN
+    INSERT INTO Appointment (Status_ID, Employee_ID, Patient_ID, Type, Date, Physician_ID)
+    VALUES (pStatus_ID, pEmployee_ID, pPatient_ID, pType, pDate, pPhysician_ID);
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+-- 3. Grant SELECT permission on all tables
+GRANT SELECT ON emr.* TO 'appuser'@'localhost';
+
+-- 4. Grant EXECUTE permission on all stored procedures and functions (database-wide)
+GRANT EXECUTE ON emr.* TO 'appuser'@'localhost';
+
+GRANT EXECUTE ON emr.* TO 'appuser'@'localhost';
+
+-- 5. Apply privilege changes
+FLUSH PRIVILEGES;
+
+-- 6. Confirm the granted permissions
+SHOW GRANTS FOR 'appuser'@'localhost';
+
+
+
+
+
+
+
+*/
