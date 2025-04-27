@@ -68,6 +68,9 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            lblCurrentID = new Label();
+            lblCurrentFName = new Label();
+            lblCurrentLName = new Label();
             Month.SuspendLayout();
             Today.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -421,12 +424,49 @@
             button4.Text = "Reports/Billing";
             button4.UseVisualStyleBackColor = true;
             // 
+            // lblCurrentID
+            // 
+            lblCurrentID.AutoSize = true;
+            lblCurrentID.Font = new Font("Cambria", 18F);
+            lblCurrentID.ForeColor = SystemColors.ControlLightLight;
+            lblCurrentID.Location = new Point(1668, 87);
+            lblCurrentID.Name = "lblCurrentID";
+            lblCurrentID.Size = new Size(139, 28);
+            lblCurrentID.TabIndex = 85;
+            lblCurrentID.Text = "EmployeeID";
+            // 
+            // lblCurrentFName
+            // 
+            lblCurrentFName.AutoSize = true;
+            lblCurrentFName.Font = new Font("Cambria", 18F);
+            lblCurrentFName.ForeColor = SystemColors.ControlLightLight;
+            lblCurrentFName.Location = new Point(1668, 122);
+            lblCurrentFName.Name = "lblCurrentFName";
+            lblCurrentFName.Size = new Size(125, 28);
+            lblCurrentFName.TabIndex = 86;
+            lblCurrentFName.Text = "First Name";
+            lblCurrentFName.Click += lblCurrentFName_Click;
+            // 
+            // lblCurrentLName
+            // 
+            lblCurrentLName.AutoSize = true;
+            lblCurrentLName.Font = new Font("Cambria", 18F);
+            lblCurrentLName.ForeColor = SystemColors.ControlLightLight;
+            lblCurrentLName.Location = new Point(1668, 156);
+            lblCurrentLName.Name = "lblCurrentLName";
+            lblCurrentLName.Size = new Size(120, 28);
+            lblCurrentLName.TabIndex = 87;
+            lblCurrentLName.Text = "Last Name";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1902, 1039);
+            Controls.Add(lblCurrentLName);
+            Controls.Add(lblCurrentFName);
+            Controls.Add(lblCurrentID);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -497,5 +537,8 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private Label lblCurrentID;
+        private Label lblCurrentFName;
+        private Label lblCurrentLName;
     }
 }

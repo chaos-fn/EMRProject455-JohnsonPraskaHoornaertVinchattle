@@ -8,10 +8,10 @@ namespace Project_JohnsonPraska.Screens.Login
     public partial class Login : Form
     {
         string connectionString = "server=localhost;user=appuser;password=password;database=emr;";
-        public bool badge = true;
-        public string username = "";
-        public string password = "";
-        public string pin = "";
+        public bool badge = false;
+        private int currentEmployeeID;
+        private string currentFirstName;
+        private string currentLastName;
 
         public Login()
         {
@@ -69,7 +69,7 @@ namespace Project_JohnsonPraska.Screens.Login
      
             if (VerifyEmployeePIN(enteredPIN)){
                 this.Hide();
-                Main main = new Main();
+                Main main = new Main(currentEmployeeID, currentFirstName, currentLastName);
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }
@@ -91,7 +91,17 @@ namespace Project_JohnsonPraska.Screens.Login
 
                 using (var reader = cmd.ExecuteReader())
                 {
-                    return reader.HasRows; // true = found, false = not found
+                    if (reader.Read()) // read one matching record
+                    {
+                        currentEmployeeID = reader.GetInt32("Employee_ID"); // careful: match column names
+                        currentFirstName = reader.GetString("Fname");
+                        currentLastName = reader.GetString("Lname");
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
         }

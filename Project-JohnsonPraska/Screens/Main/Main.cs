@@ -5,10 +5,18 @@ namespace Project_JohnsonPraska
 
     public partial class Main : Form
     {
-        public Main()
+        public Main(int employeeID, string firstName, string lastName)
         {
             InitializeComponent();
 
+            lblCurrentID.Text = "Employee ID: " + employeeID.ToString();
+            lblCurrentFName.Text = "First Name: " + firstName;
+            lblCurrentLName.Text = "Last Name: " + lastName;
+        }
+
+        public Main()
+        {
+            InitializeComponent();
         }
 
         private void lblMap_Click(object sender, EventArgs e)
@@ -28,6 +36,11 @@ namespace Project_JohnsonPraska
         }
 
         private void lblHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCurrentFName_Click(object sender, EventArgs e)
         {
 
         }
