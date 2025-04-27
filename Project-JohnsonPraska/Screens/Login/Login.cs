@@ -34,7 +34,16 @@ namespace Project_JohnsonPraska.Screens.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            int enteredUsername = int.Parse(txtUsername.Text.Trim());
+            int enteredUsername = 0;
+            try
+            {
+                enteredUsername = int.Parse(txtUsername.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ensure your username is correct. It should be your employee ID", "Username Error");
+            }
+            
             string enteredPassword = txtPassword.Text.Trim();
             if (VerifyEmployeeLogin(enteredUsername, enteredPassword))
             {
@@ -48,7 +57,16 @@ namespace Project_JohnsonPraska.Screens.Login
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            int enteredPIN = int.Parse(txtPIN.Text.Trim());
+            int enteredPIN = 0;
+            try
+            {
+                enteredPIN = int.Parse(txtPIN.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ensure your PIN is correct. It should be an series integer", "PIN Error");
+            }
+     
             if (VerifyEmployeePIN(enteredPIN)){
                 this.Hide();
                 Main main = new Main();
@@ -68,7 +86,7 @@ namespace Project_JohnsonPraska.Screens.Login
                 MySqlCommand cmd = new MySqlCommand("VerifyEmployeeLogin", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@p_EmployeeID", employeeId);
+                cmd.Parameters.AddWithValue("@p_Employee_ID", employeeId);
                 cmd.Parameters.AddWithValue("@p_Password", password);
 
                 using (var reader = cmd.ExecuteReader())

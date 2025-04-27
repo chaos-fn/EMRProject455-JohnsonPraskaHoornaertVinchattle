@@ -61,12 +61,12 @@ namespace Project_JohnsonPraska
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                         // Add parameters
-                        cmd.Parameters.AddWithValue("@p_Fname", fname);
-                        cmd.Parameters.AddWithValue("@p_Lname", lname);
                         cmd.Parameters.AddWithValue("@p_Room", room);
                         cmd.Parameters.AddWithValue("@p_DateOfBirth", dob);
                         cmd.Parameters.AddWithValue("@p_Address", address);
-
+                        cmd.Parameters.AddWithValue("@p_Fname", fname);
+                        cmd.Parameters.AddWithValue("@p_Lname", lname);
+                       
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Patient registered successfully!");
