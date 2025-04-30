@@ -47,9 +47,9 @@
             lblLeftMain.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblLeftMain.ForeColor = Color.White;
             lblLeftMain.Location = new Point(0, 0);
-            lblLeftMain.Margin = new Padding(4, 0, 4, 0);
+            lblLeftMain.Margin = new Padding(2, 0, 2, 0);
             lblLeftMain.Name = "lblLeftMain";
-            lblLeftMain.Size = new Size(2075, 102);
+            lblLeftMain.Size = new Size(1038, 51);
             lblLeftMain.TabIndex = 37;
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
@@ -60,30 +60,27 @@
             lblBadge.AutoSize = true;
             lblBadge.Font = new Font("Cambria", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblBadge.ForeColor = SystemColors.ControlLightLight;
-            lblBadge.Location = new Point(546, 228);
-            lblBadge.Margin = new Padding(6, 0, 6, 0);
+            lblBadge.Location = new Point(273, 114);
             lblBadge.Name = "lblBadge";
-            lblBadge.Size = new Size(781, 112);
+            lblBadge.Size = new Size(392, 57);
             lblBadge.TabIndex = 38;
             lblBadge.Text = "Tap badge to start";
             lblBadge.Click += lblBadge_Click;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(613, 510);
-            txtUsername.Margin = new Padding(6);
+            txtUsername.Location = new Point(306, 255);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(240, 39);
+            txtUsername.Size = new Size(122, 23);
             txtUsername.TabIndex = 39;
             txtUsername.Visible = false;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(986, 510);
-            txtPassword.Margin = new Padding(6);
+            txtPassword.Location = new Point(493, 255);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(240, 39);
+            txtPassword.Size = new Size(122, 23);
             txtPassword.TabIndex = 40;
             txtPassword.Visible = false;
             // 
@@ -92,12 +89,11 @@
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Cambria", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUsername.ForeColor = SystemColors.ControlLightLight;
-            lblUsername.Location = new Point(613, 435);
-            lblUsername.Margin = new Padding(6, 0, 6, 0);
+            lblUsername.Location = new Point(294, 218);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(246, 57);
+            lblUsername.Size = new Size(150, 28);
             lblUsername.TabIndex = 41;
-            lblUsername.Text = "Username:";
+            lblUsername.Text = "Employee ID:";
             lblUsername.Visible = false;
             lblUsername.Click += lblUsername_Click;
             // 
@@ -106,10 +102,9 @@
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Cambria", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = SystemColors.ControlLightLight;
-            lblPassword.Location = new Point(986, 435);
-            lblPassword.Margin = new Padding(6, 0, 6, 0);
+            lblPassword.Location = new Point(493, 218);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(236, 57);
+            lblPassword.Size = new Size(119, 28);
             lblPassword.TabIndex = 42;
             lblPassword.Text = "Password:";
             lblPassword.Visible = false;
@@ -119,10 +114,9 @@
             lblPIN.AutoSize = true;
             lblPIN.Font = new Font("Cambria", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPIN.ForeColor = SystemColors.ControlLightLight;
-            lblPIN.Location = new Point(723, 386);
-            lblPIN.Margin = new Padding(6, 0, 6, 0);
+            lblPIN.Location = new Point(362, 193);
             lblPIN.Name = "lblPIN";
-            lblPIN.Size = new Size(446, 112);
+            lblPIN.Size = new Size(226, 57);
             lblPIN.TabIndex = 43;
             lblPIN.Text = "Enter PIN";
             lblPIN.Visible = false;
@@ -130,10 +124,9 @@
             // 
             // txtPIN
             // 
-            txtPIN.Location = new Point(830, 618);
-            txtPIN.Margin = new Padding(6);
+            txtPIN.Location = new Point(415, 309);
             txtPIN.Name = "txtPIN";
-            txtPIN.Size = new Size(182, 39);
+            txtPIN.Size = new Size(93, 23);
             txtPIN.TabIndex = 44;
             txtPIN.Visible = false;
             // 
@@ -142,22 +135,20 @@
             lblMessage.AutoSize = true;
             lblMessage.Font = new Font("Cambria", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMessage.ForeColor = SystemColors.ControlLightLight;
-            lblMessage.Location = new Point(589, 706);
-            lblMessage.Margin = new Padding(6, 0, 6, 0);
+            lblMessage.Location = new Point(273, 81);
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(738, 126);
+            lblMessage.Size = new Size(401, 64);
             lblMessage.TabIndex = 45;
-            lblMessage.Text = "Badge did not register. \r\nEnter username and password.";
+            lblMessage.Text = "Badge did not register. \r\nEnter employee ID and password.";
             lblMessage.TextAlign = ContentAlignment.TopCenter;
             lblMessage.Visible = false;
             // 
             // btnLogin
             // 
             btnLogin.Font = new Font("Cambria", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(851, 571);
-            btnLogin.Margin = new Padding(6);
+            btnLogin.Location = new Point(426, 338);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(139, 62);
+            btnLogin.Size = new Size(70, 31);
             btnLogin.TabIndex = 46;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
@@ -167,10 +158,9 @@
             // btnEnter
             // 
             btnEnter.Font = new Font("Cambria", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEnter.Location = new Point(851, 849);
-            btnEnter.Margin = new Padding(6);
+            btnEnter.Location = new Point(426, 424);
             btnEnter.Name = "btnEnter";
-            btnEnter.Size = new Size(139, 55);
+            btnEnter.Size = new Size(70, 28);
             btnEnter.TabIndex = 47;
             btnEnter.Text = "Enter";
             btnEnter.UseVisualStyleBackColor = true;
@@ -179,10 +169,10 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(947, 504);
             Controls.Add(btnEnter);
             Controls.Add(btnLogin);
             Controls.Add(lblMessage);
@@ -194,7 +184,6 @@
             Controls.Add(txtUsername);
             Controls.Add(lblLeftMain);
             Controls.Add(lblBadge);
-            Margin = new Padding(6);
             MaximizeBox = false;
             Name = "Login";
             Text = "Login";

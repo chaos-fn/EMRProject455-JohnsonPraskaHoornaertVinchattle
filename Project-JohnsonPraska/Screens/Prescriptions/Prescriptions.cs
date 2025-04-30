@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_JohnsonPraska.Global;
 
 namespace Project_JohnsonPraska
 {
@@ -89,7 +90,7 @@ namespace Project_JohnsonPraska
         private void lblHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Main main = new Main();
+            Main main = new Main(Session.EmployeeID, Session.FirstName, Session.LastName);
             main.Closed += (s, args) => this.Close();
             main.Show();
         }
