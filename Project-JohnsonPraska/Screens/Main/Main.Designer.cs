@@ -71,6 +71,7 @@
             lblCurrentID = new Label();
             lblCurrentFName = new Label();
             lblCurrentLName = new Label();
+            btnLogout = new Button();
             Month.SuspendLayout();
             Today.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -458,12 +459,23 @@
             lblCurrentLName.TabIndex = 87;
             lblCurrentLName.Text = "Last Name";
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(1710, 21);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(129, 34);
+            btnLogout.TabIndex = 88;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1902, 1039);
+            Controls.Add(btnLogout);
             Controls.Add(lblCurrentLName);
             Controls.Add(lblCurrentFName);
             Controls.Add(lblCurrentID);
@@ -540,5 +552,6 @@
         private Label lblCurrentID;
         private Label lblCurrentFName;
         private Label lblCurrentLName;
+        private Button btnLogout;
     }
 }

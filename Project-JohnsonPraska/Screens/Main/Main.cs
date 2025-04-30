@@ -1,3 +1,4 @@
+using Project_JohnsonPraska.Screens.Login;
 using System.Diagnostics.Metrics;
 
 namespace Project_JohnsonPraska
@@ -14,10 +15,10 @@ namespace Project_JohnsonPraska
             lblCurrentLName.Text = "Last Name: " + lastName;
         }
 
-        public Main()
+        /*public Main()
         {
             InitializeComponent();
-        }
+        }*/
 
         private void lblMap_Click(object sender, EventArgs e)
         {
@@ -43,6 +44,14 @@ namespace Project_JohnsonPraska
         private void lblCurrentFName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
         }
     }
 }

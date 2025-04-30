@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using Project_JohnsonPraska.Global;
 
 namespace Project_JohnsonPraska.Screens.Login
 {
@@ -9,9 +10,6 @@ namespace Project_JohnsonPraska.Screens.Login
     {
         string connectionString = "server=localhost;user=appuser;password=password;database=emr;";
         public bool badge = false;
-        private int currentEmployeeID;
-        private string currentFirstName;
-        private string currentLastName;
 
         public Login()
         {
@@ -57,26 +55,26 @@ namespace Project_JohnsonPraska.Screens.Login
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            int enteredPIN = 0;
-            try
+            int enteredPIN;
+            if (!int.TryParse(txtPIN.Text.Trim(), out enteredPIN))
             {
-                enteredPIN = int.Parse(txtPIN.Text.Trim());
+                MessageBox.Show("PIN must be a number.", "Invalid PIN");
+                return;
             }
-            catch (Exception ex)
+
+            if (VerifyEmployeePIN(Session.EmployeeID, enteredPIN))
             {
-                MessageBox.Show("Ensure your PIN is correct. It should be an series integer", "PIN Error");
-            }
-     
-            if (VerifyEmployeePIN(enteredPIN)){
                 this.Hide();
-                Main main = new Main(currentEmployeeID, currentFirstName, currentLastName);
+                Main main = new Main(Session.EmployeeID, Session.FirstName, Session.LastName);
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }
-            else{
-                MessageBox.Show("Invalid PIN. Try again", "Invalid PIN");
-            }        
+            else
+            {
+                MessageBox.Show("Invalid PIN for this user. Try again.", "Invalid PIN");
+            }
         }
+
 
         public bool VerifyEmployeeLogin(int employeeId, string password)
         {
@@ -93,9 +91,9 @@ namespace Project_JohnsonPraska.Screens.Login
                 {
                     if (reader.Read()) // read one matching record
                     {
-                        currentEmployeeID = reader.GetInt32("Employee_ID"); // careful: match column names
-                        currentFirstName = reader.GetString("Fname");
-                        currentLastName = reader.GetString("Lname");
+                        Session.EmployeeID = reader.GetInt32("Employee_ID"); // careful: match column names
+                        Session.FirstName = reader.GetString("Fname");
+                        Session.LastName = reader.GetString("Lname");
                         return true;
                     }
                     else
@@ -106,7 +104,7 @@ namespace Project_JohnsonPraska.Screens.Login
             }
         }
 
-        public bool VerifyEmployeePIN(int pin)
+        public bool VerifyEmployeePIN(int employeeID, int pin)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -114,11 +112,12 @@ namespace Project_JohnsonPraska.Screens.Login
                 MySqlCommand cmd = new MySqlCommand("VerifyEmployeePIN", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@p_Employee_ID", employeeID);
                 cmd.Parameters.AddWithValue("@p_PIN", pin);
 
                 using (var reader = cmd.ExecuteReader())
                 {
-                    return reader.HasRows; // true = correct PIN, false = wrong PIN
+                    return reader.HasRows; // only returns true if employeeID and PIN match
                 }
             }
         }
