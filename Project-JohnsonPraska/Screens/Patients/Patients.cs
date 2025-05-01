@@ -45,6 +45,17 @@ namespace Project_JohnsonPraska
             DateTime dob = datePickerDOB.Value;
             string address = txtAddress.Text;
 
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtRoom.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Please fill out all required fields.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
             // Call the register method
             RegisterPatient(fname, lname, room, dob, address);
         }
@@ -71,11 +82,7 @@ namespace Project_JohnsonPraska
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Patient registered successfully!");
-                        txtFirstName.Text = "";
-                        txtLastName.Text = "";
-                        txtRoom.Text = "";
-                        datePickerDOB.Value = DateTime.Now;
-                        txtAddress.Text = "";
+                        clearPatientFields();
                     }
                 }
             }
@@ -93,6 +100,15 @@ namespace Project_JohnsonPraska
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void clearPatientFields()
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtRoom.Text = "";
+            datePickerDOB.Value = DateTime.Now;
+            txtAddress.Text = "";
         }
     }
 }
