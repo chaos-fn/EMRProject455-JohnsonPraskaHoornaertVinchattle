@@ -40,12 +40,17 @@
             lblLeftMain = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            exportButton = new Button();
-            dataGridViewClinical = new DataGridView();
-            Date = new DataGridViewTextBoxColumn();
-            ClaimID = new DataGridViewTextBoxColumn();
-            Amount = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            dgvAppointments = new DataGridView();
+            dgvPrescriptions = new DataGridView();
+            dgvNotes = new DataGridView();
+            groupBox1 = new GroupBox();
+            lblAllergies = new Label();
+            lblHistory = new Label();
+            lblAllergiestxt = new Label();
+            lblHistorytxt = new Label();
+            patientHistorylbl = new Label();
+            btnExportFinancial = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             daysButton = new Button();
             monthButton = new Button();
@@ -57,10 +62,6 @@
             tabPage2 = new TabPage();
             exportButton2 = new Button();
             dataGridViewFinancial = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dateTimePickerTo22 = new DateTimePicker();
             daysButton2 = new Button();
             monthButton2 = new Button();
@@ -71,10 +72,6 @@
             tabPage3 = new TabPage();
             exportButton3 = new Button();
             dataGridViewInsurance = new DataGridView();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             daysButton3 = new Button();
             button5 = new Button();
             quarterButton3 = new Button();
@@ -82,9 +79,18 @@
             label4 = new Label();
             dateTimePickerTo3 = new DateTimePicker();
             dateTimePickerFrom3 = new DateTimePicker();
+            lblCurrentPatient = new Label();
+            currentlbl = new Label();
+            btnLoadPatient = new Button();
+            txtPatientId = new TextBox();
+            patientIDlbl = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClinical).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAppointments).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPrescriptions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNotes).BeginInit();
+            groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFinancial).BeginInit();
@@ -209,7 +215,7 @@
             lblLeftMain.Location = new Point(0, 0);
             lblLeftMain.Margin = new Padding(4, 0, 4, 0);
             lblLeftMain.Name = "lblLeftMain";
-            lblLeftMain.Size = new Size(1894, 96);
+            lblLeftMain.Size = new Size(1444, 96);
             lblLeftMain.TabIndex = 95;
             lblLeftMain.Text = "  Wed. 10:12";
             lblLeftMain.TextAlign = ContentAlignment.MiddleLeft;
@@ -219,80 +225,148 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(307, 96);
+            tabControl1.Location = new Point(1, 96);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1587, 762);
+            tabControl1.Size = new Size(1637, 413);
             tabControl1.TabIndex = 104;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(exportButton);
-            tabPage1.Controls.Add(dataGridViewClinical);
+            tabPage1.Controls.Add(tableLayoutPanel1);
+            tabPage1.Controls.Add(patientHistorylbl);
+            tabPage1.Controls.Add(btnExportFinancial);
             tabPage1.Controls.Add(flowLayoutPanel1);
             tabPage1.Controls.Add(tolbl);
             tabPage1.Controls.Add(fromLbl);
             tabPage1.Controls.Add(dateTimePickerTo);
             tabPage1.Controls.Add(dateTimePickerFrom);
-            tabPage1.Location = new Point(8, 51);
+            tabPage1.Location = new Point(4, 28);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1571, 703);
+            tabPage1.Size = new Size(1629, 381);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Clinical";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
-            // exportButton
+            // tableLayoutPanel1
             // 
-            exportButton.BackColor = Color.FromArgb(192, 255, 255);
-            exportButton.ForeColor = SystemColors.ActiveCaptionText;
-            exportButton.Location = new Point(1406, 18);
-            exportButton.Name = "exportButton";
-            exportButton.Size = new Size(145, 50);
-            exportButton.TabIndex = 6;
-            exportButton.Text = "Export";
-            exportButton.UseVisualStyleBackColor = false;
-            exportButton.Click += exportButton_Click;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(dgvAppointments, 0, 0);
+            tableLayoutPanel1.Controls.Add(dgvPrescriptions, 1, 0);
+            tableLayoutPanel1.Controls.Add(dgvNotes, 0, 1);
+            tableLayoutPanel1.Controls.Add(groupBox1, 1, 1);
+            tableLayoutPanel1.Location = new Point(6, 158);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1577, 572);
+            tableLayoutPanel1.TabIndex = 8;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // dataGridViewClinical
+            // dgvAppointments
             // 
-            dataGridViewClinical.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewClinical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClinical.Columns.AddRange(new DataGridViewColumn[] { Date, ClaimID, Amount, Status });
-            dataGridViewClinical.Dock = DockStyle.Bottom;
-            dataGridViewClinical.Location = new Point(3, 95);
-            dataGridViewClinical.Name = "dataGridViewClinical";
-            dataGridViewClinical.RowHeadersWidth = 82;
-            dataGridViewClinical.Size = new Size(1565, 605);
-            dataGridViewClinical.TabIndex = 5;
-            dataGridViewClinical.CellContentClick += dataGridViewClinical_CellContentClick;
-            dataGridViewClinical.CellContentDoubleClick += dataGridViewClinical_CellContentDoubleClick;
-            dataGridViewClinical.CellFormatting += dataGridViewClinical_CellFormatting;
+            dgvAppointments.AllowUserToAddRows = false;
+            dgvAppointments.AllowUserToDeleteRows = false;
+            dgvAppointments.AllowUserToOrderColumns = true;
+            dgvAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAppointments.Location = new Point(3, 3);
+            dgvAppointments.Name = "dgvAppointments";
+            dgvAppointments.ReadOnly = true;
+            dgvAppointments.Size = new Size(782, 280);
+            dgvAppointments.TabIndex = 0;
             // 
-            // Date
+            // dgvPrescriptions
             // 
-            Date.HeaderText = "Date";
-            Date.MinimumWidth = 10;
-            Date.Name = "Date";
+            dgvPrescriptions.AllowUserToAddRows = false;
+            dgvPrescriptions.AllowUserToDeleteRows = false;
+            dgvPrescriptions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPrescriptions.Location = new Point(791, 3);
+            dgvPrescriptions.Name = "dgvPrescriptions";
+            dgvPrescriptions.ReadOnly = true;
+            dgvPrescriptions.Size = new Size(782, 280);
+            dgvPrescriptions.TabIndex = 1;
             // 
-            // ClaimID
+            // dgvNotes
             // 
-            ClaimID.HeaderText = "ClaimID";
-            ClaimID.MinimumWidth = 10;
-            ClaimID.Name = "ClaimID";
+            dgvNotes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNotes.Location = new Point(3, 289);
+            dgvNotes.Name = "dgvNotes";
+            dgvNotes.Size = new Size(782, 280);
+            dgvNotes.TabIndex = 2;
             // 
-            // Amount
+            // groupBox1
             // 
-            Amount.HeaderText = "Amount";
-            Amount.MinimumWidth = 10;
-            Amount.Name = "Amount";
+            groupBox1.Controls.Add(lblAllergies);
+            groupBox1.Controls.Add(lblHistory);
+            groupBox1.Controls.Add(lblAllergiestxt);
+            groupBox1.Controls.Add(lblHistorytxt);
+            groupBox1.Location = new Point(791, 289);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(783, 280);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
-            // Status
+            // lblAllergies
             // 
-            Status.HeaderText = "Status";
-            Status.MinimumWidth = 10;
-            Status.Name = "Status";
+            lblAllergies.AutoSize = true;
+            lblAllergies.Location = new Point(588, 59);
+            lblAllergies.Name = "lblAllergies";
+            lblAllergies.Size = new Size(0, 19);
+            lblAllergies.TabIndex = 3;
+            // 
+            // lblHistory
+            // 
+            lblHistory.AutoSize = true;
+            lblHistory.Location = new Point(73, 59);
+            lblHistory.Name = "lblHistory";
+            lblHistory.Size = new Size(0, 19);
+            lblHistory.TabIndex = 2;
+            // 
+            // lblAllergiestxt
+            // 
+            lblAllergiestxt.AutoSize = true;
+            lblAllergiestxt.Location = new Point(588, 22);
+            lblAllergiestxt.Name = "lblAllergiestxt";
+            lblAllergiestxt.Size = new Size(121, 19);
+            lblAllergiestxt.TabIndex = 1;
+            lblAllergiestxt.Text = "Patient Allergies";
+            // 
+            // lblHistorytxt
+            // 
+            lblHistorytxt.AutoSize = true;
+            lblHistorytxt.Location = new Point(73, 22);
+            lblHistorytxt.Name = "lblHistorytxt";
+            lblHistorytxt.Size = new Size(112, 19);
+            lblHistorytxt.TabIndex = 0;
+            lblHistorytxt.Text = "Patient History";
+            // 
+            // patientHistorylbl
+            // 
+            patientHistorylbl.AutoSize = true;
+            patientHistorylbl.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            patientHistorylbl.Location = new Point(700, 118);
+            patientHistorylbl.Name = "patientHistorylbl";
+            patientHistorylbl.Size = new Size(181, 19);
+            patientHistorylbl.TabIndex = 7;
+            patientHistorylbl.Text = "Patient Clinical History";
+            // 
+            // btnExportFinancial
+            // 
+            btnExportFinancial.BackColor = Color.FromArgb(192, 255, 255);
+            btnExportFinancial.ForeColor = SystemColors.ActiveCaptionText;
+            btnExportFinancial.Location = new Point(1406, 18);
+            btnExportFinancial.Name = "btnExportFinancial";
+            btnExportFinancial.Size = new Size(145, 50);
+            btnExportFinancial.TabIndex = 6;
+            btnExportFinancial.Text = "Export";
+            btnExportFinancial.UseVisualStyleBackColor = false;
+            btnExportFinancial.Click += btnExportFinancial_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -343,7 +417,7 @@
             tolbl.Font = new Font("Cambria", 8F);
             tolbl.Location = new Point(363, 42);
             tolbl.Name = "tolbl";
-            tolbl.Size = new Size(35, 26);
+            tolbl.Size = new Size(17, 12);
             tolbl.TabIndex = 3;
             tolbl.Text = "To";
             // 
@@ -353,7 +427,7 @@
             fromLbl.Font = new Font("Cambria", 8F);
             fromLbl.Location = new Point(6, 42);
             fromLbl.Name = "fromLbl";
-            fromLbl.Size = new Size(63, 26);
+            fromLbl.Size = new Size(31, 12);
             fromLbl.TabIndex = 2;
             fromLbl.Text = "From";
             // 
@@ -363,16 +437,18 @@
             dateTimePickerTo.Format = DateTimePickerFormat.Short;
             dateTimePickerTo.Location = new Point(409, 29);
             dateTimePickerTo.Name = "dateTimePickerTo";
-            dateTimePickerTo.Size = new Size(257, 45);
+            dateTimePickerTo.Size = new Size(257, 26);
             dateTimePickerTo.TabIndex = 1;
+            dateTimePickerTo.ValueChanged += dateTimePickerTo_ValueChanged;
             // 
             // dateTimePickerFrom
             // 
             dateTimePickerFrom.Format = DateTimePickerFormat.Short;
             dateTimePickerFrom.Location = new Point(87, 28);
             dateTimePickerFrom.Name = "dateTimePickerFrom";
-            dateTimePickerFrom.Size = new Size(270, 45);
+            dateTimePickerFrom.Size = new Size(270, 26);
             dateTimePickerFrom.TabIndex = 0;
+            dateTimePickerFrom.ValueChanged += dateTimePickerFrom_ValueChanged;
             // 
             // tabPage2
             // 
@@ -385,10 +461,10 @@
             tabPage2.Controls.Add(label1);
             tabPage2.Controls.Add(label2);
             tabPage2.Controls.Add(dateTimePickerFrom2);
-            tabPage2.Location = new Point(8, 51);
+            tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1571, 703);
+            tabPage2.Size = new Size(1428, 704);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Financial";
             tabPage2.UseVisualStyleBackColor = true;
@@ -404,53 +480,32 @@
             exportButton2.TabIndex = 13;
             exportButton2.Text = "Export";
             exportButton2.UseVisualStyleBackColor = false;
-            exportButton2.Click += exportButton_Click;
+            exportButton2.Click += exportButton2_Click;
             // 
             // dataGridViewFinancial
             // 
             dataGridViewFinancial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewFinancial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFinancial.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dataGridViewFinancial.Dock = DockStyle.Bottom;
-            dataGridViewFinancial.Location = new Point(3, 95);
+            dataGridViewFinancial.Location = new Point(3, 96);
+            dataGridViewFinancial.MultiSelect = false;
             dataGridViewFinancial.Name = "dataGridViewFinancial";
+            dataGridViewFinancial.ReadOnly = true;
             dataGridViewFinancial.RowHeadersWidth = 82;
-            dataGridViewFinancial.Size = new Size(1565, 605);
+            dataGridViewFinancial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewFinancial.Size = new Size(1422, 605);
             dataGridViewFinancial.TabIndex = 12;
             dataGridViewFinancial.CellContentDoubleClick += dataGridViewFinancial_CellContentDoubleClick;
             dataGridViewFinancial.CellFormatting += dataGridViewFinancial_CellFormatting;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Date";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "ClaimID";
-            dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Amount";
-            dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Status";
-            dataGridViewTextBoxColumn4.MinimumWidth = 10;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dateTimePickerTo22
             // 
             dateTimePickerTo22.Format = DateTimePickerFormat.Short;
             dateTimePickerTo22.Location = new Point(426, 31);
             dateTimePickerTo22.Name = "dateTimePickerTo22";
-            dateTimePickerTo22.Size = new Size(258, 45);
+            dateTimePickerTo22.Size = new Size(258, 26);
             dateTimePickerTo22.TabIndex = 11;
+            dateTimePickerTo22.ValueChanged += dateTimePickerTo22_ValueChanged;
             // 
             // daysButton2
             // 
@@ -488,7 +543,7 @@
             label1.Font = new Font("Cambria", 8F);
             label1.Location = new Point(367, 44);
             label1.Name = "label1";
-            label1.Size = new Size(35, 26);
+            label1.Size = new Size(17, 12);
             label1.TabIndex = 7;
             label1.Text = "To";
             // 
@@ -498,7 +553,7 @@
             label2.Font = new Font("Cambria", 8F);
             label2.Location = new Point(24, 41);
             label2.Name = "label2";
-            label2.Size = new Size(63, 26);
+            label2.Size = new Size(31, 12);
             label2.TabIndex = 6;
             label2.Text = "From";
             // 
@@ -507,8 +562,9 @@
             dateTimePickerFrom2.Format = DateTimePickerFormat.Short;
             dateTimePickerFrom2.Location = new Point(103, 28);
             dateTimePickerFrom2.Name = "dateTimePickerFrom2";
-            dateTimePickerFrom2.Size = new Size(258, 45);
+            dateTimePickerFrom2.Size = new Size(258, 26);
             dateTimePickerFrom2.TabIndex = 4;
+            dateTimePickerFrom2.ValueChanged += dateTimePickerFrom2_ValueChanged;
             // 
             // tabPage3
             // 
@@ -521,10 +577,10 @@
             tabPage3.Controls.Add(label4);
             tabPage3.Controls.Add(dateTimePickerTo3);
             tabPage3.Controls.Add(dateTimePickerFrom3);
-            tabPage3.Location = new Point(8, 51);
+            tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1571, 703);
+            tabPage3.Size = new Size(1428, 704);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Insurance";
             tabPage3.UseVisualStyleBackColor = true;
@@ -539,45 +595,20 @@
             exportButton3.TabIndex = 12;
             exportButton3.Text = "Export";
             exportButton3.UseVisualStyleBackColor = false;
-            exportButton3.Click += exportButton_Click;
+            exportButton3.Click += exportButton3_Click;
             // 
             // dataGridViewInsurance
             // 
             dataGridViewInsurance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewInsurance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewInsurance.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
             dataGridViewInsurance.Dock = DockStyle.Bottom;
-            dataGridViewInsurance.Location = new Point(3, 95);
+            dataGridViewInsurance.Location = new Point(3, 96);
             dataGridViewInsurance.Name = "dataGridViewInsurance";
             dataGridViewInsurance.RowHeadersWidth = 82;
-            dataGridViewInsurance.Size = new Size(1565, 605);
+            dataGridViewInsurance.Size = new Size(1422, 605);
             dataGridViewInsurance.TabIndex = 11;
             dataGridViewInsurance.CellContentDoubleClick += dataGridViewInsurance_CellContentDoubleClick;
             dataGridViewInsurance.CellFormatting += dataGridViewInsurance_CellFormatting;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Date";
-            dataGridViewTextBoxColumn5.MinimumWidth = 10;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "ClaimID";
-            dataGridViewTextBoxColumn6.MinimumWidth = 10;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "Amount";
-            dataGridViewTextBoxColumn7.MinimumWidth = 10;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Status";
-            dataGridViewTextBoxColumn8.MinimumWidth = 10;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // daysButton3
             // 
@@ -615,7 +646,7 @@
             label3.Font = new Font("Cambria", 8F);
             label3.Location = new Point(346, 46);
             label3.Name = "label3";
-            label3.Size = new Size(35, 26);
+            label3.Size = new Size(17, 12);
             label3.TabIndex = 7;
             label3.Text = "To";
             // 
@@ -625,7 +656,7 @@
             label4.Font = new Font("Cambria", 8F);
             label4.Location = new Point(6, 48);
             label4.Name = "label4";
-            label4.Size = new Size(63, 26);
+            label4.Size = new Size(31, 12);
             label4.TabIndex = 6;
             label4.Text = "From";
             // 
@@ -634,7 +665,7 @@
             dateTimePickerTo3.Format = DateTimePickerFormat.Short;
             dateTimePickerTo3.Location = new Point(401, 32);
             dateTimePickerTo3.Name = "dateTimePickerTo3";
-            dateTimePickerTo3.Size = new Size(253, 45);
+            dateTimePickerTo3.Size = new Size(253, 26);
             dateTimePickerTo3.TabIndex = 5;
             // 
             // dateTimePickerFrom3
@@ -642,19 +673,76 @@
             dateTimePickerFrom3.Format = DateTimePickerFormat.Short;
             dateTimePickerFrom3.Location = new Point(75, 32);
             dateTimePickerFrom3.Name = "dateTimePickerFrom3";
-            dateTimePickerFrom3.Size = new Size(265, 45);
+            dateTimePickerFrom3.Size = new Size(265, 26);
             dateTimePickerFrom3.TabIndex = 4;
+            // 
+            // lblCurrentPatient
+            // 
+            lblCurrentPatient.AutoSize = true;
+            lblCurrentPatient.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCurrentPatient.ForeColor = SystemColors.ControlLightLight;
+            lblCurrentPatient.Location = new Point(181, 806);
+            lblCurrentPatient.Name = "lblCurrentPatient";
+            lblCurrentPatient.Size = new Size(111, 14);
+            lblCurrentPatient.TabIndex = 22;
+            lblCurrentPatient.Text = "Patient Not Selected";
+            lblCurrentPatient.Click += lblCurrentPatient_Click;
+            // 
+            // currentlbl
+            // 
+            currentlbl.AutoSize = true;
+            currentlbl.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currentlbl.ForeColor = SystemColors.ControlLightLight;
+            currentlbl.Location = new Point(91, 806);
+            currentlbl.Name = "currentlbl";
+            currentlbl.Size = new Size(91, 14);
+            currentlbl.TabIndex = 21;
+            currentlbl.Text = "Current Patient:";
+            currentlbl.Click += currentlbl_Click;
+            // 
+            // btnLoadPatient
+            // 
+            btnLoadPatient.ForeColor = SystemColors.ActiveCaptionText;
+            btnLoadPatient.Location = new Point(143, 824);
+            btnLoadPatient.Name = "btnLoadPatient";
+            btnLoadPatient.Size = new Size(132, 26);
+            btnLoadPatient.TabIndex = 20;
+            btnLoadPatient.Text = "Load Patient";
+            btnLoadPatient.UseVisualStyleBackColor = true;
+            btnLoadPatient.Click += btnLoadPatient_Click;
+            // 
+            // txtPatientId
+            // 
+            txtPatientId.Location = new Point(12, 825);
+            txtPatientId.Name = "txtPatientId";
+            txtPatientId.Size = new Size(100, 26);
+            txtPatientId.TabIndex = 18;
+            // 
+            // patientIDlbl
+            // 
+            patientIDlbl.AutoSize = true;
+            patientIDlbl.ForeColor = SystemColors.ControlLightLight;
+            patientIDlbl.Location = new Point(1, 803);
+            patientIDlbl.Name = "patientIDlbl";
+            patientIDlbl.Size = new Size(77, 19);
+            patientIDlbl.TabIndex = 19;
+            patientIDlbl.Text = "Patient ID";
             // 
             // ReportBill
             // 
-            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(1444, 881);
+            Controls.Add(lblCurrentPatient);
             Controls.Add(tabControl1);
+            Controls.Add(currentlbl);
             Controls.Add(lblSearch);
+            Controls.Add(btnLoadPatient);
             Controls.Add(lblReportBill);
+            Controls.Add(patientIDlbl);
             Controls.Add(lblPrescriptions);
+            Controls.Add(txtPatientId);
             Controls.Add(lblAppoint);
             Controls.Add(lblPatientProfile);
             Controls.Add(lblMore);
@@ -670,7 +758,12 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClinical).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvAppointments).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPrescriptions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNotes).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -679,6 +772,7 @@
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInsurance).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -718,23 +812,25 @@
         private Button button5;
         private Button quarterButton3;
         private DateTimePicker dateTimePickerTo22;
-        private DataGridView dataGridViewClinical;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn ClaimID;
-        private DataGridViewTextBoxColumn Amount;
-        private DataGridViewTextBoxColumn Status;
         private DataGridView dataGridViewFinancial;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridView dataGridViewInsurance;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private Button exportButton;
+        private Button btnExportFinancial;
         private Button exportButton2;
         private Button exportButton3;
+        private Label lblCurrentPatient;
+        private Label currentlbl;
+        private Button btnLoadPatient;
+        private TextBox txtPatientId;
+        private Label patientIDlbl;
+        private Label patientHistorylbl;
+        private TableLayoutPanel tableLayoutPanel1;
+        private DataGridView dgvAppointments;
+        private DataGridView dgvPrescriptions;
+        private DataGridView dgvNotes;
+        private GroupBox groupBox1;
+        private Label lblAllergiestxt;
+        private Label lblHistorytxt;
+        private Label lblAllergies;
+        private Label lblHistory;
     }
 }

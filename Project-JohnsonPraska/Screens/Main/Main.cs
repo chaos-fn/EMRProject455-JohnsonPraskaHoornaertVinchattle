@@ -14,11 +14,24 @@ namespace Project_JohnsonPraska
             lblCurrentFName.Text = "First Name: " + firstName;
             lblCurrentLName.Text = "Last Name: " + lastName;
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            Rectangle screen = Screen.FromControl(this).WorkingArea;
+            float scaleX = (float)screen.Width / Width;
+            float scaleY = (float)screen.Height / Height;
+            float scale = Math.Min(scaleX, scaleY);
+            Scale(new SizeF(scale, scale));
+            Location = new Point(
+                screen.Left + (screen.Width - Width) / 2,
+                screen.Top + (screen.Height - Height) / 2
+            );
+        }
 
-        /*public Main()
+        public Main()
         {
             InitializeComponent();
-        }*/
+        }
 
         private void lblMap_Click(object sender, EventArgs e)
         {

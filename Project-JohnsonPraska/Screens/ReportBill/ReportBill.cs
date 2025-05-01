@@ -1,4 +1,6 @@
-﻿using Project_JohnsonPraska.Screens.ReportBill;
+﻿using Project_JohnsonPraska.Screens.Prescriptions;
+using Project_JohnsonPraska.Screens.ReportBill;
+using Project_JohnsonPraska.Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +10,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project_JohnsonPraska.Global;
+using static Project_JohnsonPraska.Screens.Prescriptions.prescriptionService;
 
 namespace Project_JohnsonPraska
 {
+
     public partial class ReportBill : Form
     {
-        private DateTimePicker dateTimePickerTo2;
+
+
+        private int _currentPatientId = -1;
+
+        private readonly BillingInvoiceRepository _invRepo = new BillingInvoiceRepository();
+        private readonly ReportBillService _rbService = new ReportBillService();
+        private readonly prescriptionService _rxService = new prescriptionService();
 
         public ReportBill()
         {
             InitializeComponent();
+            LoadInsuranceTab();
+        }
+        private void currentlbl_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void lblAccount_Click(object sender, EventArgs e)
@@ -124,6 +138,7 @@ namespace Project_JohnsonPraska
             var today = DateTime.Today;
             dateTimePickerFrom.Value = new DateTime(today.Year, today.Month, 1);
             dateTimePickerTo.Value = today;
+
         }
 
         private void quarterButton_Click(object sender, EventArgs e)
@@ -140,6 +155,7 @@ namespace Project_JohnsonPraska
         {
             dateTimePickerTo22.Value = DateTime.Today;
             dateTimePickerFrom2.Value = DateTime.Today.AddDays(-7);
+            RefreshFinancialGrid();
         }
 
         private void monthButton2_Click(object sender, EventArgs e)
@@ -147,6 +163,7 @@ namespace Project_JohnsonPraska
             var today = DateTime.Today;
             dateTimePickerFrom2.Value = new DateTime(today.Year, today.Month, 1);
             dateTimePickerTo22.Value = today;
+            RefreshFinancialGrid();
         }
 
         private void quarterButton2_Click(object sender, EventArgs e)
@@ -157,6 +174,7 @@ namespace Project_JohnsonPraska
 
             dateTimePickerFrom2.Value = new DateTime(today.Year, startMonth, 1);
             dateTimePickerTo22.Value = today;
+            RefreshFinancialGrid();
         }
 
         private void daysButton3_Click(object sender, EventArgs e)
@@ -183,29 +201,6 @@ namespace Project_JohnsonPraska
             dateTimePickerTo3.Value = today;
         }
 
-
-        //Colors the datagrid cells into a color depending on the status
-        private void dataGridViewClinical_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataGridViewClinical.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
-            {
-                var status = e.Value.ToString();
-                switch (status)
-                {
-                    case "Paid":
-                        e.CellStyle.BackColor = Color.LightGreen;
-                        break;
-                    case "Pending":
-                        e.CellStyle.BackColor = Color.LightYellow;
-                        break;
-                    case "Denied":
-                        e.CellStyle.BackColor = Color.LightCoral;
-                        break;
-                }
-                e.CellStyle.ForeColor = Color.Black;
-                e.FormattingApplied = true;
-            }
-        }
 
         private void dataGridViewFinancial_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -290,54 +285,149 @@ namespace Project_JohnsonPraska
         private void exportButton_Click(object sender, EventArgs e)
         {
             using var dlg = new FormExportOptions();
+
+
+            dlg.SetItems(new[] {
+                        "Appointments",
+                        "Prescriptions",
+                        "Notes",
+                        "Medical Record"
+                         });
+
+
+            dlg.SetFileTypes(new[] { "CSV", "PDF" }, defaultType: "CSV");
+
             if (dlg.ShowDialog() != DialogResult.OK)
                 return;
 
-            var exportType = dlg.ExportType;        // "CSV" or "PDF"
-            var selectedCols = dlg.SelectedColumns;   // e.g. ["Date","ClaimID","Status"]
 
-            //Choose which data grid to export based on the active tab
-            DataGridView dgv;
-            if (tabControl1.SelectedTab == tabPage1) dgv = dataGridViewClinical;
-            else if (tabControl1.SelectedTab == tabPage2) dgv = dataGridViewFinancial;
-            else dgv = dataGridViewInsurance;
+            var panelsToExport = dlg.SelectedItems;
+            var fileType = dlg.SelectedFileType;
 
-            DoExport(dgv, selectedCols, exportType);
+            foreach (var panel in panelsToExport)
+            {
+                switch (panel)
+                {
+                    case "Appointments":
+                        DoExport(
+                            dgvAppointments,
+                            null,             // null = export all columns
+                            fileType,
+                            "Appointments");
+                        break;
+
+                    case "Prescriptions":
+                        DoExport(
+                            dgvPrescriptions,
+                            null,
+                            fileType,
+                            "Prescriptions");
+                        break;
+
+                    case "Notes":
+                        DoExport(
+                            dgvNotes,
+                            null,
+                            fileType,
+                            "Notes");
+                        break;
+
+                    case "Medical Record":
+                        ExportMedicalRecord(fileType);
+                        break;
+                }
+            }
         }
 
-        private void DoExport(DataGridView dgv, List<string> cols, string type)
+        private void DoExport(
+                    DataGridView dgv,
+                    List<string>? cols,
+                    string type,
+                    string fileSuffix)
         {
             using var sfd = new SaveFileDialog();
+            sfd.Filter = type == "CSV"
+                ? "CSV files (*.csv)|*.csv"
+                : "PDF files (*.pdf)|*.pdf";
+            sfd.FileName = $"{lblCurrentPatient.Text}_{fileSuffix}.{type.ToLower()}";
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            if (type == "CSV")
+                ExportToCsv(dgv, cols, sfd.FileName);
+            else
+                ExportToPdf(dgv, cols, sfd.FileName);
+        }
+
+        private void ExportMedicalRecord(string type)
+        {
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = type == "CSV"
+                ? "CSV files (*.csv)|*.csv"
+                : "PDF files (*.pdf)|*.pdf";
+            sfd.FileName = $"{lblCurrentPatient.Text}_MedicalRecord.{type.ToLower()}";
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
             if (type == "CSV")
             {
-                sfd.Filter = "CSV files (*.csv)|*.csv";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                    ExportToCsv(dgv, cols, sfd.FileName);
+                var lines = new[]
+                {
+            $"MedicalHistory,\"{lblHistory.Text.Replace("\"","\"\"")}\"",
+            $"Allergies,\"{lblAllergies.Text.Replace("\"","\"\"")}\""
+        };
+                File.WriteAllLines(sfd.FileName, lines);
+                MessageBox.Show("CSV export complete!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                sfd.Filter = "PDF files (*.pdf)|*.pdf";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                    ExportToPdf(dgv, cols, sfd.FileName);
+                // stub PDF export
+                MessageBox.Show("PDF export not implemented yet.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void ExportToCsv(DataGridView dgv, List<string> cols, string path)
+        private void ExportToCsv(DataGridView dgv, List<string>? cols, string filePath)
         {
+            // Determine which columns to export
+            var columnNames = cols
+                ?? dgv.Columns
+                      .Cast<DataGridViewColumn>()
+                      .Select(c => c.Name)
+                      .ToList();
+
             var sb = new StringBuilder();
-            // Header
-            sb.AppendLine(string.Join(",", cols));
-            // Rows
+
+            // 1) Header row
+            sb.AppendLine(string.Join(",", columnNames));
+
+            // 2) Data rows
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 if (row.IsNewRow) continue;
-                var values = cols
-                    .Select(c => row.Cells[c].Value?.ToString()?.Replace(",", " ") ?? "")
-                    .ToArray();
+
+                var values = columnNames.Select(colName =>
+                {
+                    var cell = row.Cells[colName]?.Value;
+                    var text = cell?.ToString() ?? "";
+
+                    // Escape quotes by doubling them
+                    text = text.Replace("\"", "\"\"");
+
+                    // If text contains comma, quote, or newline, wrap in quotes
+                    if (text.IndexOfAny(new[] { ',', '"', '\n' }) >= 0)
+                        text = $"\"{text}\"";
+
+                    return text;
+                });
+
                 sb.AppendLine(string.Join(",", values));
             }
-            File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
-            MessageBox.Show("CSV export complete!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // 3) Write file
+            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
+
+            MessageBox.Show("CSV export complete!", "Export",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ExportToPdf(DataGridView dgv, List<string> cols, string path)
@@ -351,24 +441,15 @@ namespace Project_JohnsonPraska
 
         }
 
-        private void dataGridViewClinical_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridViewClinical.CurrentRow == null) return;
-            int claimId = Convert.ToInt32(
-                dataGridViewClinical.CurrentRow.Cells["ClaimID"].Value);
-
-            using var dlg = new FormClaimDetails(claimId);
-            dlg.ShowDialog();  // modal
-        }
 
         private void dataGridViewFinancial_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewFinancial.CurrentRow == null) return;
             int claimId = Convert.ToInt32(
-                dataGridViewFinancial.CurrentRow.Cells["ClaimID"].Value);
+                dataGridViewFinancial.CurrentRow.Cells["InvoiceID"].Value);
 
             using var dlg = new FormClaimDetails(claimId);
-            dlg.ShowDialog();  // modal
+            dlg.ShowDialog();
         }
 
         private void dataGridViewInsurance_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -380,5 +461,202 @@ namespace Project_JohnsonPraska
             using var dlg = new FormClaimDetails(claimId);
             dlg.ShowDialog();  // modal
         }
+
+        private void lblCurrentPatient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoadPatient_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtPatientId.Text.Trim(), out var id))
+            {
+                MessageBox.Show("Enter a valid numeric Patient ID.", "Invalid ID",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var patient = _rxService.GetPatientById(id);
+            if (patient == null)
+            {
+                MessageBox.Show($"No patient found with ID {id}.", "Not Found",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblCurrentPatient.Text = "No patient selected";
+                _currentPatientId = -1;
+                dataGridViewFinancial.DataSource = null;
+            }
+            else
+            {
+                _currentPatientId = patient.PatientID;
+                lblCurrentPatient.Text = $"{patient.Fname} {patient.Lname} (ID: {_currentPatientId})";
+                RefreshFinancialGrid();
+                RefreshClinicalTab();
+                //RefreshInsuranceGrid();
+            }
+        }
+        private void RefreshFinancialGrid()
+        {
+            if (_currentPatientId < 0) return;
+
+            // 1. Read the date range from your controls
+            var start = dateTimePickerFrom2.Value.Date;
+            var end = dateTimePickerTo22.Value.Date.AddDays(1).AddSeconds(-1);
+
+            // 2. Load filtered invoices
+            var list = _invRepo.GetInvoicesByPatient(_currentPatientId, start, end);
+            dataGridViewFinancial.DataSource = list;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RefreshClinicalTab()
+        {
+            if (_currentPatientId < 0) return;
+
+            var start = dateTimePickerFrom.Value.Date;
+            var end = dateTimePickerTo.Value.Date.AddDays(1).AddSeconds(-1);
+
+            // 1) Appointments
+            dgvAppointments.DataSource =
+                _rbService.GetRecentAppointments(_currentPatientId, start, end);
+            // 2) Prescriptions
+            var prescs = _rbService.GetRecentPrescriptions(_currentPatientId);
+            dgvPrescriptions.DataSource = prescs;
+
+            // 3) Doctor Notes
+            var notes = _rbService.GetRecentNotes(_currentPatientId);
+            dgvNotes.DataSource = notes;
+
+            // 4) Medical Record
+            var mr = _rbService.GetRecord(_currentPatientId);
+            lblHistorytxt.Text = mr?.MedicalHistory ?? "(none)";
+            lblAllergiestxt.Text = mr?.Allergies ?? "(none)";
+
+            // — Optional: rename column headers for clarity —
+            dgvAppointments.Columns["Date"].HeaderText = "Date";
+            dgvAppointments.Columns["Type"].HeaderText = "Visit Type";
+            dgvAppointments.Columns["Physician"].HeaderText = "Doctor";
+            dgvAppointments.Columns["Status"].HeaderText = "Status";
+
+            dgvPrescriptions.Columns["DrugName"].HeaderText = "Drug";
+            dgvPrescriptions.Columns["Dosage"].HeaderText = "Dosage";
+            dgvPrescriptions.Columns["Route"].HeaderText = "Route";
+            dgvPrescriptions.Columns["Frequency"].HeaderText = "Frequency";
+            dgvPrescriptions.Columns["Filled"].HeaderText = "Filled";
+
+            dgvNotes.Columns["Snippet"].HeaderText = "Note Snippet";
+            dgvNotes.Columns["Author"].HeaderText = "Author";
+            // if you add a Date property on DoctorNote, rename that too
+        }
+
+        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshClinicalTab();
+        }
+
+        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshClinicalTab();
+        }
+
+        private void btnExportFinancial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExportFinancial()
+        {
+            using var dlg = new FormExportOptions();
+
+            // Offer the billing-invoice fields for export
+            dlg.SetItems(new[]
+                            {
+                        "Date",
+                        "Description",
+                        "Price",
+                        "Status"
+                    });
+
+            // Offer CSV/PDF
+            dlg.SetFileTypes(new[] { "CSV", "PDF" }, defaultType: "CSV");
+
+            if (dlg.ShowDialog() != DialogResult.OK)
+                return;
+
+            var cols = dlg.SelectedItems;     // e.g. ["Date","Price"]
+            var fileType = dlg.SelectedFileType;  // "CSV" or "PDF"
+
+            DoExport(
+                dataGridViewFinancial,
+                cols,
+                fileType,
+                "Financial");
+        }
+
+        private void exportButton2_Click(object sender, EventArgs e)
+        {
+            ExportFinancial();
+        }
+
+        private void dateTimePickerFrom2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshFinancialGrid();
+        }
+
+        private void dateTimePickerTo22_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshFinancialGrid();
+        }
+
+        private void LoadInsuranceTab()
+        {
+            var companies = _rbService.GetAllInsuranceCompanies();
+            dataGridViewInsurance.DataSource = companies;
+        }
+
+        private void exportButton3_Click(object sender, EventArgs e)
+        {
+            var companies = _rbService.GetAllInsuranceCompanies();
+
+            using var sfd = new SaveFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv",
+                FileName = "InsuranceCompanies.csv"
+            };
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ExportInsuranceToCsv(companies, sfd.FileName);
+                MessageBox.Show("Export successful.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void ExportInsuranceToCsv(List<InsuranceCompany> companies, string filePath)
+        {
+            using var writer = new StreamWriter(filePath);
+            writer.WriteLine("Name,Address,Phone Number");
+
+            foreach (var company in companies)
+            {
+                writer.WriteLine($"\"{company.Name}\",\"{company.Address}\",\"{company.PhoneNumber}\"");
+            }
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            Rectangle screen = Screen.FromControl(this).WorkingArea;
+            float scaleX = (float)screen.Width / Width;
+            float scaleY = (float)screen.Height / Height;
+            float scale = Math.Min(scaleX, scaleY);
+            Scale(new SizeF(scale, scale));
+            Location = new Point(
+                screen.Left + (screen.Width - Width) / 2,
+                screen.Top + (screen.Height - Height) / 2
+            );
+        }
     }
+
 }

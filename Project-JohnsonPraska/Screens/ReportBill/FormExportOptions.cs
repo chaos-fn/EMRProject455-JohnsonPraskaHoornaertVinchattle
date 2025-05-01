@@ -21,7 +21,31 @@ namespace Project_JohnsonPraska.Screens.ReportBill
         public FormExportOptions()
         {
             InitializeComponent();
+
         }
+
+        public void SetItems(IEnumerable<string> items, bool checkAll = true)
+        {
+            checkedListBoxItems.Items.Clear();
+            checkedListBoxItems.Items.AddRange(items.ToArray());
+            if (checkAll)
+                for (int i = 0; i < checkedListBoxItems.Items.Count; i++)
+                    checkedListBoxItems.SetItemChecked(i, true);
+        }
+
+
+        public void SetFileTypes(IEnumerable<string> types, string defaultType = null)
+        {
+            comboBoxFileType.Items.Clear();
+            comboBoxFileType.Items.AddRange(types.ToArray());
+            comboBoxFileType.SelectedItem = defaultType ?? types.FirstOrDefault();
+        }
+
+        public List<string> SelectedItems
+    => checkedListBoxItems.CheckedItems.Cast<string>().ToList();
+
+        public string SelectedFileType
+            => comboBoxFileType.SelectedItem?.ToString() ?? "CSV";
 
         private void lblLeftMain_Click(object sender, EventArgs e)
         {
@@ -45,13 +69,11 @@ namespace Project_JohnsonPraska.Screens.ReportBill
             get
             {
                 var cols = new List<string>();
-                if (checkBoxDate.Checked) cols.Add("Date");
-                if (checkBoxClaimID.Checked) cols.Add("ClaimID");
-                if (checkBoxAmount.Checked) cols.Add("Amount");
-                if (checkBoxStatus.Checked) cols.Add("Status");
+
                 return cols;
             }
         }
+
     }
 
 

@@ -10,20 +10,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project_JohnsonPraska.Global;
 
+
 namespace Project_JohnsonPraska
 {
+
     public partial class Prescriptions : Form //COMMENT
     {
+
+        private readonly prescriptionService _rxService = new prescriptionService();
+        private int _currentPatientId = -1;
+        private int _selectedRxId = -1;
+
         public Prescriptions()
         {
+
             InitializeComponent();
             drugNameTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             drugNameTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             ValidateForm();
 
+
+            listViewHistory.Clear();
+
+
+            listViewHistory.View = View.Details;
+            listViewHistory.FullRowSelect = true;
+
+
+            listViewHistory.Columns.Add("ID", 50, HorizontalAlignment.Left);
+            listViewHistory.Columns.Add("Drug Name", 150, HorizontalAlignment.Left);
+            listViewHistory.Columns.Add("Dose", 100, HorizontalAlignment.Left);
+            listViewHistory.Columns.Add("Quantity", 80, HorizontalAlignment.Right);
+            listViewHistory.Columns.Add("Filled", 60, HorizontalAlignment.Center);
+            listViewHistory.Columns.Add("Route", 120, HorizontalAlignment.Left);
+            listViewHistory.Columns.Add("Frequency", 120, HorizontalAlignment.Left);
+            listViewHistory.Columns.Add("Instruction", 200, HorizontalAlignment.Left);
+
             //List of the items in the autocomplete
-            //add database integration later
+
             var drugList = new[]
 {
                     "Aspirin",
@@ -70,6 +95,7 @@ namespace Project_JohnsonPraska
                                             "As needed (PRN)"
             });
         }
+
 
         private void lblAccount_Click(object sender, EventArgs e)
         {
@@ -122,6 +148,16 @@ namespace Project_JohnsonPraska
         private void Prescriptions_Load(object sender, EventArgs e)
         {
             listViewHistory.Items.Clear();
+            buttonAddRx.Enabled = false;
+            lblCurrentPatient.Text = "No patient selected";
+            buttonAddRx.Enabled = false;
+            listViewHistory.Items.Clear();
+            drugNameTextBox.Text = "";
+            numericUpDownDose.Value = numericUpDownDose.Minimum;
+            comboBoxDoseUnit.SelectedIndex = -1;
+            comboBoxRoute.SelectedIndex = -1;
+            comboBoxFrequency.SelectedIndex = -1;
+            textBoxInstruction.Text = "";
 
             /** 
              * code for adding medication from the patients history into the list view
@@ -152,48 +188,57 @@ namespace Project_JohnsonPraska
 
         private void buttonSendRx_Click(object sender, EventArgs e)
         {
-            var summary = $"{numericUpDownDose.Value}{comboBoxDoseUnit.Text} × {comboBoxFrequency.Text}";
-            var result = MessageBox.Show(
-                $"Are you sure you want to send:\n{drugNameTextBox.Text} {summary}?",
-                "Confirm Send",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (_currentPatientId < 0)
             {
-
-                MessageBox.Show("Prescription sent successfully!", "Done",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Load a patient first.", "No Patient",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            var rx = new Prescription
+            {
+                PatientID = _currentPatientId,
+                DrugName = drugNameTextBox.Text,
+                Quantity = (int)numericUpDownQuantity.Value,
+                Dosage = $"{numericUpDownDose.Value} {comboBoxDoseUnit.Text}",
+                Instruction = textBoxInstruction.Text,
+                Route = comboBoxRoute.Text,
+                Frequency = comboBoxFrequency.Text,
+                Filled = false
+            };
+
+            var summary = $"{numericUpDownDose.Value}{comboBoxDoseUnit.Text} × {comboBoxFrequency.Text}";
+            if (MessageBox.Show(
+                    $"Are you sure you want to send:\n{rx.DrugName} {summary}?",
+                    "Confirm Send",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question)
+                != DialogResult.Yes)
+                return;
+
+            _rxService.AddPrescription(rx);
+            RefreshPrescriptionList(_currentPatientId);
+            MessageBox.Show("Prescription sent successfully!", "Done",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            buttonDeleteRx.Enabled = listViewHistory.SelectedItems.Count > 0;
         }
 
         private void listViewHistory_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
-            /**
-             * Code for sending the selected item into the edit form
-             * to be implemented later
             if (listViewHistory.SelectedItems.Count == 0) return;
-            var sel = listViewHistory.SelectedItems[0];
-            var med = /* map sel back to your Med object ;
-            using (var dlg = new FormEditMed(med))
-            {
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    // copy dlg.EditedMed back and refresh the listViewHistory
-                }
-            }
-            */
+            var rx = (Prescription)listViewHistory.SelectedItems[0].Tag;
 
-            using (var editForm = new FormEditMed())
+            using var editForm = new FormEditMed(rx);
+            if (editForm.ShowDialog() == DialogResult.OK)
             {
-                editForm.ShowDialog();
-                // later you can pull data back from editForm.EditedMed
+                // apply the changes
+                _rxService.UpdatePrescription(editForm.EditedRx);
+                RefreshPrescriptionList(_currentPatientId);
             }
         }
 
@@ -206,7 +251,7 @@ namespace Project_JohnsonPraska
             bool freqOk = comboBoxFrequency.SelectedIndex >= 0;
 
             // enable/disable the button
-            buttonSendRx.Enabled = drugOk && doseOk && unitOk && routeOk && freqOk;
+            buttonAddRx.Enabled = drugOk && doseOk && unitOk && routeOk && freqOk;
 
             //Provides an error message for incorrect fields
             errorProvider1.SetError(drugNameTextBox, drugOk ? "" : "Enter or select a drug");
@@ -234,6 +279,106 @@ namespace Project_JohnsonPraska
         private void comboBoxFrequency_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValidateForm();
+        }
+
+        private void RefreshPrescriptionList(int patientId)
+        {
+            listViewHistory.Items.Clear();
+            var list = _rxService.GetPrescriptions(patientId);
+            foreach (var rx in list)
+            {
+                var item = new ListViewItem(rx.PrescriptionID.ToString()); // ID
+                item.SubItems.Add(rx.DrugName);                            // Drug Name
+                item.SubItems.Add(rx.Dosage);                              // Dose
+                item.SubItems.Add(rx.Quantity.ToString());                 // Quantity
+                item.SubItems.Add(rx.Filled ? "Yes" : "No");               // Filled
+                item.SubItems.Add(rx.Route);                               // Route
+                item.SubItems.Add(rx.Frequency);                           // Frequency
+                item.SubItems.Add(rx.Instruction);                         // Instructions
+
+                item.Tag = rx;
+                listViewHistory.Items.Add(item);
+            }
+        }
+
+        private void btnLoadPatient_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtPatientId.Text.Trim(), out var id))
+            {
+                MessageBox.Show("Enter a valid numeric Patient ID.", "Invalid ID",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var patient = _rxService.GetPatientById(id);
+            if (patient == null)
+            {
+                MessageBox.Show($"No patient found with ID {id}.", "Not Found",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblCurrentPatient.Text = "No patient selected";
+                _currentPatientId = -1;
+                listViewHistory.Items.Clear();
+            }
+            else
+            {
+                _currentPatientId = patient.PatientID;
+                lblCurrentPatient.Text = $"{patient.Fname} {patient.Lname} (ID: {_currentPatientId})";
+                RefreshPrescriptionList(_currentPatientId);
+            }
+        }
+
+        private void textBoxInstruction_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void instructionslbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frequencylbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void routelbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteRx_Click(object sender, EventArgs e)
+        {
+            if (listViewHistory.SelectedItems.Count == 0)
+                return;
+
+            var rx = (Prescription)listViewHistory.SelectedItems[0].Tag;
+
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete prescription #{rx.PrescriptionID}?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result != DialogResult.Yes)
+                return;
+
+            _rxService.DeletePrescription(rx.PrescriptionID);
+
+            RefreshPrescriptionList(_currentPatientId);
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            Rectangle screen = Screen.FromControl(this).WorkingArea;
+            float scaleX = (float)screen.Width / Width;
+            float scaleY = (float)screen.Height / Height;
+            float scale = Math.Min(scaleX, scaleY);
+            Scale(new SizeF(scale, scale));
+            Location = new Point(
+                screen.Left + (screen.Width - Width) / 2,
+                screen.Top + (screen.Height - Height) / 2
+            );
         }
     }
 }

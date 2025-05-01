@@ -12,12 +12,24 @@ namespace Project_JohnsonPraska.Screens.Prescriptions
 {
     public partial class FormEditMed : Form
     {
-        public FormEditMed()
+
+        private readonly Prescription _originalRx;
+
+        public Prescription EditedRx { get; private set; }
+        public FormEditMed(Prescription rx)
         {
             InitializeComponent();
 
             drugNameTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             drugNameTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            _originalRx = rx;
+
+            drugNameTextBox.Text = rx.DrugName;
+            numericUpDownDose.Value = rx.Quantity;
+            comboBoxDoseUnit.Text = rx.Dosage;
+            textBoxInstruction.Text = rx.Instruction;
+            checkBoxFilled.Checked = rx.Filled;
 
             //List of the items in the autocomplete
             //add database integration later
@@ -76,6 +88,45 @@ namespace Project_JohnsonPraska.Screens.Prescriptions
         private void FormEditMed_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frequencylbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            EditedRx = new Prescription
+            {
+                PrescriptionID = _originalRx.PrescriptionID,
+                PatientID = _originalRx.PatientID,
+                DrugName = drugNameTextBox.Text,
+                Quantity = (int)numericUpDownQuantity.Value,
+                Dosage = $"{numericUpDownDose.Value} {comboBoxDoseUnit.Text}",
+                Instruction = textBoxInstruction.Text,
+                Filled = checkBoxFilled.Checked
+            };
+
+            // 3) close with OK so the caller knows to apply the update
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        private void comboBoxRoute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void routelbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
