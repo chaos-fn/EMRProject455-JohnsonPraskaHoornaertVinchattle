@@ -35,10 +35,7 @@
             label3 = new Label();
             exportButton = new Button();
             cancelButton = new Button();
-            checkBoxDate = new CheckBox();
-            checkBoxClaimID = new CheckBox();
-            checkBoxAmount = new CheckBox();
-            checkBoxStatus = new CheckBox();
+            checkedListBoxItems = new CheckedListBox();
             SuspendLayout();
             // 
             // lblLeftMain
@@ -120,49 +117,13 @@
             cancelButton.UseVisualStyleBackColor = true;
             cancelButton.Click += cancelButton_Click;
             // 
-            // checkBoxDate
+            // checkedListBoxItems
             // 
-            checkBoxDate.AutoSize = true;
-            checkBoxDate.BackColor = Color.White;
-            checkBoxDate.Location = new Point(189, 177);
-            checkBoxDate.Name = "checkBoxDate";
-            checkBoxDate.Size = new Size(50, 19);
-            checkBoxDate.TabIndex = 89;
-            checkBoxDate.Text = "Date";
-            checkBoxDate.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxClaimID
-            // 
-            checkBoxClaimID.AutoSize = true;
-            checkBoxClaimID.BackColor = Color.White;
-            checkBoxClaimID.Location = new Point(189, 202);
-            checkBoxClaimID.Name = "checkBoxClaimID";
-            checkBoxClaimID.Size = new Size(68, 19);
-            checkBoxClaimID.TabIndex = 90;
-            checkBoxClaimID.Text = "ClaimID";
-            checkBoxClaimID.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxAmount
-            // 
-            checkBoxAmount.AutoSize = true;
-            checkBoxAmount.BackColor = Color.White;
-            checkBoxAmount.Location = new Point(245, 177);
-            checkBoxAmount.Name = "checkBoxAmount";
-            checkBoxAmount.Size = new Size(70, 19);
-            checkBoxAmount.TabIndex = 91;
-            checkBoxAmount.Text = "Amount";
-            checkBoxAmount.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxStatus
-            // 
-            checkBoxStatus.AutoSize = true;
-            checkBoxStatus.BackColor = Color.White;
-            checkBoxStatus.Location = new Point(263, 202);
-            checkBoxStatus.Name = "checkBoxStatus";
-            checkBoxStatus.Size = new Size(58, 19);
-            checkBoxStatus.TabIndex = 92;
-            checkBoxStatus.Text = "Status";
-            checkBoxStatus.UseVisualStyleBackColor = false;
+            checkedListBoxItems.FormattingEnabled = true;
+            checkedListBoxItems.Location = new Point(189, 166);
+            checkedListBoxItems.Name = "checkedListBoxItems";
+            checkedListBoxItems.Size = new Size(120, 94);
+            checkedListBoxItems.TabIndex = 89;
             // 
             // FormExportOptions
             // 
@@ -170,10 +131,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(386, 450);
-            Controls.Add(checkBoxStatus);
-            Controls.Add(checkBoxAmount);
-            Controls.Add(checkBoxClaimID);
-            Controls.Add(checkBoxDate);
+            Controls.Add(checkedListBoxItems);
             Controls.Add(cancelButton);
             Controls.Add(exportButton);
             Controls.Add(label3);
@@ -196,9 +154,6 @@
         private Label label3;
         private Button exportButton;
         private Button cancelButton;
-        private CheckBox checkBoxDate;
-        private CheckBox checkBoxClaimID;
-        private CheckBox checkBoxAmount;
-        private CheckBox checkBoxStatus;
+        private CheckedListBox checkedListBoxItems;
     }
 }

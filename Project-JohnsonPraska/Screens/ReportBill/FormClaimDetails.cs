@@ -12,21 +12,33 @@ using System.Windows.Forms;
 
 namespace Project_JohnsonPraska.Screens.ReportBill
 {
-
-
     public partial class FormClaimDetails : Form
     {
-        private readonly int _claimId;
+        private readonly BillingInvoiceRepository _svc = new BillingInvoiceRepository();
 
-        public FormClaimDetails(int claimID)
+        public FormClaimDetails(int invoiceId)
         {
             InitializeComponent();
-            _claimId = claimID;
+            var inv = _svc.GetInvoiceById(invoiceId);
+            if (inv == null)
+            {
+                MessageBox.Show("Invoice not found.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            txtInvoiceId.Text = inv.InvoiceID.ToString();
+            txtAppointmentId.Text = inv.AppointmentID.ToString();
+            txtPatientId.Text = inv.PatientID.ToString();
+            txtDate.Text = inv.Date.ToString("yyyy-MM-dd HH:mm");
+            txtDescription.Text = inv.Description;
+            txtPrice.Text = inv.Price.ToString("C");
+            txtStatus.Text = inv.Status;
         }
 
-        private async void FormClaimDetails_Load(object sender, EventArgs e)
+        private void FormClaimDetails_Load_1(object sender, EventArgs e)
         {
-            // TODO: replace this with actual code
 
         }
     }

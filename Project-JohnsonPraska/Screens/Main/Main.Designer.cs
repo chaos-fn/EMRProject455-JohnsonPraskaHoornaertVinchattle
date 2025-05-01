@@ -138,10 +138,10 @@
             Month.Controls.Add(Today);
             Month.Controls.Add(Week);
             Month.Controls.Add(tabPage1);
-            Month.Location = new Point(52, 171);
+            Month.Location = new Point(23, 134);
             Month.Name = "Month";
             Month.SelectedIndex = 0;
-            Month.Size = new Size(1503, 609);
+            Month.Size = new Size(1308, 560);
             Month.TabIndex = 79;
             // 
             // Today
@@ -150,7 +150,7 @@
             Today.Location = new Point(4, 28);
             Today.Name = "Today";
             Today.Padding = new Padding(3);
-            Today.Size = new Size(1495, 577);
+            Today.Size = new Size(1300, 528);
             Today.TabIndex = 0;
             Today.Text = "Today";
             Today.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             dataGridView3.Location = new Point(3, 3);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(1489, 571);
+            dataGridView3.Size = new Size(1294, 522);
             dataGridView3.TabIndex = 73;
             // 
             // dataGridViewTextBoxColumn7
@@ -228,7 +228,7 @@
             Week.Location = new Point(4, 24);
             Week.Name = "Week";
             Week.Padding = new Padding(3);
-            Week.Size = new Size(1495, 581);
+            Week.Size = new Size(1300, 532);
             Week.TabIndex = 1;
             Week.Text = "Week";
             Week.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1489, 575);
+            dataGridView1.Size = new Size(1294, 526);
             dataGridView1.TabIndex = 74;
             // 
             // dataGridViewTextBoxColumn1
@@ -306,7 +306,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1495, 581);
+            tabPage1.Size = new Size(1300, 532);
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Month";
             tabPage1.UseVisualStyleBackColor = true;
@@ -319,7 +319,7 @@
             dataGridView2.Location = new Point(3, 3);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1489, 575);
+            dataGridView2.Size = new Size(1294, 526);
             dataGridView2.TabIndex = 74;
             // 
             // dataGridViewTextBoxColumn14
@@ -474,7 +474,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1902, 1039);
+            ClientSize = new Size(1444, 881);
             Controls.Add(btnLogout);
             Controls.Add(lblCurrentLName);
             Controls.Add(lblCurrentFName);
@@ -493,7 +493,7 @@
             Margin = new Padding(4);
             MaximizeBox = false;
             MaximumSize = new Size(1920, 1080);
-            MinimumSize = new Size(1918, 1078);
+            MinimumSize = new Size(1438, 850);
             Name = "Main";
             Text = "Main Menu";
             Month.ResumeLayout(false);
