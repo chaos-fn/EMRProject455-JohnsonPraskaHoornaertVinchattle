@@ -61,6 +61,7 @@
             drugNamelbl = new Label();
             drugNameTextBox = new TextBox();
             pescriptionComposelbl = new Label();
+            buttonDeleteRx = new Button();
             listViewHistory = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -71,7 +72,6 @@
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
             errorProvider1 = new ErrorProvider(components);
-            buttonDeleteRx = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -156,9 +156,9 @@
             lblMore.Enabled = false;
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1058, 784);
+            lblMore.Location = new Point(1058, 778);
             lblMore.Name = "lblMore";
-            lblMore.Size = new Size(500, 150);
+            lblMore.Size = new Size(481, 150);
             lblMore.TabIndex = 82;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
@@ -168,9 +168,9 @@
             lblPG.BackColor = Color.FromArgb(30, 76, 99);
             lblPG.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblPG.ForeColor = Color.White;
-            lblPG.Location = new Point(494, 784);
+            lblPG.Location = new Point(420, 778);
             lblPG.Name = "lblPG";
-            lblPG.Size = new Size(920, 150);
+            lblPG.Size = new Size(652, 150);
             lblPG.TabIndex = 81;
             lblPG.Text = "Patient Registration";
             lblPG.TextAlign = ContentAlignment.MiddleCenter;
@@ -183,7 +183,7 @@
             lblHome.ForeColor = Color.White;
             lblHome.Location = new Point(0, 784);
             lblHome.Name = "lblHome";
-            lblHome.Size = new Size(500, 150);
+            lblHome.Size = new Size(458, 150);
             lblHome.TabIndex = 80;
             lblHome.Text = "Home";
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
@@ -206,7 +206,7 @@
             // 
             splitter1.Location = new Point(0, 0);
             splitter1.Name = "splitter1";
-            splitter1.Size = new Size(3, 881);
+            splitter1.Size = new Size(3, 905);
             splitter1.TabIndex = 88;
             splitter1.TabStop = false;
             // 
@@ -242,10 +242,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(buttonDeleteRx);
             splitContainer1.Panel2.Controls.Add(listViewHistory);
             splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
-            splitContainer1.Size = new Size(1118, 682);
-            splitContainer1.SplitterDistance = 371;
+            splitContainer1.Size = new Size(1189, 682);
+            splitContainer1.SplitterDistance = 394;
             splitContainer1.TabIndex = 89;
             // 
             // numericUpDownQuantity
@@ -445,12 +446,23 @@
             pescriptionComposelbl.TabIndex = 0;
             pescriptionComposelbl.Text = "Perscription Composer";
             // 
+            // buttonDeleteRx
+            // 
+            buttonDeleteRx.Enabled = false;
+            buttonDeleteRx.Location = new Point(346, 647);
+            buttonDeleteRx.Name = "buttonDeleteRx";
+            buttonDeleteRx.Size = new Size(81, 29);
+            buttonDeleteRx.TabIndex = 90;
+            buttonDeleteRx.Text = "Delete Rx";
+            buttonDeleteRx.UseVisualStyleBackColor = true;
+            buttonDeleteRx.Click += buttonDeleteRx_Click;
+            // 
             // listViewHistory
             // 
             listViewHistory.AutoArrange = false;
             listViewHistory.BackColor = Color.FromArgb(64, 64, 64);
             listViewHistory.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader8, columnHeader6, columnHeader7 });
-            listViewHistory.Dock = DockStyle.Fill;
+            listViewHistory.Dock = DockStyle.Top;
             listViewHistory.ForeColor = SystemColors.Window;
             listViewHistory.FullRowSelect = true;
             listViewHistory.GridLines = true;
@@ -458,7 +470,7 @@
             listViewHistory.Location = new Point(0, 0);
             listViewHistory.MultiSelect = false;
             listViewHistory.Name = "listViewHistory";
-            listViewHistory.Size = new Size(743, 682);
+            listViewHistory.Size = new Size(791, 644);
             listViewHistory.TabIndex = 0;
             listViewHistory.UseCompatibleStateImageBehavior = false;
             listViewHistory.View = View.Details;
@@ -512,24 +524,12 @@
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             errorProvider1.ContainerControl = this;
             // 
-            // buttonDeleteRx
-            // 
-            buttonDeleteRx.Enabled = false;
-            buttonDeleteRx.Location = new Point(1281, 784);
-            buttonDeleteRx.Name = "buttonDeleteRx";
-            buttonDeleteRx.Size = new Size(81, 29);
-            buttonDeleteRx.TabIndex = 90;
-            buttonDeleteRx.Text = "Delete Rx";
-            buttonDeleteRx.UseVisualStyleBackColor = true;
-            buttonDeleteRx.Click += buttonDeleteRx_Click;
-            // 
             // Prescriptions
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1444, 881);
-            Controls.Add(buttonDeleteRx);
+            ClientSize = new Size(1506, 905);
             Controls.Add(splitContainer1);
             Controls.Add(splitter1);
             Controls.Add(lblSearch);
@@ -545,6 +545,7 @@
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             Name = "Prescriptions";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Prescriptions";
             Load += Prescriptions_Load;
             splitContainer1.Panel1.ResumeLayout(false);
