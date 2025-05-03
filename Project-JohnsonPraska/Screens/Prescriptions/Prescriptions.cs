@@ -170,6 +170,13 @@ namespace Project_JohnsonPraska
                 listViewHistory.Items.Add(item);
             }
             */
+            bool isDoctor = UserService.GetCurrentUserRole() == 1;
+            groupBox1.Visible = isDoctor;
+            buttonDeleteRx.Visible = isDoctor;
+            patientLoadBox.Visible = true;
+
+
+
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -229,7 +236,8 @@ namespace Project_JohnsonPraska
 
         private void listViewHistory_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            bool isDoctor = UserService.GetCurrentUserRole() == 1;
+            if (!isDoctor) return;
             if (listViewHistory.SelectedItems.Count == 0) return;
             var rx = (Prescription)listViewHistory.SelectedItems[0].Tag;
 

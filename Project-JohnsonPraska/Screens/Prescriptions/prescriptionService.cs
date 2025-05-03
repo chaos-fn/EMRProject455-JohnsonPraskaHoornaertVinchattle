@@ -170,5 +170,23 @@ namespace Project_JohnsonPraska.Screens.Prescriptions
             cmd.ExecuteNonQuery();
         }
     }
+    public static class UserService
+    {
+        private static readonly string _conn =
+            "server=localhost;port=3306;user id=appuser;password=password;database=emr;";
+
+        public static int GetCurrentUserRole()
+        {
+            using var cn = new MySqlConnection(_conn);
+            using var cmd = new MySqlCommand(@"
+            SELECT Role_ID
+              FROM Employee
+             WHERE Employee_ID = @eid;", cn);
+
+            cmd.Parameters.AddWithValue("@eid", Project_JohnsonPraska.Global.Session.EmployeeID);
+            cn.Open();
+            return Convert.ToInt32(cmd.ExecuteScalar() ?? 0);
+        }
+    }
 }
 

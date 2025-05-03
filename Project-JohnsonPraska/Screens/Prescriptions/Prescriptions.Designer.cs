@@ -41,26 +41,28 @@
             lblLeftMain = new Label();
             splitter1 = new Splitter();
             splitContainer1 = new SplitContainer();
+            groupBox1 = new GroupBox();
+            buttonAddRx = new Button();
             numericUpDownQuantity = new NumericUpDown();
+            pescriptionComposelbl = new Label();
             quantitylbl = new Label();
+            drugNameTextBox = new TextBox();
+            textBoxInstruction = new TextBox();
+            drugNamelbl = new Label();
+            instructionslbl = new Label();
+            numericUpDownDose = new NumericUpDown();
+            doselbl = new Label();
+            comboBoxFrequency = new ComboBox();
+            comboBoxDoseUnit = new ComboBox();
+            frequencylbl = new Label();
+            routelbl = new Label();
+            comboBoxRoute = new ComboBox();
+            patientLoadBox = new GroupBox();
+            btnLoadPatient = new Button();
+            txtPatientId = new TextBox();
+            patientIDlbl = new Label();
             lblCurrentPatient = new Label();
             currentlbl = new Label();
-            btnLoadPatient = new Button();
-            patientIDlbl = new Label();
-            txtPatientId = new TextBox();
-            textBoxInstruction = new TextBox();
-            instructionslbl = new Label();
-            buttonAddRx = new Button();
-            comboBoxFrequency = new ComboBox();
-            frequencylbl = new Label();
-            comboBoxRoute = new ComboBox();
-            routelbl = new Label();
-            comboBoxDoseUnit = new ComboBox();
-            doselbl = new Label();
-            numericUpDownDose = new NumericUpDown();
-            drugNamelbl = new Label();
-            drugNameTextBox = new TextBox();
-            pescriptionComposelbl = new Label();
             buttonDeleteRx = new Button();
             listViewHistory = new ListView();
             columnHeader1 = new ColumnHeader();
@@ -76,8 +78,10 @@
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownQuantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDose).BeginInit();
+            patientLoadBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -217,26 +221,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(numericUpDownQuantity);
-            splitContainer1.Panel1.Controls.Add(quantitylbl);
-            splitContainer1.Panel1.Controls.Add(lblCurrentPatient);
-            splitContainer1.Panel1.Controls.Add(currentlbl);
-            splitContainer1.Panel1.Controls.Add(btnLoadPatient);
-            splitContainer1.Panel1.Controls.Add(patientIDlbl);
-            splitContainer1.Panel1.Controls.Add(txtPatientId);
-            splitContainer1.Panel1.Controls.Add(textBoxInstruction);
-            splitContainer1.Panel1.Controls.Add(instructionslbl);
-            splitContainer1.Panel1.Controls.Add(buttonAddRx);
-            splitContainer1.Panel1.Controls.Add(comboBoxFrequency);
-            splitContainer1.Panel1.Controls.Add(frequencylbl);
-            splitContainer1.Panel1.Controls.Add(comboBoxRoute);
-            splitContainer1.Panel1.Controls.Add(routelbl);
-            splitContainer1.Panel1.Controls.Add(comboBoxDoseUnit);
-            splitContainer1.Panel1.Controls.Add(doselbl);
-            splitContainer1.Panel1.Controls.Add(numericUpDownDose);
-            splitContainer1.Panel1.Controls.Add(drugNamelbl);
-            splitContainer1.Panel1.Controls.Add(drugNameTextBox);
-            splitContainer1.Panel1.Controls.Add(pescriptionComposelbl);
+            splitContainer1.Panel1.Controls.Add(groupBox1);
+            splitContainer1.Panel1.Controls.Add(patientLoadBox);
             splitContainer1.Panel1.ForeColor = SystemColors.Control;
             splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
             // 
@@ -249,9 +235,43 @@
             splitContainer1.SplitterDistance = 394;
             splitContainer1.TabIndex = 89;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(buttonAddRx);
+            groupBox1.Controls.Add(numericUpDownQuantity);
+            groupBox1.Controls.Add(pescriptionComposelbl);
+            groupBox1.Controls.Add(quantitylbl);
+            groupBox1.Controls.Add(drugNameTextBox);
+            groupBox1.Controls.Add(textBoxInstruction);
+            groupBox1.Controls.Add(drugNamelbl);
+            groupBox1.Controls.Add(instructionslbl);
+            groupBox1.Controls.Add(numericUpDownDose);
+            groupBox1.Controls.Add(doselbl);
+            groupBox1.Controls.Add(comboBoxFrequency);
+            groupBox1.Controls.Add(comboBoxDoseUnit);
+            groupBox1.Controls.Add(frequencylbl);
+            groupBox1.Controls.Add(routelbl);
+            groupBox1.Controls.Add(comboBoxRoute);
+            groupBox1.Location = new Point(22, 121);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(359, 558);
+            groupBox1.TabIndex = 21;
+            groupBox1.TabStop = false;
+            // 
+            // buttonAddRx
+            // 
+            buttonAddRx.BackColor = Color.DarkSlateGray;
+            buttonAddRx.Location = new Point(74, 478);
+            buttonAddRx.Name = "buttonAddRx";
+            buttonAddRx.Size = new Size(207, 72);
+            buttonAddRx.TabIndex = 10;
+            buttonAddRx.Text = "Send To Pharmacy";
+            buttonAddRx.UseVisualStyleBackColor = false;
+            buttonAddRx.Click += buttonSendRx_Click;
+            // 
             // numericUpDownQuantity
             // 
-            numericUpDownQuantity.Location = new Point(38, 339);
+            numericUpDownQuantity.Location = new Point(14, 219);
             numericUpDownQuantity.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownQuantity.Name = "numericUpDownQuantity";
@@ -259,21 +279,181 @@
             numericUpDownQuantity.TabIndex = 19;
             numericUpDownQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // pescriptionComposelbl
+            // 
+            pescriptionComposelbl.AutoSize = true;
+            pescriptionComposelbl.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            pescriptionComposelbl.ForeColor = SystemColors.ControlLightLight;
+            pescriptionComposelbl.Location = new Point(68, 0);
+            pescriptionComposelbl.Name = "pescriptionComposelbl";
+            pescriptionComposelbl.Size = new Size(213, 22);
+            pescriptionComposelbl.TabIndex = 0;
+            pescriptionComposelbl.Text = "Perscription Composer";
+            // 
             // quantitylbl
             // 
             quantitylbl.AutoSize = true;
             quantitylbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             quantitylbl.ForeColor = SystemColors.ControlLightLight;
-            quantitylbl.Location = new Point(29, 311);
+            quantitylbl.Location = new Point(5, 191);
             quantitylbl.Name = "quantitylbl";
             quantitylbl.Size = new Size(96, 25);
             quantitylbl.TabIndex = 18;
             quantitylbl.Text = "Quantity ";
             // 
+            // drugNameTextBox
+            // 
+            drugNameTextBox.Location = new Point(14, 78);
+            drugNameTextBox.Name = "drugNameTextBox";
+            drugNameTextBox.Size = new Size(330, 26);
+            drugNameTextBox.TabIndex = 1;
+            drugNameTextBox.TextChanged += drugNameTextBox_TextChanged;
+            // 
+            // textBoxInstruction
+            // 
+            textBoxInstruction.Location = new Point(16, 445);
+            textBoxInstruction.Name = "textBoxInstruction";
+            textBoxInstruction.Size = new Size(331, 26);
+            textBoxInstruction.TabIndex = 12;
+            textBoxInstruction.TextChanged += textBoxInstruction_TextChanged;
+            // 
+            // drugNamelbl
+            // 
+            drugNamelbl.AutoSize = true;
+            drugNamelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            drugNamelbl.ForeColor = SystemColors.ButtonHighlight;
+            drugNamelbl.Location = new Point(-2, 37);
+            drugNamelbl.Name = "drugNamelbl";
+            drugNamelbl.Size = new Size(113, 25);
+            drugNamelbl.TabIndex = 2;
+            drugNamelbl.Text = "Drug Name";
+            // 
+            // instructionslbl
+            // 
+            instructionslbl.AutoSize = true;
+            instructionslbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            instructionslbl.ForeColor = SystemColors.ControlLightLight;
+            instructionslbl.Location = new Point(0, 417);
+            instructionslbl.Name = "instructionslbl";
+            instructionslbl.Size = new Size(122, 25);
+            instructionslbl.TabIndex = 11;
+            instructionslbl.Text = "Instructions";
+            instructionslbl.Click += instructionslbl_Click;
+            // 
+            // numericUpDownDose
+            // 
+            numericUpDownDose.Location = new Point(14, 146);
+            numericUpDownDose.Name = "numericUpDownDose";
+            numericUpDownDose.Size = new Size(133, 26);
+            numericUpDownDose.TabIndex = 3;
+            numericUpDownDose.ValueChanged += numericUpDownDose_ValueChanged;
+            // 
+            // doselbl
+            // 
+            doselbl.AutoSize = true;
+            doselbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            doselbl.ForeColor = SystemColors.ControlLightLight;
+            doselbl.Location = new Point(-2, 117);
+            doselbl.Name = "doselbl";
+            doselbl.Size = new Size(133, 25);
+            doselbl.TabIndex = 4;
+            doselbl.Text = "Dose Amount";
+            // 
+            // comboBoxFrequency
+            // 
+            comboBoxFrequency.FormattingEnabled = true;
+            comboBoxFrequency.Location = new Point(14, 366);
+            comboBoxFrequency.Name = "comboBoxFrequency";
+            comboBoxFrequency.Size = new Size(331, 27);
+            comboBoxFrequency.TabIndex = 9;
+            comboBoxFrequency.SelectedIndexChanged += comboBoxFrequency_SelectedIndexChanged;
+            // 
+            // comboBoxDoseUnit
+            // 
+            comboBoxDoseUnit.FormattingEnabled = true;
+            comboBoxDoseUnit.Location = new Point(185, 146);
+            comboBoxDoseUnit.Name = "comboBoxDoseUnit";
+            comboBoxDoseUnit.Size = new Size(121, 27);
+            comboBoxDoseUnit.TabIndex = 5;
+            comboBoxDoseUnit.SelectedIndexChanged += comboBoxDoseUnit_SelectedIndexChanged;
+            // 
+            // frequencylbl
+            // 
+            frequencylbl.AutoSize = true;
+            frequencylbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            frequencylbl.ForeColor = SystemColors.ControlLightLight;
+            frequencylbl.Location = new Point(-2, 338);
+            frequencylbl.Name = "frequencylbl";
+            frequencylbl.Size = new Size(107, 25);
+            frequencylbl.TabIndex = 8;
+            frequencylbl.Text = "Frequency";
+            frequencylbl.Click += frequencylbl_Click;
+            // 
+            // routelbl
+            // 
+            routelbl.AutoSize = true;
+            routelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            routelbl.ForeColor = SystemColors.ControlLightLight;
+            routelbl.Location = new Point(-2, 254);
+            routelbl.Name = "routelbl";
+            routelbl.Size = new Size(65, 25);
+            routelbl.TabIndex = 6;
+            routelbl.Text = "Route";
+            routelbl.Click += routelbl_Click;
+            // 
+            // comboBoxRoute
+            // 
+            comboBoxRoute.FormattingEnabled = true;
+            comboBoxRoute.Location = new Point(14, 282);
+            comboBoxRoute.Name = "comboBoxRoute";
+            comboBoxRoute.Size = new Size(331, 27);
+            comboBoxRoute.TabIndex = 7;
+            comboBoxRoute.SelectedIndexChanged += comboBoxRoute_SelectedIndexChanged;
+            // 
+            // patientLoadBox
+            // 
+            patientLoadBox.Controls.Add(btnLoadPatient);
+            patientLoadBox.Controls.Add(txtPatientId);
+            patientLoadBox.Controls.Add(patientIDlbl);
+            patientLoadBox.Controls.Add(lblCurrentPatient);
+            patientLoadBox.Controls.Add(currentlbl);
+            patientLoadBox.Location = new Point(23, 0);
+            patientLoadBox.Name = "patientLoadBox";
+            patientLoadBox.Size = new Size(358, 120);
+            patientLoadBox.TabIndex = 20;
+            patientLoadBox.TabStop = false;
+            // 
+            // btnLoadPatient
+            // 
+            btnLoadPatient.ForeColor = SystemColors.ActiveCaptionText;
+            btnLoadPatient.Location = new Point(148, 50);
+            btnLoadPatient.Name = "btnLoadPatient";
+            btnLoadPatient.Size = new Size(132, 26);
+            btnLoadPatient.TabIndex = 15;
+            btnLoadPatient.Text = "Load Patient";
+            btnLoadPatient.UseVisualStyleBackColor = true;
+            btnLoadPatient.Click += btnLoadPatient_Click;
+            // 
+            // txtPatientId
+            // 
+            txtPatientId.Location = new Point(17, 50);
+            txtPatientId.Name = "txtPatientId";
+            txtPatientId.Size = new Size(100, 26);
+            txtPatientId.TabIndex = 13;
+            // 
+            // patientIDlbl
+            // 
+            patientIDlbl.AutoSize = true;
+            patientIDlbl.Location = new Point(17, 28);
+            patientIDlbl.Name = "patientIDlbl";
+            patientIDlbl.Size = new Size(77, 19);
+            patientIDlbl.TabIndex = 14;
+            patientIDlbl.Text = "Patient ID";
+            // 
             // lblCurrentPatient
             // 
             lblCurrentPatient.AutoSize = true;
-            lblCurrentPatient.Location = new Point(154, 86);
+            lblCurrentPatient.Location = new Point(148, 90);
             lblCurrentPatient.Name = "lblCurrentPatient";
             lblCurrentPatient.Size = new Size(147, 19);
             lblCurrentPatient.TabIndex = 17;
@@ -282,169 +462,11 @@
             // currentlbl
             // 
             currentlbl.AutoSize = true;
-            currentlbl.Location = new Point(29, 86);
+            currentlbl.Location = new Point(14, 90);
             currentlbl.Name = "currentlbl";
             currentlbl.Size = new Size(119, 19);
             currentlbl.TabIndex = 16;
             currentlbl.Text = "Current Patient:";
-            // 
-            // btnLoadPatient
-            // 
-            btnLoadPatient.ForeColor = SystemColors.ActiveCaptionText;
-            btnLoadPatient.Location = new Point(160, 36);
-            btnLoadPatient.Name = "btnLoadPatient";
-            btnLoadPatient.Size = new Size(132, 26);
-            btnLoadPatient.TabIndex = 15;
-            btnLoadPatient.Text = "Load Patient";
-            btnLoadPatient.UseVisualStyleBackColor = true;
-            btnLoadPatient.Click += btnLoadPatient_Click;
-            // 
-            // patientIDlbl
-            // 
-            patientIDlbl.AutoSize = true;
-            patientIDlbl.Location = new Point(29, 14);
-            patientIDlbl.Name = "patientIDlbl";
-            patientIDlbl.Size = new Size(77, 19);
-            patientIDlbl.TabIndex = 14;
-            patientIDlbl.Text = "Patient ID";
-            // 
-            // txtPatientId
-            // 
-            txtPatientId.Location = new Point(29, 36);
-            txtPatientId.Name = "txtPatientId";
-            txtPatientId.Size = new Size(100, 26);
-            txtPatientId.TabIndex = 13;
-            // 
-            // textBoxInstruction
-            // 
-            textBoxInstruction.Location = new Point(38, 572);
-            textBoxInstruction.Name = "textBoxInstruction";
-            textBoxInstruction.Size = new Size(331, 26);
-            textBoxInstruction.TabIndex = 12;
-            textBoxInstruction.TextChanged += textBoxInstruction_TextChanged;
-            // 
-            // instructionslbl
-            // 
-            instructionslbl.AutoSize = true;
-            instructionslbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            instructionslbl.ForeColor = SystemColors.ControlLightLight;
-            instructionslbl.Location = new Point(22, 544);
-            instructionslbl.Name = "instructionslbl";
-            instructionslbl.Size = new Size(122, 25);
-            instructionslbl.TabIndex = 11;
-            instructionslbl.Text = "Instructions";
-            instructionslbl.Click += instructionslbl_Click;
-            // 
-            // buttonAddRx
-            // 
-            buttonAddRx.BackColor = Color.DarkSlateGray;
-            buttonAddRx.Location = new Point(85, 604);
-            buttonAddRx.Name = "buttonAddRx";
-            buttonAddRx.Size = new Size(207, 72);
-            buttonAddRx.TabIndex = 10;
-            buttonAddRx.Text = "Send To Pharmacy";
-            buttonAddRx.UseVisualStyleBackColor = false;
-            buttonAddRx.Click += buttonSendRx_Click;
-            // 
-            // comboBoxFrequency
-            // 
-            comboBoxFrequency.FormattingEnabled = true;
-            comboBoxFrequency.Location = new Point(38, 486);
-            comboBoxFrequency.Name = "comboBoxFrequency";
-            comboBoxFrequency.Size = new Size(331, 27);
-            comboBoxFrequency.TabIndex = 9;
-            comboBoxFrequency.SelectedIndexChanged += comboBoxFrequency_SelectedIndexChanged;
-            // 
-            // frequencylbl
-            // 
-            frequencylbl.AutoSize = true;
-            frequencylbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            frequencylbl.ForeColor = SystemColors.ControlLightLight;
-            frequencylbl.Location = new Point(22, 458);
-            frequencylbl.Name = "frequencylbl";
-            frequencylbl.Size = new Size(107, 25);
-            frequencylbl.TabIndex = 8;
-            frequencylbl.Text = "Frequency";
-            frequencylbl.Click += frequencylbl_Click;
-            // 
-            // comboBoxRoute
-            // 
-            comboBoxRoute.FormattingEnabled = true;
-            comboBoxRoute.Location = new Point(38, 402);
-            comboBoxRoute.Name = "comboBoxRoute";
-            comboBoxRoute.Size = new Size(331, 27);
-            comboBoxRoute.TabIndex = 7;
-            comboBoxRoute.SelectedIndexChanged += comboBoxRoute_SelectedIndexChanged;
-            // 
-            // routelbl
-            // 
-            routelbl.AutoSize = true;
-            routelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            routelbl.ForeColor = SystemColors.ControlLightLight;
-            routelbl.Location = new Point(22, 374);
-            routelbl.Name = "routelbl";
-            routelbl.Size = new Size(65, 25);
-            routelbl.TabIndex = 6;
-            routelbl.Text = "Route";
-            routelbl.Click += routelbl_Click;
-            // 
-            // comboBoxDoseUnit
-            // 
-            comboBoxDoseUnit.FormattingEnabled = true;
-            comboBoxDoseUnit.Location = new Point(209, 266);
-            comboBoxDoseUnit.Name = "comboBoxDoseUnit";
-            comboBoxDoseUnit.Size = new Size(121, 27);
-            comboBoxDoseUnit.TabIndex = 5;
-            comboBoxDoseUnit.SelectedIndexChanged += comboBoxDoseUnit_SelectedIndexChanged;
-            // 
-            // doselbl
-            // 
-            doselbl.AutoSize = true;
-            doselbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            doselbl.ForeColor = SystemColors.ControlLightLight;
-            doselbl.Location = new Point(22, 237);
-            doselbl.Name = "doselbl";
-            doselbl.Size = new Size(133, 25);
-            doselbl.TabIndex = 4;
-            doselbl.Text = "Dose Amount";
-            // 
-            // numericUpDownDose
-            // 
-            numericUpDownDose.Location = new Point(38, 266);
-            numericUpDownDose.Name = "numericUpDownDose";
-            numericUpDownDose.Size = new Size(133, 26);
-            numericUpDownDose.TabIndex = 3;
-            numericUpDownDose.ValueChanged += numericUpDownDose_ValueChanged;
-            // 
-            // drugNamelbl
-            // 
-            drugNamelbl.AutoSize = true;
-            drugNamelbl.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            drugNamelbl.ForeColor = SystemColors.ButtonHighlight;
-            drugNamelbl.Location = new Point(22, 157);
-            drugNamelbl.Name = "drugNamelbl";
-            drugNamelbl.Size = new Size(113, 25);
-            drugNamelbl.TabIndex = 2;
-            drugNamelbl.Text = "Drug Name";
-            // 
-            // drugNameTextBox
-            // 
-            drugNameTextBox.Location = new Point(38, 198);
-            drugNameTextBox.Name = "drugNameTextBox";
-            drugNameTextBox.Size = new Size(330, 26);
-            drugNameTextBox.TabIndex = 1;
-            drugNameTextBox.TextChanged += drugNameTextBox_TextChanged;
-            // 
-            // pescriptionComposelbl
-            // 
-            pescriptionComposelbl.AutoSize = true;
-            pescriptionComposelbl.Font = new Font("Cambria", 14F, FontStyle.Bold);
-            pescriptionComposelbl.ForeColor = SystemColors.ControlLightLight;
-            pescriptionComposelbl.Location = new Point(106, 120);
-            pescriptionComposelbl.Name = "pescriptionComposelbl";
-            pescriptionComposelbl.Size = new Size(213, 22);
-            pescriptionComposelbl.TabIndex = 0;
-            pescriptionComposelbl.Text = "Perscription Composer";
             // 
             // buttonDeleteRx
             // 
@@ -549,12 +571,15 @@
             Text = "Prescriptions";
             Load += Prescriptions_Load;
             splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownQuantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDose).EndInit();
+            patientLoadBox.ResumeLayout(false);
+            patientLoadBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
@@ -602,5 +627,7 @@
         private Label quantitylbl;
         private ColumnHeader columnHeader8;
         private Button buttonDeleteRx;
+        private GroupBox patientLoadBox;
+        private GroupBox groupBox1;
     }
 }
