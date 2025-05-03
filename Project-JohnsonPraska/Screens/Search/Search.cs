@@ -119,7 +119,16 @@ namespace Project_JohnsonPraska
 
         private void dataPatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Code here to view selected patient profile
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                string id = (string)dataPatients[0, e.RowIndex].Value;
+                this.Hide();
+                More more = new More(id);
+                more.Closed += (s, args) => this.Close();
+                more.Show();
+            }
         }
 
         private void FillGrid(DataGridView grid, DataTable data)
