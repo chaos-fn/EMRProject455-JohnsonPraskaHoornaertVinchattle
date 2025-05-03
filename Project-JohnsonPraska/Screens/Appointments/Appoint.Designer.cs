@@ -63,11 +63,6 @@
             weekStatus = new DataGridViewTextBoxColumn();
             todayTab = new TabPage();
             todayDataGridView = new DataGridView();
-            Appointments = new TabControl();
-            confrmButton = new Button();
-            rescheduleButton = new Button();
-            cancelButton = new Button();
-            deleteAppointbtn = new Button();
             todayDate = new DataGridViewTextBoxColumn();
             todayPatientID = new DataGridViewTextBoxColumn();
             todayPatient = new DataGridViewTextBoxColumn();
@@ -77,6 +72,13 @@
             todayEmployeeID = new DataGridViewTextBoxColumn();
             todayEmployee = new DataGridViewTextBoxColumn();
             todayStatus = new DataGridViewTextBoxColumn();
+            Appointments = new TabControl();
+            confrmButton = new Button();
+            rescheduleButton = new Button();
+            cancelButton = new Button();
+            deleteAppointbtn = new Button();
+            label1 = new Label();
+            label2 = new Label();
             monthTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)monthDataGridView).BeginInit();
             weekTab.SuspendLayout();
@@ -91,10 +93,10 @@
             lblSearch.BorderStyle = BorderStyle.Fixed3D;
             lblSearch.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblSearch.ForeColor = Color.White;
-            lblSearch.Location = new Point(0, 665);
+            lblSearch.Location = new Point(1, 598);
             lblSearch.Margin = new Padding(4, 0, 4, 0);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(307, 129);
+            lblSearch.Size = new Size(307, 113);
             lblSearch.TabIndex = 71;
             lblSearch.Text = "Search";
             lblSearch.TextAlign = ContentAlignment.MiddleCenter;
@@ -105,10 +107,10 @@
             lblReportBill.BorderStyle = BorderStyle.Fixed3D;
             lblReportBill.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblReportBill.ForeColor = Color.White;
-            lblReportBill.Location = new Point(1, 522);
+            lblReportBill.Location = new Point(1, 478);
             lblReportBill.Margin = new Padding(4, 0, 4, 0);
             lblReportBill.Name = "lblReportBill";
-            lblReportBill.Size = new Size(306, 143);
+            lblReportBill.Size = new Size(306, 120);
             lblReportBill.TabIndex = 70;
             lblReportBill.Text = "Reports/Billing";
             lblReportBill.TextAlign = ContentAlignment.MiddleCenter;
@@ -119,10 +121,10 @@
             lblPrescriptions.BorderStyle = BorderStyle.Fixed3D;
             lblPrescriptions.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblPrescriptions.ForeColor = Color.White;
-            lblPrescriptions.Location = new Point(1, 388);
+            lblPrescriptions.Location = new Point(1, 359);
             lblPrescriptions.Margin = new Padding(4, 0, 4, 0);
             lblPrescriptions.Name = "lblPrescriptions";
-            lblPrescriptions.Size = new Size(306, 137);
+            lblPrescriptions.Size = new Size(306, 119);
             lblPrescriptions.TabIndex = 69;
             lblPrescriptions.Text = "Prescriptions";
             lblPrescriptions.TextAlign = ContentAlignment.MiddleCenter;
@@ -133,10 +135,10 @@
             lblAppoint.BorderStyle = BorderStyle.Fixed3D;
             lblAppoint.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline);
             lblAppoint.ForeColor = Color.White;
-            lblAppoint.Location = new Point(1, 242);
+            lblAppoint.Location = new Point(1, 229);
             lblAppoint.Margin = new Padding(4, 0, 4, 0);
             lblAppoint.Name = "lblAppoint";
-            lblAppoint.Size = new Size(306, 146);
+            lblAppoint.Size = new Size(306, 130);
             lblAppoint.TabIndex = 68;
             lblAppoint.Text = "Appointments";
             lblAppoint.TextAlign = ContentAlignment.MiddleCenter;
@@ -149,7 +151,7 @@
             lblPatientProfile.Location = new Point(0, 96);
             lblPatientProfile.Margin = new Padding(4, 0, 4, 0);
             lblPatientProfile.Name = "lblPatientProfile";
-            lblPatientProfile.Size = new Size(307, 146);
+            lblPatientProfile.Size = new Size(307, 133);
             lblPatientProfile.TabIndex = 67;
             lblPatientProfile.Text = "Patient Profile";
             lblPatientProfile.TextAlign = ContentAlignment.MiddleCenter;
@@ -161,9 +163,9 @@
             lblMore.Enabled = false;
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1420, 861);
+            lblMore.Location = new Point(1012, 765);
             lblMore.Name = "lblMore";
-            lblMore.Size = new Size(500, 150);
+            lblMore.Size = new Size(509, 150);
             lblMore.TabIndex = 66;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
@@ -173,7 +175,7 @@
             lblPG.BackColor = Color.FromArgb(30, 76, 99);
             lblPG.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblPG.ForeColor = Color.White;
-            lblPG.Location = new Point(500, 861);
+            lblPG.Location = new Point(274, 765);
             lblPG.Name = "lblPG";
             lblPG.Size = new Size(920, 150);
             lblPG.TabIndex = 65;
@@ -186,7 +188,7 @@
             lblHome.BackColor = Color.FromArgb(30, 76, 99);
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 861);
+            lblHome.Location = new Point(-36, 765);
             lblHome.Name = "lblHome";
             lblHome.Size = new Size(500, 150);
             lblHome.TabIndex = 64;
@@ -209,17 +211,17 @@
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1472, 537);
+            monthCalendar1.Location = new Point(1192, 549);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 72;
             // 
             // monthTab
             // 
             monthTab.Controls.Add(monthDataGridView);
-            monthTab.Location = new Point(8, 46);
+            monthTab.Location = new Point(4, 32);
             monthTab.Name = "monthTab";
             monthTab.Padding = new Padding(3);
-            monthTab.Size = new Size(1521, 366);
+            monthTab.Size = new Size(1170, 384);
             monthTab.TabIndex = 2;
             monthTab.Text = "Month";
             monthTab.UseVisualStyleBackColor = true;
@@ -232,7 +234,7 @@
             monthDataGridView.Location = new Point(3, 3);
             monthDataGridView.Name = "monthDataGridView";
             monthDataGridView.RowHeadersWidth = 82;
-            monthDataGridView.Size = new Size(1515, 360);
+            monthDataGridView.Size = new Size(1164, 378);
             monthDataGridView.TabIndex = 74;
             // 
             // monthDate
@@ -249,16 +251,16 @@
             monthPatientID.HeaderText = "PatientID *";
             monthPatientID.MinimumWidth = 10;
             monthPatientID.Name = "monthPatientID";
-            monthPatientID.Width = 212;
+            monthPatientID.Width = 133;
             // 
             // monthPatient
             // 
             monthPatient.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             monthPatient.HeaderText = "Patient";
-            monthPatient.MinimumWidth = 10;
+            monthPatient.MinimumWidth = 150;
             monthPatient.Name = "monthPatient";
             monthPatient.ReadOnly = true;
-            monthPatient.Width = 160;
+            monthPatient.Width = 150;
             // 
             // monthPhysicianID
             // 
@@ -266,7 +268,7 @@
             monthPhysicianID.HeaderText = "PhysicianID *";
             monthPhysicianID.MinimumWidth = 10;
             monthPhysicianID.Name = "monthPhysicianID";
-            monthPhysicianID.Width = 245;
+            monthPhysicianID.Width = 154;
             // 
             // monthPhysician
             // 
@@ -275,7 +277,7 @@
             monthPhysician.MinimumWidth = 10;
             monthPhysician.Name = "monthPhysician";
             monthPhysician.ReadOnly = true;
-            monthPhysician.Width = 193;
+            monthPhysician.Width = 122;
             // 
             // monthReason
             // 
@@ -283,7 +285,7 @@
             monthReason.HeaderText = "Reason *";
             monthReason.MinimumWidth = 10;
             monthReason.Name = "monthReason";
-            monthReason.Width = 183;
+            monthReason.Width = 115;
             // 
             // monthEmployeeID
             // 
@@ -291,7 +293,7 @@
             monthEmployeeID.HeaderText = "EmployeeID *";
             monthEmployeeID.MinimumWidth = 10;
             monthEmployeeID.Name = "monthEmployeeID";
-            monthEmployeeID.Width = 250;
+            monthEmployeeID.Width = 157;
             // 
             // monthEmployee
             // 
@@ -299,7 +301,7 @@
             monthEmployee.HeaderText = "Employee";
             monthEmployee.MinimumWidth = 10;
             monthEmployee.Name = "monthEmployee";
-            monthEmployee.Width = 198;
+            monthEmployee.Width = 125;
             // 
             // monthStatus
             // 
@@ -308,15 +310,15 @@
             monthStatus.MinimumWidth = 10;
             monthStatus.Name = "monthStatus";
             monthStatus.ReadOnly = true;
-            monthStatus.Width = 148;
+            monthStatus.Width = 93;
             // 
             // weekTab
             // 
             weekTab.Controls.Add(weekDataGridView);
-            weekTab.Location = new Point(8, 46);
+            weekTab.Location = new Point(4, 29);
             weekTab.Name = "weekTab";
             weekTab.Padding = new Padding(3);
-            weekTab.Size = new Size(1521, 366);
+            weekTab.Size = new Size(1170, 387);
             weekTab.TabIndex = 1;
             weekTab.Text = "Week";
             weekTab.UseVisualStyleBackColor = true;
@@ -329,7 +331,7 @@
             weekDataGridView.Location = new Point(3, 3);
             weekDataGridView.Name = "weekDataGridView";
             weekDataGridView.RowHeadersWidth = 82;
-            weekDataGridView.Size = new Size(1515, 360);
+            weekDataGridView.Size = new Size(1164, 381);
             weekDataGridView.TabIndex = 78;
             // 
             // weekDate
@@ -347,17 +349,17 @@
             weekPatientID.HeaderText = "PatientID *";
             weekPatientID.MinimumWidth = 10;
             weekPatientID.Name = "weekPatientID";
-            weekPatientID.Width = 212;
+            weekPatientID.Width = 133;
             // 
             // weekPatient
             // 
             weekPatient.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             weekPatient.FillWeight = 38.4615364F;
             weekPatient.HeaderText = "Patient";
-            weekPatient.MinimumWidth = 10;
+            weekPatient.MinimumWidth = 150;
             weekPatient.Name = "weekPatient";
             weekPatient.ReadOnly = true;
-            weekPatient.Width = 160;
+            weekPatient.Width = 150;
             // 
             // weekPhysicianID
             // 
@@ -365,7 +367,7 @@
             weekPhysicianID.HeaderText = "PhysicianID *";
             weekPhysicianID.MinimumWidth = 10;
             weekPhysicianID.Name = "weekPhysicianID";
-            weekPhysicianID.Width = 245;
+            weekPhysicianID.Width = 154;
             // 
             // weekPhysician
             // 
@@ -375,7 +377,7 @@
             weekPhysician.MinimumWidth = 10;
             weekPhysician.Name = "weekPhysician";
             weekPhysician.ReadOnly = true;
-            weekPhysician.Width = 193;
+            weekPhysician.Width = 122;
             // 
             // weekReason
             // 
@@ -384,7 +386,7 @@
             weekReason.HeaderText = "Reason *";
             weekReason.MinimumWidth = 10;
             weekReason.Name = "weekReason";
-            weekReason.Width = 183;
+            weekReason.Width = 115;
             // 
             // weekEmployeeID
             // 
@@ -392,7 +394,7 @@
             weekEmployeeID.HeaderText = "EmployeeID *";
             weekEmployeeID.MinimumWidth = 10;
             weekEmployeeID.Name = "weekEmployeeID";
-            weekEmployeeID.Width = 250;
+            weekEmployeeID.Width = 157;
             // 
             // weekEmployee
             // 
@@ -402,7 +404,7 @@
             weekEmployee.MinimumWidth = 10;
             weekEmployee.Name = "weekEmployee";
             weekEmployee.ReadOnly = true;
-            weekEmployee.Width = 198;
+            weekEmployee.Width = 125;
             // 
             // weekStatus
             // 
@@ -412,15 +414,15 @@
             weekStatus.MinimumWidth = 10;
             weekStatus.Name = "weekStatus";
             weekStatus.ReadOnly = true;
-            weekStatus.Width = 148;
+            weekStatus.Width = 93;
             // 
             // todayTab
             // 
             todayTab.Controls.Add(todayDataGridView);
-            todayTab.Location = new Point(8, 51);
+            todayTab.Location = new Point(4, 32);
             todayTab.Name = "todayTab";
             todayTab.Padding = new Padding(3);
-            todayTab.Size = new Size(1521, 361);
+            todayTab.Size = new Size(1170, 384);
             todayTab.TabIndex = 0;
             todayTab.Text = "Today";
             todayTab.UseVisualStyleBackColor = true;
@@ -433,63 +435,9 @@
             todayDataGridView.Location = new Point(3, 3);
             todayDataGridView.Name = "todayDataGridView";
             todayDataGridView.RowHeadersWidth = 82;
-            todayDataGridView.Size = new Size(1515, 355);
+            todayDataGridView.Size = new Size(1164, 378);
             todayDataGridView.TabIndex = 73;
             todayDataGridView.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Appointments
-            // 
-            Appointments.Controls.Add(todayTab);
-            Appointments.Controls.Add(weekTab);
-            Appointments.Controls.Add(monthTab);
-            Appointments.Location = new Point(339, 105);
-            Appointments.Name = "Appointments";
-            Appointments.SelectedIndex = 0;
-            Appointments.Size = new Size(1537, 420);
-            Appointments.TabIndex = 74;
-            // 
-            // confrmButton
-            // 
-            confrmButton.BackColor = Color.FromArgb(0, 192, 0);
-            confrmButton.Location = new Point(339, 682);
-            confrmButton.Name = "confrmButton";
-            confrmButton.Size = new Size(342, 46);
-            confrmButton.TabIndex = 75;
-            confrmButton.Text = "Confirm Appointment";
-            confrmButton.UseVisualStyleBackColor = false;
-            confrmButton.Click += confrmButton_Click;
-            // 
-            // rescheduleButton
-            // 
-            rescheduleButton.Location = new Point(802, 633);
-            rescheduleButton.Name = "rescheduleButton";
-            rescheduleButton.Size = new Size(274, 46);
-            rescheduleButton.TabIndex = 76;
-            rescheduleButton.Text = "Reschedule";
-            rescheduleButton.UseVisualStyleBackColor = true;
-            rescheduleButton.Click += rescheduleButton_Click;
-            // 
-            // cancelButton
-            // 
-            cancelButton.BackColor = Color.IndianRed;
-            cancelButton.Location = new Point(802, 734);
-            cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(274, 46);
-            cancelButton.TabIndex = 77;
-            cancelButton.Text = "Mark as Cancel";
-            cancelButton.UseVisualStyleBackColor = false;
-            cancelButton.Click += cancelButton_Click;
-            // 
-            // deleteAppointbtn
-            // 
-            deleteAppointbtn.BackColor = Color.Red;
-            deleteAppointbtn.Location = new Point(1187, 682);
-            deleteAppointbtn.Name = "deleteAppointbtn";
-            deleteAppointbtn.Size = new Size(259, 46);
-            deleteAppointbtn.TabIndex = 78;
-            deleteAppointbtn.Text = "Delete";
-            deleteAppointbtn.UseVisualStyleBackColor = false;
-            deleteAppointbtn.Click += deleteAppointbtn_Click;
             // 
             // todayDate
             // 
@@ -509,7 +457,7 @@
             todayPatientID.HeaderText = "PatientID *";
             todayPatientID.MinimumWidth = 10;
             todayPatientID.Name = "todayPatientID";
-            todayPatientID.Width = 212;
+            todayPatientID.Width = 133;
             // 
             // todayPatient
             // 
@@ -519,7 +467,7 @@
             todayPatient.MinimumWidth = 150;
             todayPatient.Name = "todayPatient";
             todayPatient.ReadOnly = true;
-            todayPatient.Width = 160;
+            todayPatient.Width = 150;
             // 
             // todayPhysicianID
             // 
@@ -527,7 +475,7 @@
             todayPhysicianID.HeaderText = "PhysicianID *";
             todayPhysicianID.MinimumWidth = 10;
             todayPhysicianID.Name = "todayPhysicianID";
-            todayPhysicianID.Width = 245;
+            todayPhysicianID.Width = 154;
             // 
             // todayPhysician
             // 
@@ -537,7 +485,7 @@
             todayPhysician.MinimumWidth = 100;
             todayPhysician.Name = "todayPhysician";
             todayPhysician.ReadOnly = true;
-            todayPhysician.Width = 193;
+            todayPhysician.Width = 122;
             // 
             // todayReason
             // 
@@ -546,7 +494,7 @@
             todayReason.HeaderText = "Reason *";
             todayReason.MinimumWidth = 10;
             todayReason.Name = "todayReason";
-            todayReason.Width = 183;
+            todayReason.Width = 115;
             // 
             // todayEmployeeID
             // 
@@ -554,7 +502,7 @@
             todayEmployeeID.HeaderText = "EmployeeID *";
             todayEmployeeID.MinimumWidth = 10;
             todayEmployeeID.Name = "todayEmployeeID";
-            todayEmployeeID.Width = 250;
+            todayEmployeeID.Width = 157;
             // 
             // todayEmployee
             // 
@@ -564,7 +512,7 @@
             todayEmployee.MinimumWidth = 10;
             todayEmployee.Name = "todayEmployee";
             todayEmployee.ReadOnly = true;
-            todayEmployee.Width = 198;
+            todayEmployee.Width = 125;
             // 
             // todayStatus
             // 
@@ -574,14 +522,91 @@
             todayStatus.MinimumWidth = 10;
             todayStatus.Name = "todayStatus";
             todayStatus.ReadOnly = true;
-            todayStatus.Width = 148;
+            todayStatus.Width = 93;
+            // 
+            // Appointments
+            // 
+            Appointments.Controls.Add(todayTab);
+            Appointments.Controls.Add(weekTab);
+            Appointments.Controls.Add(monthTab);
+            Appointments.Location = new Point(325, 105);
+            Appointments.Name = "Appointments";
+            Appointments.SelectedIndex = 0;
+            Appointments.Size = new Size(1178, 420);
+            Appointments.TabIndex = 74;
+            // 
+            // confrmButton
+            // 
+            confrmButton.BackColor = Color.FromArgb(0, 192, 0);
+            confrmButton.Location = new Point(344, 651);
+            confrmButton.Name = "confrmButton";
+            confrmButton.Size = new Size(232, 46);
+            confrmButton.TabIndex = 75;
+            confrmButton.Text = "Confirm Appointment";
+            confrmButton.UseVisualStyleBackColor = false;
+            confrmButton.Click += confrmButton_Click;
+            // 
+            // rescheduleButton
+            // 
+            rescheduleButton.Location = new Point(676, 618);
+            rescheduleButton.Name = "rescheduleButton";
+            rescheduleButton.Size = new Size(175, 46);
+            rescheduleButton.TabIndex = 76;
+            rescheduleButton.Text = "Reschedule";
+            rescheduleButton.UseVisualStyleBackColor = true;
+            rescheduleButton.Click += rescheduleButton_Click;
+            // 
+            // cancelButton
+            // 
+            cancelButton.BackColor = Color.IndianRed;
+            cancelButton.Location = new Point(673, 700);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(178, 46);
+            cancelButton.TabIndex = 77;
+            cancelButton.Text = "Mark as Cancel";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
+            // 
+            // deleteAppointbtn
+            // 
+            deleteAppointbtn.BackColor = Color.Red;
+            deleteAppointbtn.Location = new Point(898, 651);
+            deleteAppointbtn.Name = "deleteAppointbtn";
+            deleteAppointbtn.Size = new Size(224, 46);
+            deleteAppointbtn.TabIndex = 78;
+            deleteAppointbtn.Text = "Delete";
+            deleteAppointbtn.UseVisualStyleBackColor = false;
+            deleteAppointbtn.Click += deleteAppointbtn_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(385, 549);
+            label1.Name = "label1";
+            label1.Size = new Size(736, 23);
+            label1.TabIndex = 79;
+            label1.Text = "Please enter all the required (*) fields and then select the entire row to apply changes";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Cambria", 10F);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(522, 578);
+            label2.Name = "label2";
+            label2.Size = new Size(506, 20);
+            label2.TabIndex = 80;
+            label2.Text = "Note: the calendar on the right serves only as a visual guide for dates.";
             // 
             // Appoint
             // 
-            AutoScaleDimensions = new SizeF(192F, 192F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(1506, 905);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(deleteAppointbtn);
             Controls.Add(cancelButton);
             Controls.Add(rescheduleButton);
@@ -601,6 +626,7 @@
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             Name = "Appoint";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Appoint";
             Load += Appoint_Load;
             monthTab.ResumeLayout(false);
@@ -611,6 +637,7 @@
             ((System.ComponentModel.ISupportInitialize)todayDataGridView).EndInit();
             Appointments.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -635,6 +662,17 @@
         private DataGridView monthDataGridView;
         private DataGridView weekDataGridView;
         private Button deleteAppointbtn;
+        private DataGridViewTextBoxColumn todayDate;
+        private DataGridViewTextBoxColumn todayPatientID;
+        private DataGridViewTextBoxColumn todayPatient;
+        private DataGridViewTextBoxColumn todayPhysicianID;
+        private DataGridViewTextBoxColumn todayPhysician;
+        private DataGridViewTextBoxColumn todayReason;
+        private DataGridViewTextBoxColumn todayEmployeeID;
+        private DataGridViewTextBoxColumn todayEmployee;
+        private DataGridViewTextBoxColumn todayStatus;
+        private Label label1;
+        private Label label2;
         private DataGridViewTextBoxColumn monthDate;
         private DataGridViewTextBoxColumn monthPatientID;
         private DataGridViewTextBoxColumn monthPatient;
@@ -653,14 +691,5 @@
         private DataGridViewTextBoxColumn weekEmployeeID;
         private DataGridViewTextBoxColumn weekEmployee;
         private DataGridViewTextBoxColumn weekStatus;
-        private DataGridViewTextBoxColumn todayDate;
-        private DataGridViewTextBoxColumn todayPatientID;
-        private DataGridViewTextBoxColumn todayPatient;
-        private DataGridViewTextBoxColumn todayPhysicianID;
-        private DataGridViewTextBoxColumn todayPhysician;
-        private DataGridViewTextBoxColumn todayReason;
-        private DataGridViewTextBoxColumn todayEmployeeID;
-        private DataGridViewTextBoxColumn todayEmployee;
-        private DataGridViewTextBoxColumn todayStatus;
     }
 }

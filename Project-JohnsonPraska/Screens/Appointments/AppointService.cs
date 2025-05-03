@@ -11,35 +11,40 @@ namespace Project_JohnsonPraska
         public static DataTable GetAppointments(DateTime startDate, DateTime endDate)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = new MySqlConnection(connectionString))
+            using (var cmd = conn.CreateCommand())
             {
                 conn.Open();
-                string query = @"SELECT Appointment.Appointment_ID, Appointment.Date, 
-                                        Appointment.Patient_ID,
-                                        Patient.Fname AS PatientName, 
-                                        Appointment.Physician_ID, 
-                                        Appointment.Type AS Reason, 
-                                        Appointment.Employee_ID,
-                                        Employee.Fname AS EmployeeName, 
-                                        Appointment.Status_ID
-                                 FROM Appointment
-                                 JOIN Patient ON Appointment.Patient_ID = Patient.Patient_ID
-                                 JOIN Employee ON Appointment.Employee_ID = Employee.Employee_ID
-                                 WHERE Appointment.Date BETWEEN @start AND @end
-                                 ORDER BY Appointment.Date ASC;";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@start", startDate);
-                    cmd.Parameters.AddWithValue("@end", endDate);
+                cmd.CommandText = @"
+            SELECT 
+                a.Appointment_ID,
+                a.Date,
+                a.Patient_ID,
+                p.Fname AS PatientName,
+                
+                a.Physician_ID,
+                phy.Fname AS PhysicianName,     -- <— new alias
+                
+                a.Type       AS Reason,
+                a.Employee_ID,
+                emp.Fname    AS EmployeeName,
+                a.Status_ID
+            FROM Appointment a
+            JOIN Patient  p   ON a.Patient_ID    = p.Patient_ID
+            JOIN Employee emp ON a.Employee_ID   = emp.Employee_ID
+            JOIN Employee phy ON a.Physician_ID  = phy.Employee_ID  -- <— second join
+            WHERE a.Date BETWEEN @start AND @end
+            ORDER BY a.Date ASC;
+        ";
+                cmd.Parameters.AddWithValue("@start", startDate);
+                cmd.Parameters.AddWithValue("@end", endDate);
 
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dt);
-                    }
-                }
+                using (var adapter = new MySqlDataAdapter(cmd))
+                    adapter.Fill(dt);
             }
             return dt;
         }
+
 
         public static void ConfirmAppointment(int appointmentID, int patientID, int employeeID, int physicianID, string type, DateTime date)
         {

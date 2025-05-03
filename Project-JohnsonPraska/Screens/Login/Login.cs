@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MainForm = Project_JohnsonPraska.Main;
 using System;
 using System.Windows.Forms;
 using Project_JohnsonPraska.Global;
@@ -65,7 +66,11 @@ namespace Project_JohnsonPraska.Screens.Login
             if (VerifyEmployeePIN(Session.EmployeeID, enteredPIN))
             {
                 this.Hide();
-                Main main = new Main(Session.EmployeeID, Session.FirstName, Session.LastName);
+                var main = new MainForm(
+                    Session.EmployeeID,
+                    Session.FirstName,
+                    Session.LastName
+                );
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }
@@ -74,7 +79,6 @@ namespace Project_JohnsonPraska.Screens.Login
                 MessageBox.Show("Invalid PIN for this user. Try again.", "Invalid PIN");
             }
         }
-
 
         public bool VerifyEmployeeLogin(int employeeId, string password)
         {
