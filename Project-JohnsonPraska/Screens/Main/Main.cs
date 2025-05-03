@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
-using Project_JohnsonPraska.Global;         
+using Project_JohnsonPraska.Global;
 using Project_JohnsonPraska.Screens.Login;
 using MainSvc = Project_JohnsonPraska.Screens.Main.MainService;
 
@@ -16,7 +16,7 @@ namespace Project_JohnsonPraska
             InitializeComponent();
 
             _employeeID = employeeID;
-            lblCurrentID.Text = $"Employee ID: {_employeeID}";
+            lblCurrentID.Text = $"Role: {MapRole(_employeeID)}";
             lblCurrentFName.Text = $"First Name: {firstName}";
             lblCurrentLName.Text = $"Last Name: {lastName}";
 
@@ -28,6 +28,16 @@ namespace Project_JohnsonPraska
             this.Load += Main_Load;
             MainDataView.SelectedIndexChanged += MainDataView_SelectedIndexChanged;
         }
+        private string MapRole(int id) => id switch
+        {
+            1 => "Physician",
+            2 => "Nurse",
+            3 => "Office",
+            4 => "Office",
+            5 => "Office",
+            _ => "Unknown"
+        };
+
 
         public Main()
         {

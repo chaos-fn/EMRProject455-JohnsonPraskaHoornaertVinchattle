@@ -8,7 +8,12 @@ namespace Project_JohnsonPraska.Screens.Main
     {
         private static readonly string connectionString =
             "server=localhost;port=3306;user id=appuser;password=password;database=emr;";
-        public static DataTable GetAppointmentsForEmployee(int physicianID, DateTime start, DateTime end)
+
+        /// <summary>
+        /// Fetches appointments that this employee created, aggregating prescriptions
+        /// and invoices into single columns so each appointment appears exactly once.
+        /// </summary>
+        public static DataTable GetAppointmentsForEmployee(int empID, DateTime start, DateTime end)
         {
             var dt = new DataTable();
             using (var conn = new MySqlConnection(connectionString))
@@ -17,27 +22,37 @@ namespace Project_JohnsonPraska.Screens.Main
                 conn.Open();
                 cmd.CommandText = @"
                     SELECT
-                        a.Appointment_ID   AS Appointment_ID,
-                        a.Date             AS Date,
-                        p.Fname            AS PatientFirst,
-                        p.Lname            AS PatientLast,
-                        TIMESTAMPDIFF(YEAR, p.Date_Of_Birth, CURDATE()) AS Age,
-                        ph.Drug_Name       AS Prescription,
-                        COALESCE(bi.Status, '')          AS Invoice,
-                        a.Type             AS Reason,
-                        CONCAT(emp.Fname, ' ', emp.Lname) AS EmployeeName,
-                        a.Status_ID        AS Status_ID
+                      a.Appointment_ID,
+                      a.Date,
+                      p.Fname            AS PatientFirst,
+                      p.Lname            AS PatientLast,
+                      TIMESTAMPDIFF(YEAR, p.Date_Of_Birth, CURDATE()) AS Age,
+                      GROUP_CONCAT(DISTINCT ph.Drug_Name SEPARATOR ', ')  AS Prescription,
+                      GROUP_CONCAT(DISTINCT bi.Status    SEPARATOR ', ')  AS Invoice,
+                      a.Type             AS Reason,
+                      CONCAT(emp.Fname, ' ', emp.Lname) AS EmployeeName,
+                      a.Status_ID
                     FROM appointment a
-                    JOIN patient p ON a.Patient_ID = p.Patient_ID
-                    JOIN employee emp ON a.Employee_ID = emp.Employee_ID
-                    LEFT JOIN prescription ph ON ph.Patient_ID = a.Patient_ID
-                    LEFT JOIN billing_invoice bi ON bi.Appointment_ID = a.Appointment_ID
-                    WHERE a.Physician_ID = @physID
+                      JOIN patient p     ON a.Patient_ID  = p.Patient_ID
+                      JOIN employee emp  ON a.Employee_ID = emp.Employee_ID
+                      LEFT JOIN prescription    ph ON ph.Patient_ID     = a.Patient_ID
+                      LEFT JOIN billing_invoice bi ON bi.Appointment_ID = a.Appointment_ID
+                    WHERE a.Employee_ID = @empID
                       AND a.Date        >= @start
                       AND a.Date        <  @end
+                    GROUP BY
+                      a.Appointment_ID,
+                      a.Date,
+                      p.Fname,
+                      p.Lname,
+                      a.Type,
+                      emp.Fname,
+                      emp.Lname,
+                      a.Status_ID
                     ORDER BY a.Date;
                 ";
-                cmd.Parameters.AddWithValue("@physID", physicianID);
+
+                cmd.Parameters.AddWithValue("@empID", empID);
                 cmd.Parameters.AddWithValue("@start", start);
                 cmd.Parameters.AddWithValue("@end", end);
 
@@ -49,6 +64,9 @@ namespace Project_JohnsonPraska.Screens.Main
             return dt;
         }
 
+        /// <summary>
+        /// Calls the stored procedure UpdateAppointmentStatus to change the status.
+        /// </summary>
         public static bool UpdateAppointmentStatus(int appointmentID, int statusID)
         {
             using (var conn = new MySqlConnection(connectionString))

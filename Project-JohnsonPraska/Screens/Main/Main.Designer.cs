@@ -214,7 +214,7 @@
             // todayPrescription
             // 
             todayPrescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            todayPrescription.HeaderText = "Prescription";
+            todayPrescription.HeaderText = "Prescription History";
             todayPrescription.MinimumWidth = 200;
             todayPrescription.Name = "todayPrescription";
             todayPrescription.ReadOnly = true;
@@ -320,7 +320,7 @@
             // weekPrescription
             // 
             weekPrescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            weekPrescription.HeaderText = "Prescription";
+            weekPrescription.HeaderText = "Prescription History";
             weekPrescription.MinimumWidth = 200;
             weekPrescription.Name = "weekPrescription";
             weekPrescription.ReadOnly = true;
@@ -426,7 +426,7 @@
             // monthPrescription
             // 
             monthPrescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            monthPrescription.HeaderText = "Prescription";
+            monthPrescription.HeaderText = "Prescription History";
             monthPrescription.MinimumWidth = 200;
             monthPrescription.Name = "monthPrescription";
             monthPrescription.ReadOnly = true;
