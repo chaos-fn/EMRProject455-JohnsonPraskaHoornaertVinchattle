@@ -29,8 +29,8 @@ namespace Project_JohnsonPraska
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblSearch = new Label();
             lblReportBill = new Label();
             lblPrescriptions = new Label();
@@ -64,10 +64,10 @@ namespace Project_JohnsonPraska
             lblSearch.BorderStyle = BorderStyle.Fixed3D;
             lblSearch.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline);
             lblSearch.ForeColor = Color.White;
-            lblSearch.Location = new Point(0, 665);
+            lblSearch.Location = new Point(0, 652);
             lblSearch.Margin = new Padding(4, 0, 4, 0);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(307, 129);
+            lblSearch.Size = new Size(300, 139);
             lblSearch.TabIndex = 119;
             lblSearch.Text = "Search";
             lblSearch.TextAlign = ContentAlignment.MiddleCenter;
@@ -77,10 +77,10 @@ namespace Project_JohnsonPraska
             lblReportBill.BorderStyle = BorderStyle.Fixed3D;
             lblReportBill.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblReportBill.ForeColor = Color.White;
-            lblReportBill.Location = new Point(1, 522);
+            lblReportBill.Location = new Point(0, 513);
             lblReportBill.Margin = new Padding(4, 0, 4, 0);
             lblReportBill.Name = "lblReportBill";
-            lblReportBill.Size = new Size(306, 143);
+            lblReportBill.Size = new Size(300, 139);
             lblReportBill.TabIndex = 118;
             lblReportBill.Text = "Reports/Billing";
             lblReportBill.TextAlign = ContentAlignment.MiddleCenter;
@@ -91,10 +91,10 @@ namespace Project_JohnsonPraska
             lblPrescriptions.BorderStyle = BorderStyle.Fixed3D;
             lblPrescriptions.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblPrescriptions.ForeColor = Color.White;
-            lblPrescriptions.Location = new Point(1, 388);
+            lblPrescriptions.Location = new Point(0, 374);
             lblPrescriptions.Margin = new Padding(4, 0, 4, 0);
             lblPrescriptions.Name = "lblPrescriptions";
-            lblPrescriptions.Size = new Size(306, 137);
+            lblPrescriptions.Size = new Size(300, 139);
             lblPrescriptions.TabIndex = 117;
             lblPrescriptions.Text = "Prescriptions";
             lblPrescriptions.TextAlign = ContentAlignment.MiddleCenter;
@@ -105,10 +105,10 @@ namespace Project_JohnsonPraska
             lblAppoint.BorderStyle = BorderStyle.Fixed3D;
             lblAppoint.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblAppoint.ForeColor = Color.White;
-            lblAppoint.Location = new Point(1, 242);
+            lblAppoint.Location = new Point(0, 235);
             lblAppoint.Margin = new Padding(4, 0, 4, 0);
             lblAppoint.Name = "lblAppoint";
-            lblAppoint.Size = new Size(306, 146);
+            lblAppoint.Size = new Size(300, 139);
             lblAppoint.TabIndex = 116;
             lblAppoint.Text = "Appointments";
             lblAppoint.TextAlign = ContentAlignment.MiddleCenter;
@@ -121,7 +121,7 @@ namespace Project_JohnsonPraska
             lblPatientProfile.ForeColor = Color.White;
             lblPatientProfile.Location = new Point(0, 96);
             lblPatientProfile.Name = "lblPatientProfile";
-            lblPatientProfile.Size = new Size(307, 146);
+            lblPatientProfile.Size = new Size(300, 139);
             lblPatientProfile.TabIndex = 115;
             lblPatientProfile.Text = "Patient Profile";
             lblPatientProfile.TextAlign = ContentAlignment.MiddleCenter;
@@ -133,9 +133,9 @@ namespace Project_JohnsonPraska
             lblMore.Enabled = false;
             lblMore.Font = new Font("Cambria", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblMore.ForeColor = Color.White;
-            lblMore.Location = new Point(1420, 861);
+            lblMore.Location = new Point(1016, 791);
             lblMore.Name = "lblMore";
-            lblMore.Size = new Size(500, 150);
+            lblMore.Size = new Size(508, 122);
             lblMore.TabIndex = 114;
             lblMore.Text = "More";
             lblMore.TextAlign = ContentAlignment.MiddleCenter;
@@ -145,9 +145,9 @@ namespace Project_JohnsonPraska
             lblPG.BackColor = Color.FromArgb(30, 76, 99);
             lblPG.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblPG.ForeColor = Color.White;
-            lblPG.Location = new Point(500, 861);
+            lblPG.Location = new Point(508, 791);
             lblPG.Name = "lblPG";
-            lblPG.Size = new Size(920, 150);
+            lblPG.Size = new Size(508, 122);
             lblPG.TabIndex = 113;
             lblPG.Text = "Patient Registration";
             lblPG.TextAlign = ContentAlignment.MiddleCenter;
@@ -158,9 +158,9 @@ namespace Project_JohnsonPraska
             lblHome.BackColor = Color.FromArgb(30, 76, 99);
             lblHome.Font = new Font("Cambria", 14F, FontStyle.Bold);
             lblHome.ForeColor = Color.White;
-            lblHome.Location = new Point(0, 861);
+            lblHome.Location = new Point(0, 791);
             lblHome.Name = "lblHome";
-            lblHome.Size = new Size(500, 150);
+            lblHome.Size = new Size(508, 122);
             lblHome.TabIndex = 112;
             lblHome.Text = "Home";
             lblHome.TextAlign = ContentAlignment.MiddleCenter;
@@ -183,9 +183,9 @@ namespace Project_JohnsonPraska
             // 
             lblPatientSearch.Font = new Font("Cambria", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPatientSearch.ForeColor = SystemColors.ControlLightLight;
-            lblPatientSearch.Location = new Point(400, 150);
+            lblPatientSearch.Location = new Point(350, 150);
             lblPatientSearch.Name = "lblPatientSearch";
-            lblPatientSearch.Size = new Size(400, 50);
+            lblPatientSearch.Size = new Size(250, 50);
             lblPatientSearch.TabIndex = 120;
             lblPatientSearch.Text = "Patient Search";
             lblPatientSearch.TextAlign = ContentAlignment.MiddleCenter;
@@ -193,7 +193,7 @@ namespace Project_JohnsonPraska
             // txtSearch
             // 
             txtSearch.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(475, 225);
+            txtSearch.Location = new Point(350, 241);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(250, 30);
             txtSearch.TabIndex = 121;
@@ -202,7 +202,7 @@ namespace Project_JohnsonPraska
             // 
             btnSearch.BackColor = Color.White;
             btnSearch.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(525, 300);
+            btnSearch.Location = new Point(401, 288);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(150, 40);
             btnSearch.TabIndex = 122;
@@ -214,7 +214,7 @@ namespace Project_JohnsonPraska
             // 
             lblPatientInfo.Font = new Font("Cambria", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPatientInfo.ForeColor = SystemColors.ControlLightLight;
-            lblPatientInfo.Location = new Point(850, 150);
+            lblPatientInfo.Location = new Point(685, 150);
             lblPatientInfo.Name = "lblPatientInfo";
             lblPatientInfo.Size = new Size(400, 50);
             lblPatientInfo.TabIndex = 123;
@@ -226,7 +226,7 @@ namespace Project_JohnsonPraska
             // 
             lblFilter.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFilter.ForeColor = SystemColors.ControlLightLight;
-            lblFilter.Location = new Point(850, 210);
+            lblFilter.Location = new Point(700, 229);
             lblFilter.Name = "lblFilter";
             lblFilter.Size = new Size(100, 50);
             lblFilter.TabIndex = 124;
@@ -241,9 +241,9 @@ namespace Project_JohnsonPraska
             btnFilterName.FlatAppearance.BorderSize = 2;
             btnFilterName.FlatStyle = FlatStyle.Flat;
             btnFilterName.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnFilterName.Location = new Point(951, 218);
+            btnFilterName.Location = new Point(801, 237);
             btnFilterName.Name = "btnFilterName";
-            btnFilterName.Size = new Size(150, 35);
+            btnFilterName.Size = new Size(100, 35);
             btnFilterName.TabIndex = 125;
             btnFilterName.Text = "Name";
             btnFilterName.UseVisualStyleBackColor = false;
@@ -256,9 +256,9 @@ namespace Project_JohnsonPraska
             btnFilterAge.FlatAppearance.BorderSize = 2;
             btnFilterAge.FlatStyle = FlatStyle.Flat;
             btnFilterAge.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnFilterAge.Location = new Point(1138, 218);
+            btnFilterAge.Location = new Point(925, 237);
             btnFilterAge.Name = "btnFilterAge";
-            btnFilterAge.Size = new Size(150, 35);
+            btnFilterAge.Size = new Size(100, 35);
             btnFilterAge.TabIndex = 126;
             btnFilterAge.Text = "Age";
             btnFilterAge.UseVisualStyleBackColor = false;
@@ -271,9 +271,9 @@ namespace Project_JohnsonPraska
             btnFilterRoom.FlatAppearance.BorderSize = 2;
             btnFilterRoom.FlatStyle = FlatStyle.Flat;
             btnFilterRoom.Font = new Font("Cambria", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnFilterRoom.Location = new Point(1325, 218);
+            btnFilterRoom.Location = new Point(1049, 237);
             btnFilterRoom.Name = "btnFilterRoom";
-            btnFilterRoom.Size = new Size(150, 35);
+            btnFilterRoom.Size = new Size(100, 35);
             btnFilterRoom.TabIndex = 127;
             btnFilterRoom.Text = "Room";
             btnFilterRoom.UseVisualStyleBackColor = false;
@@ -281,64 +281,74 @@ namespace Project_JohnsonPraska
             // 
             // dataPatients
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataPatients.BackgroundColor = Color.FromArgb(64, 64, 64);
             dataPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataPatients.Columns.AddRange(new DataGridViewColumn[] { ID, PatientName, Age, Room, View });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataPatients.DefaultCellStyle = dataGridViewCellStyle2;
-            dataPatients.Location = new Point(850, 300);
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataPatients.DefaultCellStyle = dataGridViewCellStyle4;
+            dataPatients.Location = new Point(700, 300);
             dataPatients.Name = "dataPatients";
             dataPatients.ScrollBars = ScrollBars.Vertical;
-            dataPatients.Size = new Size(900, 500);
+            dataPatients.Size = new Size(700, 400);
             dataPatients.TabIndex = 129;
             dataPatients.CellContentClick += dataPatients_CellContentClick;
             // 
             // ID
             // 
+            ID.FillWeight = 21.2535515F;
             ID.HeaderText = "ID";
+            ID.MinimumWidth = 100;
             ID.Name = "ID";
             ID.ReadOnly = true;
             // 
             // PatientName
             // 
+            PatientName.FillWeight = 216.404663F;
             PatientName.HeaderText = "Name";
+            PatientName.MinimumWidth = 250;
             PatientName.Name = "PatientName";
             // 
             // Age
             // 
+            Age.FillWeight = 20.8550453F;
             Age.HeaderText = "Age";
+            Age.MinimumWidth = 100;
             Age.Name = "Age";
             // 
             // Room
             // 
+            Room.FillWeight = 20.8550453F;
             Room.HeaderText = "Room";
+            Room.MinimumWidth = 100;
             Room.Name = "Room";
             // 
             // View
             // 
+            View.FillWeight = 20.8550453F;
             View.HeaderText = "View";
+            View.MinimumWidth = 50;
             View.Name = "View";
             // 
             // btnAddPatient
             // 
             btnAddPatient.BackColor = Color.White;
             btnAddPatient.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddPatient.Location = new Point(1550, 213);
+            btnAddPatient.Location = new Point(1200, 232);
             btnAddPatient.Name = "btnAddPatient";
             btnAddPatient.Size = new Size(200, 45);
             btnAddPatient.TabIndex = 130;
@@ -350,9 +360,9 @@ namespace Project_JohnsonPraska
             // 
             lblInstructions.Font = new Font("Cambria", 12F);
             lblInstructions.ForeColor = SystemColors.ControlLightLight;
-            lblInstructions.Location = new Point(400, 200);
+            lblInstructions.Location = new Point(350, 218);
             lblInstructions.Name = "lblInstructions";
-            lblInstructions.Size = new Size(400, 25);
+            lblInstructions.Size = new Size(250, 25);
             lblInstructions.TabIndex = 131;
             lblInstructions.Text = "Enter Patient's First Name";
             lblInstructions.TextAlign = ContentAlignment.MiddleCenter;
@@ -362,7 +372,7 @@ namespace Project_JohnsonPraska
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(1508, 913);
             Controls.Add(lblInstructions);
             Controls.Add(btnAddPatient);
             Controls.Add(dataPatients);
@@ -386,7 +396,10 @@ namespace Project_JohnsonPraska
             Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
+            MaximumSize = new Size(1920, 1080);
+            MinimumSize = new Size(1524, 952);
             Name = "Search";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Search";
             Load += Search_Load;
             ((System.ComponentModel.ISupportInitialize)dataPatients).EndInit();
@@ -414,11 +427,11 @@ namespace Project_JohnsonPraska
         private Button btnFilterRoom;
         private DataGridView dataPatients;
         private Button btnAddPatient;
+        private Label lblInstructions;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn PatientName;
         private DataGridViewTextBoxColumn Age;
         private DataGridViewTextBoxColumn Room;
         private DataGridViewButtonColumn View;
-        private Label lblInstructions;
     }
 }

@@ -14,8 +14,10 @@ namespace Project_JohnsonPraska
 {
     public partial class More : Form
     {
-        public More()
+        private static string patientID;
+        public More(string id = null)
         {
+            More.patientID = id;
             InitializeComponent();
         }
 
@@ -65,6 +67,50 @@ namespace Project_JohnsonPraska
             Search help = new Search();
             help.Closed += (s, args) => this.Close();
             help.Show();
+        }
+
+        private void More_Load(object sender, EventArgs e)
+        {
+            if (More.patientID != null)
+            {
+                DataTable dt = new DataTable();
+                dt = ProfileService.GetDocNotes(More.patientID);
+
+                FillGrid(dataPatient, dt);
+
+                dt = ProfileService.GetPatient(More.patientID);
+                FillLabels(dt);
+            }
+        }
+
+        private void FillGrid(DataGridView grid, DataTable data)
+        {
+            grid.Rows.Clear();
+
+            foreach (DataRow row in data.Rows)
+            {
+                int index = grid.Rows.Add(
+                    row["Employee_ID"].ToString(),
+                    ProfileService.GetDocName(row["Employee_ID"].ToString()),
+                    row["Note"].ToString()
+                );
+            }
+
+        }
+
+        private void FillLabels(DataTable data)
+        {
+            foreach (DataRow row in data.Rows)
+            {
+                var dob = (DateTime)row["Date_Of_Birth"];
+                lblFname.Text = row["Fname"].ToString();
+                lblLname.Text = row["Lname"].ToString();
+                lblDOB.Text = dob.ToString("MM-dd-yyyy");
+                lblAddress.Text = row["Address"].ToString();
+                lblRoom.Text = row["Room"].ToString();
+                lblID.Text = More.patientID.ToString();
+            }
+
         }
     }
 }
