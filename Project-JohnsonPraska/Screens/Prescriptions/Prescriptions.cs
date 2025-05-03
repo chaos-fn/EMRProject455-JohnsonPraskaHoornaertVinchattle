@@ -236,7 +236,8 @@ namespace Project_JohnsonPraska
 
         private void listViewHistory_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            bool isDoctor = UserService.GetCurrentUserRole() == 1;
+            if (!isDoctor) return;
             if (listViewHistory.SelectedItems.Count == 0) return;
             var rx = (Prescription)listViewHistory.SelectedItems[0].Tag;
 
