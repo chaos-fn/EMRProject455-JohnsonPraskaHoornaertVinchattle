@@ -170,6 +170,13 @@ namespace Project_JohnsonPraska
                 listViewHistory.Items.Add(item);
             }
             */
+            bool isDoctor = UserService.GetCurrentUserRole() == 1;
+            groupBox1.Visible = isDoctor;
+            buttonDeleteRx.Visible = isDoctor;
+            patientLoadBox.Visible = true;
+
+
+
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)

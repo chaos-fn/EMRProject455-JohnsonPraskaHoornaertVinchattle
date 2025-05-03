@@ -296,14 +296,15 @@ int limit = 10)
             var list = new List<DoctorNote>();
             using var cn = new MySqlConnection(_conn);
             using var cmd = new MySqlCommand(@"
-                SELECT n.Note_ID,
-                       LEFT(n.Note,50) AS Snippet,
-                       n.Note,  -- full text if needed later
-                       CONCAT(e.Fname,' ',e.Lname) AS Author
-                  FROM Doctor_Notes n
-                  JOIN Employee e ON n.Employee_ID = e.Employee_ID
-              ORDER BY n.Note_ID DESC
-                 LIMIT @lim;", cn);
+        SELECT 
+            n.Note_ID,
+            LEFT(n.Note,50) AS Snippet,
+            CONCAT(e.Fname,' ',e.Lname) AS Author
+          FROM Doctor_Notes n
+          JOIN Employee e ON n.Employee_ID = e.Employee_ID
+         WHERE n.Patient_ID = @pid         
+      ORDER BY n.Note_ID DESC
+         LIMIT @lim;", cn);
 
             cmd.Parameters.AddWithValue("@pid", patientId);
             cmd.Parameters.AddWithValue("@lim", limit);
@@ -315,8 +316,8 @@ int limit = 10)
                 {
                     NoteID = rdr.GetInt32(0),
                     Snippet = rdr.GetString(1),
-                    Date = DateTime.Now, // replace if you have a date column
-                    Author = rdr.GetString(3),
+                    Author = rdr.GetString(2),
+                    // Date if you have a timestamp
                 });
             }
             return list;
