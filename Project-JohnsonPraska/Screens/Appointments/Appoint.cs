@@ -110,7 +110,7 @@ namespace Project_JohnsonPraska
                     row["Patient_ID"].ToString(),
                     row["PatientName"].ToString(),
                     row["Physician_ID"].ToString(),
-                    "Physician ID " + row["Physician_ID"].ToString(),
+                    row["PhysicianName"].ToString(),
                     row["Reason"].ToString(),
                     row["Employee_ID"].ToString(),
                     row["EmployeeName"].ToString(),
