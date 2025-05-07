@@ -273,6 +273,7 @@
             dgvAppointments.AllowUserToAddRows = false;
             dgvAppointments.AllowUserToDeleteRows = false;
             dgvAppointments.AllowUserToOrderColumns = true;
+            dgvAppointments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAppointments.Location = new Point(3, 3);
             dgvAppointments.Name = "dgvAppointments";
@@ -282,11 +283,13 @@
             // 
             // dgvNotes
             // 
+            dgvNotes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNotes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNotes.Location = new Point(3, 281);
             dgvNotes.Name = "dgvNotes";
             dgvNotes.Size = new Size(679, 272);
             dgvNotes.TabIndex = 2;
+            dgvNotes.CellContentClick += dgvNotes_CellContentClick;
             // 
             // groupBox1
             // 
@@ -299,7 +302,7 @@
             groupBox1.Size = new Size(680, 272);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Patient History and Allergies";
             // 
             // lblAllergies
             // 
@@ -320,7 +323,7 @@
             // lblAllergiestxt
             // 
             lblAllergiestxt.AutoSize = true;
-            lblAllergiestxt.Location = new Point(482, 22);
+            lblAllergiestxt.Location = new Point(488, 40);
             lblAllergiestxt.Name = "lblAllergiestxt";
             lblAllergiestxt.Size = new Size(121, 19);
             lblAllergiestxt.TabIndex = 1;
@@ -339,6 +342,7 @@
             // 
             dgvPrescriptions.AllowUserToAddRows = false;
             dgvPrescriptions.AllowUserToDeleteRows = false;
+            dgvPrescriptions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPrescriptions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPrescriptions.Location = new Point(688, 3);
             dgvPrescriptions.Name = "dgvPrescriptions";
@@ -366,7 +370,7 @@
             btnExportFinancial.TabIndex = 6;
             btnExportFinancial.Text = "Export";
             btnExportFinancial.UseVisualStyleBackColor = false;
-            btnExportFinancial.Click += btnExportFinancial_Click;
+            btnExportFinancial.Click += exportButton_Click;
             // 
             // flowLayoutPanel1
             // 

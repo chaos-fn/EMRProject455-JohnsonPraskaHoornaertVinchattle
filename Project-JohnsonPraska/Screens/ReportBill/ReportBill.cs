@@ -519,23 +519,23 @@ namespace Project_JohnsonPraska
             var start = dateTimePickerFrom.Value.Date;
             var end = dateTimePickerTo.Value.Date.AddDays(1).AddSeconds(-1);
 
-            // 1) Appointments
+            
             dgvAppointments.DataSource =
                 _rbService.GetRecentAppointments(_currentPatientId, start, end);
-            // 2) Prescriptions
+            
             var prescs = _rbService.GetRecentPrescriptions(_currentPatientId);
             dgvPrescriptions.DataSource = prescs;
 
-            // 3) Doctor Notes
+            
             var notes = _rbService.GetRecentNotes(_currentPatientId);
             dgvNotes.DataSource = notes;
 
-            // 4) Medical Record
+            
             var mr = _rbService.GetRecord(_currentPatientId);
             lblHistorytxt.Text = mr?.MedicalHistory ?? "(none)";
             lblAllergiestxt.Text = mr?.Allergies ?? "(none)";
 
-            // — Optional: rename column headers for clarity —
+            
             dgvAppointments.Columns["Date"].HeaderText = "Date";
             dgvAppointments.Columns["Type"].HeaderText = "Visit Type";
             dgvAppointments.Columns["Physician"].HeaderText = "Doctor";
@@ -547,9 +547,11 @@ namespace Project_JohnsonPraska
             dgvPrescriptions.Columns["Frequency"].HeaderText = "Frequency";
             dgvPrescriptions.Columns["Filled"].HeaderText = "Filled";
 
+            if (dgvNotes.Columns.Contains("Date"))
+                dgvNotes.Columns.Remove("Date");
             dgvNotes.Columns["Snippet"].HeaderText = "Note Snippet";
             dgvNotes.Columns["Author"].HeaderText = "Author";
-            // if you add a Date property on DoctorNote, rename that too
+            
         }
 
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
@@ -564,7 +566,7 @@ namespace Project_JohnsonPraska
 
         private void btnExportFinancial_Click(object sender, EventArgs e)
         {
-
+            ExportFinancial();
         }
 
         private void ExportFinancial()
@@ -656,6 +658,11 @@ namespace Project_JohnsonPraska
                 screen.Left + (screen.Width - Width) / 2,
                 screen.Top + (screen.Height - Height) / 2
             );
+        }
+
+        private void dgvNotes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
