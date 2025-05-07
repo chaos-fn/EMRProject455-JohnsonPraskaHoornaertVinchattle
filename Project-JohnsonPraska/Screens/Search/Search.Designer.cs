@@ -29,8 +29,8 @@ namespace Project_JohnsonPraska
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblSearch = new Label();
             lblReportBill = new Label();
             lblPrescriptions = new Label();
@@ -281,28 +281,29 @@ namespace Project_JohnsonPraska
             // 
             // dataPatients
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataPatients.BackgroundColor = Color.FromArgb(64, 64, 64);
             dataPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataPatients.Columns.AddRange(new DataGridViewColumn[] { ID, PatientName, Age, Room, View });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataPatients.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataPatients.DefaultCellStyle = dataGridViewCellStyle2;
             dataPatients.Location = new Point(700, 300);
             dataPatients.Name = "dataPatients";
+            dataPatients.ReadOnly = true;
             dataPatients.ScrollBars = ScrollBars.Vertical;
             dataPatients.Size = new Size(700, 400);
             dataPatients.TabIndex = 129;
@@ -322,6 +323,7 @@ namespace Project_JohnsonPraska
             PatientName.HeaderText = "Name";
             PatientName.MinimumWidth = 250;
             PatientName.Name = "PatientName";
+            PatientName.ReadOnly = true;
             // 
             // Age
             // 
@@ -329,6 +331,7 @@ namespace Project_JohnsonPraska
             Age.HeaderText = "Age";
             Age.MinimumWidth = 100;
             Age.Name = "Age";
+            Age.ReadOnly = true;
             // 
             // Room
             // 
@@ -336,6 +339,7 @@ namespace Project_JohnsonPraska
             Room.HeaderText = "Room";
             Room.MinimumWidth = 100;
             Room.Name = "Room";
+            Room.ReadOnly = true;
             // 
             // View
             // 
@@ -343,6 +347,7 @@ namespace Project_JohnsonPraska
             View.HeaderText = "View";
             View.MinimumWidth = 50;
             View.Name = "View";
+            View.ReadOnly = true;
             // 
             // btnAddPatient
             // 

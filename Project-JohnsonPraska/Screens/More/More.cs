@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 using Project_JohnsonPraska.Global;
+using Project_JohnsonPraska.Screens.More;
 
 namespace Project_JohnsonPraska
 {
@@ -94,6 +95,8 @@ namespace Project_JohnsonPraska
                     ProfileService.GetDocName(row["Employee_ID"].ToString()),
                     row["Note"].ToString()
                 );
+
+                grid.Rows[index].Tag = row["Note_ID"];
             }
 
         }
@@ -111,6 +114,60 @@ namespace Project_JohnsonPraska
                 lblID.Text = More.patientID.ToString();
             }
 
+        }
+
+        private void btnDeletePatient_Click(object sender, EventArgs e)
+        {
+            if (More.patientID != null)
+            {
+                bool deleted = ProfileService.DeletePatient(Convert.ToInt32(More.patientID));
+
+                if (deleted)
+                {
+                    MessageBox.Show("Patient deleted successfully. You will now return to Patient Search.");
+                    this.Hide();
+                    Search help = new Search();
+                    help.Closed += (s, args) => this.Close();
+                    help.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No patient selected. You will now be sent to Patient Search.",
+                    "No Patient Selected",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                this.Hide();
+                Search help = new Search();
+                help.Closed += (s, args) => this.Close();
+                help.Show();
+            }
+        }
+
+        private void btnEditPatient_Click(object sender, EventArgs e)
+        {
+            if (More.patientID != null)
+            {
+                EditPatient ep = new EditPatient(More.patientID);
+                ep.Show();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No patient selected. You will now be sent to Patient Search.",
+                    "No Patient Selected",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                this.Hide();
+                Search help = new Search();
+                help.Closed += (s, args) => this.Close();
+                help.Show();
+            }
         }
     }
 }
