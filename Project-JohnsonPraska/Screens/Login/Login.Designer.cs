@@ -72,7 +72,7 @@
             txtUsername.Location = new Point(306, 255);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(122, 23);
-            txtUsername.TabIndex = 39;
+            txtUsername.TabIndex = 1;
             txtUsername.Visible = false;
             // 
             // txtPassword
@@ -81,7 +81,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(122, 23);
-            txtPassword.TabIndex = 40;
+            txtPassword.TabIndex = 2;
             txtPassword.Visible = false;
             // 
             // lblUsername
@@ -127,7 +127,7 @@
             txtPIN.Location = new Point(415, 309);
             txtPIN.Name = "txtPIN";
             txtPIN.Size = new Size(93, 23);
-            txtPIN.TabIndex = 44;
+            txtPIN.TabIndex = 4;
             txtPIN.Visible = false;
             // 
             // lblMessage
@@ -149,7 +149,7 @@
             btnLogin.Location = new Point(426, 338);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(70, 31);
-            btnLogin.TabIndex = 46;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Visible = false;
@@ -161,7 +161,7 @@
             btnEnter.Location = new Point(426, 424);
             btnEnter.Name = "btnEnter";
             btnEnter.Size = new Size(70, 28);
-            btnEnter.TabIndex = 47;
+            btnEnter.TabIndex = 5;
             btnEnter.Text = "Enter";
             btnEnter.UseVisualStyleBackColor = true;
             btnEnter.Visible = false;

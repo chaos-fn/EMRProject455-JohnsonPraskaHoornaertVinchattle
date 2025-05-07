@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             lblMore = new Label();
             lblPR = new Label();
             lblHome = new Label();
@@ -59,6 +59,8 @@
             lblRoom = new Label();
             lblRoomL = new Label();
             label3 = new Label();
+            btnEditPatient = new Button();
+            btnDeletePatient = new Button();
             ((System.ComponentModel.ISupportInitialize)dataPatient).BeginInit();
             SuspendLayout();
             // 
@@ -188,54 +190,54 @@
             // 
             // dataPatient
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataPatient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataPatient.BackgroundColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Cambria", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Cambria", 12F);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataPatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataPatient.Columns.AddRange(new DataGridViewColumn[] { EmpID, EmpName, Description });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Cambria", 12F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataPatient.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Cambria", 12F);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataPatient.DefaultCellStyle = dataGridViewCellStyle8;
             dataPatient.Location = new Point(711, 225);
             dataPatient.Name = "dataPatient";
             dataPatient.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Cambria", 12F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataPatient.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(30, 76, 99);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataPatient.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Cambria", 12F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataPatient.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(30, 76, 99);
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dataPatient.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataPatient.ScrollBars = ScrollBars.Vertical;
-            dataPatient.Size = new Size(750, 500);
+            dataPatient.Size = new Size(750, 450);
             dataPatient.TabIndex = 131;
             // 
             // EmpID
@@ -283,7 +285,6 @@
             lblFname.Name = "lblFname";
             lblFname.Size = new Size(275, 50);
             lblFname.TabIndex = 132;
-            lblFname.Text = "Jane";
             lblFname.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLname
@@ -295,7 +296,6 @@
             lblLname.Name = "lblLname";
             lblLname.Size = new Size(275, 50);
             lblLname.TabIndex = 134;
-            lblLname.Text = "Doe";
             lblLname.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLnameL
@@ -319,7 +319,6 @@
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new Size(275, 50);
             lblDOB.TabIndex = 136;
-            lblDOB.Text = "1864-06-23";
             lblDOB.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblDOBL
@@ -343,7 +342,6 @@
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(275, 50);
             lblAddress.TabIndex = 138;
-            lblAddress.Text = "123 Main Street";
             lblAddress.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblAddressL
@@ -375,9 +373,9 @@
             lblID.ForeColor = SystemColors.ControlLightLight;
             lblID.Location = new Point(422, 115);
             lblID.Name = "lblID";
-            lblID.Size = new Size(100, 30);
+            lblID.Size = new Size(228, 30);
             lblID.TabIndex = 140;
-            lblID.Text = "2423";
+            lblID.Text = "No Patient Selected";
             lblID.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblRoom
@@ -389,7 +387,6 @@
             lblRoom.Name = "lblRoom";
             lblRoom.Size = new Size(275, 50);
             lblRoom.TabIndex = 142;
-            lblRoom.Text = "404";
             lblRoom.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblRoomL
@@ -415,12 +412,42 @@
             label3.Text = "Patient Doctor's Notes";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnEditPatient
+            // 
+            btnEditPatient.BackColor = Color.Silver;
+            btnEditPatient.FlatAppearance.BorderColor = Color.Black;
+            btnEditPatient.FlatAppearance.BorderSize = 2;
+            btnEditPatient.FlatStyle = FlatStyle.Flat;
+            btnEditPatient.Font = new Font("Cambria", 16F);
+            btnEditPatient.Location = new Point(711, 715);
+            btnEditPatient.Name = "btnEditPatient";
+            btnEditPatient.Size = new Size(175, 46);
+            btnEditPatient.TabIndex = 144;
+            btnEditPatient.Text = "Edit Patient";
+            btnEditPatient.UseVisualStyleBackColor = false;
+            btnEditPatient.Click += btnEditPatient_Click;
+            // 
+            // btnDeletePatient
+            // 
+            btnDeletePatient.BackColor = Color.Red;
+            btnDeletePatient.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeletePatient.ForeColor = Color.White;
+            btnDeletePatient.Location = new Point(911, 715);
+            btnDeletePatient.Name = "btnDeletePatient";
+            btnDeletePatient.Size = new Size(200, 46);
+            btnDeletePatient.TabIndex = 145;
+            btnDeletePatient.Text = "Delete Patient";
+            btnDeletePatient.UseVisualStyleBackColor = false;
+            btnDeletePatient.Click += btnDeletePatient_Click;
+            // 
             // More
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1508, 913);
+            Controls.Add(btnDeletePatient);
+            Controls.Add(btnEditPatient);
             Controls.Add(label3);
             Controls.Add(lblRoom);
             Controls.Add(lblRoomL);
@@ -484,5 +511,7 @@
         private Label lblRoom;
         private Label lblRoomL;
         private Label label3;
+        private Button btnEditPatient;
+        private Button btnDeletePatient;
     }
 }
